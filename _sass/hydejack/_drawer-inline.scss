@@ -4,13 +4,21 @@
   }
 
   .y-drawer-content {
-    width: 20rem;
     left: -18rem;
     z-index: 3;
 
-  }
+    @media screen and (min-width: $break-point-4) {
+      width: 20rem;
+    }
 
+    @media screen and (max-width: $break-point-3) {
+      width: 18rem;
+    }
+
+  }
   // header, body::before {
   //   backface-visibility: hidden;
   // }
 }
+
+
