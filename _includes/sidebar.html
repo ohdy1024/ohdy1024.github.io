@@ -1,30 +1,40 @@
 <div id="_yDrawer">
   <div id="_sidebar" class="sidebar">
-    <div class="sidebar-bg" style="background-color:{{ color }};background-image:url({{ image }})"></div>
+    <div
+      class="sidebar-bg"
+      style="background-color:{{ color }};background-image:url({{ image }})"
+    ></div>
     <header class="sidebar-sticky" role="banner">
-      <br/>
+      <br />
 
       <div class="sidebar-about">
-        
-        <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <h1>
+          <a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        </h1>
         {{ site.tagline | truncatewords:50 | markdownify }}
       </div>
-      {{ site.description | truncatewords:50 | markdownify }}
-      {% assign author = site.data.authors.first[1] %}
-      {% if author.social %}
+      {{ site.description | truncatewords:50 | markdownify }} {% assign author =
+      site.data.authors.first[1] %} {% if author.social %}
 
-      <br/>
-      <br/>
+      <br />
+      <br />
       <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
       </nav>
-    <br/>
+      <br />
 
-    <br/>
-    
-        <div class="sidebar-social">
-          {% include social.html social=author.social %}
-        </div>
+      <div style="text-align: center">
+        <a href="https://hits.seeyoufarm.com"
+          ><img
+            src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fohdy1024.github.io&count_bg=%23DDBB8D&title_bg=%23CA6531&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=false"
+        /></a>
+      </div>
+
+      <br />
+
+      <div class="sidebar-social">
+        {% include social.html social=author.social %}
+      </div>
       {% endif %}
     </header>
   </div>
