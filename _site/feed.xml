@@ -6,9 +6,75 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 19 Jun 2023 16:12:27 +0900</pubDate>
-    <lastBuildDate>Mon, 19 Jun 2023 16:12:27 +0900</lastBuildDate>
+    <pubDate>Tue, 20 Jun 2023 16:47:51 +0900</pubDate>
+    <lastBuildDate>Tue, 20 Jun 2023 16:47:51 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>[Spring Framework] Spring Framework란?</title>
+        <description>&lt;h1 id=&quot;spring-framework란&quot;&gt;Spring Framework란?&lt;/h1&gt;
+
+&lt;h2 id=&quot;spring-framework란-1&quot;&gt;Spring Framework란?&lt;/h2&gt;
+
+&lt;p&gt;스프링은 자바 프로그래밍을 더 빠르고 쉽고 안전하게 만들기 위한 프레임워크입니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;핵심-개념&quot;&gt;핵심 개념&lt;/h2&gt;
+
+&lt;h3 id=&quot;iocinversion-of-control-컨테이너&quot;&gt;IoC(Inversion of Control) 컨테이너&lt;/h3&gt;
+
+&lt;p&gt;IoC 컨테이너는 Bean의 인스턴스화, 구성 및 조립을 담당합니다.&lt;/p&gt;
+
+&lt;p&gt;스프링의 IoC 컨테이너는 애플리케이션이 시작되면 XML, 어노테이션 또는 Java 클래스의 메타데이터를 활용하여 객체를 생성, 인스턴스화 및 의존성 주입을 처리하여 개발자가 명시적으로 관리하지 않도록 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;didependency-injection-의존성-주입&quot;&gt;DI(Dependency Injection, 의존성 주입)&lt;/h3&gt;
+
+&lt;p&gt;DI란 사용할 객체를 직접 생성하지 않고 외부 컨테이너가 생성한 객체를 주입받아 사용하는 방식입니다.&lt;/p&gt;
+
+&lt;p&gt;스프링 프레임워크에서는 세 가지 방법으로 의존성을 주입합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;생성자를 통한 의존성 주입&lt;/li&gt;
+  &lt;li&gt;세터 메서드를 통한 의존성 주입&lt;/li&gt;
+  &lt;li&gt;필드에 직접 의존성 주입&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DI의 이점 중 하나는 의존성 관리를 IoC 컨테이너에 위임함으로써 객체는 구체적인 구현이 아닌 추상화에 의존하여 구성 요소 간의 느슨한 결합이 촉진됩니다. 이를 통해 개별 구성 요소의 격리된 테스트가 가능하므로 단위 테스트를 보다 쉽게 작성할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;aopaspect-oriented-programming&quot;&gt;AOP(Aspect-Oriented Programming)&lt;/h3&gt;
+
+&lt;p&gt;AOP는 애플리케이션의 핵심 비즈니스 논리에서 횡단 관심사(공통 관심사)를 분리하기 위한 프로그래밍 패러다임입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;AOP의 핵심 개념&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Aspect: 공통 관심사를 모듈화 한 것으로 일반적으로 애플리케이션의 여러 객체 또는 모듈에 적용되어야 하는 특정 동작 또는 작업을 정의합니다.&lt;/li&gt;
+  &lt;li&gt;Join Point: 조인 포인트는 Aspect가 적용 될 수 있는 특정 포인트를 나타냅니다. 조인 포인트의 예로는 메서드 호출, 예외 처리, 제어 흐름의 특정 지점이 있습니다.&lt;/li&gt;
+  &lt;li&gt;Advice: 조인 포인트에 도달했을 때 발생해야 하는 일을 정의합니다. 일반적인 유형의 어드바이스는 “before”, “after”, “around”, “after-throwing” 그리고 “after-returning”이 있습니다.&lt;/li&gt;
+  &lt;li&gt;Pointcut: 애플리케이션에서 어떤 조인 포인트를 가로채고 관련 어드바이스를 적용해야 하는지 결정하는 표현식입니다. 이를 통해 개발자는 Aspect의 정확한 위치 또는 조건을 지정할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;주요-기능&quot;&gt;주요 기능&lt;/h2&gt;
+
+&lt;h3 id=&quot;스프링-mvc&quot;&gt;스프링 MVC&lt;/h3&gt;
+
+&lt;p&gt;Spring MVC(Model-View-Controller)는 웹 애플리케이션 구축에 대한 구조화된 접근 방식을 제공하는 웹 프레임워크입니다. Spring MVC는 웹 개발을 단순화하기 위한 다양한 기능을 제공합니다. 컨트롤러가 요청 처리를 위해 특정 URL 또는 URL 패턴을 메서드에 매핑할 수 있는 요청 매핑 기능 등이 있습니다. MVC(Model-View-Controller) 아키텍처 패턴을 따르며 애플리케이션을 세 가지 주요 구성 요소(모델, 뷰, 컨트롤러)로 구분합니다.&lt;/p&gt;
+
+&lt;p&gt;모델은 애플리케이션의 데이터 및 비즈니스 로직을 나타냅니다. 애플리케이션의 데이터, 상태 및 동작을 캡슐화합니다. Spring MVC에서 모델은 일반적으로 애플리케이션 데이터를 보유하고 데이터베이스 또는 데이터 소스와 상호 작용하는 Java클래스 또는 POJO(Plain Old Java Objects)로 구성됩니다.&lt;/p&gt;
+
+&lt;p&gt;뷰는 사용자에게 데이터를 제공하는 역할을 합니다. 애플리케이션 사용자 인터페이스의 시각적 표현을 정의합니다. Spring MVC에서 뷰는 JSP, Thymeleaf 와 같은 템플릿 기술을 사용하여 구현됩니다. 뷰는 클라이언트로 다시 전송되는 응답을 렌더링하는 역할을 합니다.&lt;/p&gt;
+
+&lt;p&gt;컨트롤러는 모델과 뷰 사이의 중개자 역할을 합니다. 사용자 요청을 수신 및 처리하고, 필요한 처리를 수행하고, 응답을 생성하는 데 사용할 적절한 모델과 뷰를 결정합니다. Spring MVC의 컨트롤러는 Java 클래스로 구현되며 HTTP 요청 처리, 양식 데이터 처리, 비즈니스 로직 호출 및 뷰에서 렌더링할 모델 준비를 담당합니다.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Jun 2023 16:40:00 +0900</pubDate>
+        <link>http://localhost:4000/spring/2023/06/20/framework01.html</link>
+        <guid isPermaLink="true">http://localhost:4000/spring/2023/06/20/framework01.html</guid>
+        
+        <category>framework</category>
+        
+        
+        <category>spring</category>
+        
+      </item>
     
       <item>
         <title>[Spring Security] security</title>
@@ -19,6 +85,21 @@
         <guid isPermaLink="true">http://localhost:4000/spring/2023/06/19/security.html</guid>
         
         <category>security</category>
+        
+        
+        <category>spring</category>
+        
+      </item>
+    
+      <item>
+        <title>[Spring MVC] MVC</title>
+        <description>
+</description>
+        <pubDate>Mon, 19 Jun 2023 11:45:00 +0900</pubDate>
+        <link>http://localhost:4000/spring/2023/06/19/mvc.html</link>
+        <guid isPermaLink="true">http://localhost:4000/spring/2023/06/19/mvc.html</guid>
+        
+        <category>mvc</category>
         
         
         <category>spring</category>
@@ -55,7 +136,12 @@
     
       <item>
         <title>[Java] Java3</title>
-        <description>&lt;p&gt;자바2&lt;/p&gt;
+        <description>&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BootSpringBootApplication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, Honeymon&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Mon, 19 Jun 2023 11:00:00 +0900</pubDate>
         <link>http://localhost:4000/java/2023/06/19/java3.html</link>
