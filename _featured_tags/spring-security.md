@@ -4,5 +4,5 @@ title: Security
 slug: security
 category: spring
 menu: false
-order: 4
+order: 3
 ---

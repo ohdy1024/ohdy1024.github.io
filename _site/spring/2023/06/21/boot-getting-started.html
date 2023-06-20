@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="MVC" />
+<meta property="og:title" content="[Spring Boot] Spring Boot 시작하기" />
 <meta property="og:type" content="article" />
 
  
@@ -39,16 +39,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>MVC &middot; 고개의 블로그</title>
+<title>[Spring Boot] Spring Boot 시작하기 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="
+  content="Spring Boot
+
 "
 />
 <meta
   property="og:description"
-  content="
+  content="Spring Boot
+
 "
 />
 
@@ -57,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/tag/spring-mvc/" />
-<meta property="og:url" content="http://localhost:4000/tag/spring-mvc/" />
+<link rel="canonical" href="http://localhost:4000/spring/2023/06/21/boot-getting-started.html" />
+<meta property="og:url" content="http://localhost:4000/spring/2023/06/21/boot-getting-started.html" />
 
 <link
   rel="alternate"
@@ -68,10 +70,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/tag/spring-framework/" />
+<link rel="prev" href="http://localhost:4000/spring/2023/06/20/framework01.html" />
  
-<link rel="next" href="http://localhost:4000/tag/spring-security/" />
-
 
 <link
   rel="apple-touch-icon"
@@ -163,20 +163,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
     <main id="_main" class="content" role="main" data-color="#4f86aa" data-image="/assets/img/main_left.jpg">
       
 
-
-  
-
-<article id="post-spring/2023/06/19/mvc" class="post mb6" role="article">
+<article id="post-spring/2023/06/21/boot-getting-started" class="post" role="article">
   <header>
 
     <h1 class="post-title">
-      <a href="/spring/2023/06/19/mvc.html" data-flip="title">
-        [Spring MVC] MVC
-      </a>
+      
+        [Spring Boot] Spring Boot 시작하기
+      
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-19T11:45:00+09:00">19 Jun 2023</time>
+      <time datetime="2023-06-21T01:45:00+09:00">21 Jun 2023</time>
       
 
 
@@ -199,7 +196,7 @@ in <a href="/category/spring/" data-flip="title">Spring</a>
 
 
 
-on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
+on <a href="/tag/spring-boot/" data-flip="title">Boot</a>
 
     </p>
 
@@ -212,92 +209,227 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
 
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   
+    <div class="markdown-body">
 
+
+
+<style>
+.googleads { display:block; width:98%; height: 280px; }
+@media(min-width: 600px) { .googleads { display: none; } }
+</style>
+<!--구글 에드센스
+<ins class="adsbygoogle myAd1190"
+    data-ad-client="ca-pub-1200017190012992"
+></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/>
+-->
+      <!--게시물 내용-->
+      <h1 id="spring-boot">Spring Boot</h1>
+
+<h2 id="spring-boot를-사용하는-이유">Spring Boot를 사용하는 이유</h2>
+
+<p>스프링 부트는 스프링 프레임워크에 비해 설정이 간단하며 서버를 내장하고 있어 애플리케이션을 독립적으로 사용할 수 있고 외부 서버에 배포할 필요가 없습니다.</p>
+
+<h2 id="spring-boot-시작하기">Spring Boot 시작하기</h2>
+
+<h3 id="1-자바-설치-확인하기">1. 자바 설치 확인하기</h3>
+
+<p>터미널을 열고 다음 명령어를 실행해서 Java가 설치되어 있는지 확인합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
+openjdk version "17.0.4.1" 2022-08-12 LTS
+OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
+OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
+</code></pre></div></div>
+
+<h3 id="2-스프링-프로젝트-생성">2. 스프링 프로젝트 생성</h3>
+
+<p>먼저 spring initializr를 이용하여 스프링 부트 프로젝트를 만듭니다.</p>
+
+<p><a href="https://start.spring.io/">https://start.spring.io/</a></p>
+
+<p>링크에 접속해 아래와 같이 설정을 한 후 GENERATE를 누릅니다.</p>
+
+<ul>
+  <li>Project
+    <ul>
+      <li>gradle - Groovy</li>
+    </ul>
+  </li>
+  <li>Language
+    <ul>
+      <li>Java</li>
+    </ul>
+  </li>
+  <li>Spring Boot
+    <ul>
+      <li>3.1.0</li>
+    </ul>
+  </li>
+  <li>Packaging
+    <ul>
+      <li>Jar</li>
+    </ul>
+  </li>
+  <li>Java
+    <ul>
+      <li>17</li>
+    </ul>
+  </li>
+  <li>Dependencies
+    <ul>
+      <li>Spring Web</li>
+    </ul>
+  </li>
+</ul>
+
+<p>GENERATE를 눌러 압축 파일이 생성되었다면 압축을 풀어줍니다.</p>
+
+<p>압축을 풀었다면 vscode, intellij community와 같은 개발 환경에서 프로젝트를 열어줍니다.</p>
+
+<h3 id="3-hello-world-출력하기">3. Hello World 출력하기</h3>
+
+<p>프로젝트가 정상적으로 열렸다면 src/main/java/…/DemoApplication.java 파일을 열어 다음과 같이 수정합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RestController</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoApplication</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"Hello World!"</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">DemoApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 수정하였으면 애플리케이션을 실행합니다. 실행 후 브라우저에 접속하여 url 입력창에 “http://localhost:8080” 을 입력하여 “Hello World!” 문구가 보인다면 성공입니다.</p>
+
+<p>@RestController는 여기로 HTTP 요청을 처리하고 반환 데이터는 Json 형태로 반환한다는 뜻으로 생각하면 됩니다. @RequstMapping은 특정 url이나 url 패턴을 이 메서드에 매핑한다는 뜻입니다.</p>
+
+<p>스프링 부트를 사용하면 이와 같이 따로 서버를 설치 및 설정하지도 않고 간단한 설정만으로 웹 애플리케이션을 만들고 실행할 수 있는 장점이 있습니다.</p>
+
+      <br/>
+      <!-- 블로그-하단-반응형 
+      <br/>
+      
+      <ins class="adsbygoogle"
+          style="display:block; width:100%; height:300px;"
+          data-ad-client="ca-pub-1200017190012992"
+          data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      
+    </div>
     
+    <script>
 
-    <p class="read-more"><a class="heading" href="/spring/2023/06/19/mvc.html" data-flip="title">Continue reading </a></p>
+    </script>
+    -->
   
 
 </article>
 
+ <!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-DFV93GERM8"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
 
+  gtag("config", "G-DFV93GERM8");
+</script>
 
-  
-
-<article id="post-spring/2023/06/19/mvc" class="post mb6" role="article">
-  <header>
-
-    <h1 class="post-title">
-      <a href="/spring/2023/06/19/mvc.html" data-flip="title">
-        [Spring MVC] MVC
-      </a>
-    </h1>
-
-    <p class="post-date heading">
-      <time datetime="2023-06-19T11:45:00+09:00">19 Jun 2023</time>
-      
-
-
-
-
-
-
-
-
-
-in <a href="/category/spring/" data-flip="title">Spring</a>
-
-      
-
-
-
-
-
-
-
-
-
-on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
-
-    </p>
-
+<div class="page-control">
+  <div>
     
-  <div class="hr" style="padding-bottom:0"></div>
-
-
-  </header>
-  
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  
-
+    <a id="prev" class="button" href="/spring/2023/06/20/framework01.html"
+      >&laquo; 이전글</a
+    >
     
+  </div>
+  <div>
+    
+  </div>
+</div>
+ 
 
-    <p class="read-more"><a class="heading" href="/spring/2023/06/19/mvc.html" data-flip="title">Continue reading </a></p>
-  
+<aside class="related" role="complementary">
+  <h2 class="hr">Related Posts</h2>
 
-</article>
-
-
-
-
-<h2 class="sr-only">Pagination</h2>
-<nav class="pagination heading" role="navigation">
-  <ul>
-    <li class="pagination-item older">
+  <ul class="related-posts">
+    
       
-      <span>이전</span>
       
-    </li>
-    <li class="pagination-item newer">
       
-      <span>다음</span>
+        
+          
+          
+        
+        
+          
+
+
+<li class="h4">
+  <a href="/spring/2023/06/20/framework01.html" data-flip="title">
+    <span>[Spring Framework] Spring Framework란?</span>
+  </a>
+  <small><time datetime="2023-06-20T16:40:00+09:00">
+    20 Jun 2023
+  </time></small>
+</li>
+
+        
       
-    </li>
+        
+        
+          
+
+
+<li class="h4">
+  <a href="/spring/2023/06/19/security.html" data-flip="title">
+    <span>[Spring Security] security</span>
+  </a>
+  <small><time datetime="2023-06-19T11:45:00+09:00">
+    19 Jun 2023
+  </time></small>
+</li>
+
+        
+      
+    
   </ul>
-</nav>
+</aside>
 
 
+
+      
+        <aside class="comments" role="complementary">
+  <h2>Comments</h2>
+  <hr />
+
+  <script
+    src="https://utteranc.es/client.js"
+    repo="ohdy1024/blog-comments-repo"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</aside>
 
       
 
@@ -388,8 +520,6 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
          
            
          
-           
-         
      </ul>
     </li>
 
@@ -403,8 +533,6 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
     </div>
      <ul class="list-body">
        
-           
-         
            
          
            
@@ -446,12 +574,6 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
          
            
              <li>
-               <a class="sidebar-nav-subitem active" href="/tag/spring-mvc/">MVC</a>
-             </li>
-           
-         
-           
-             <li>
                <a class="sidebar-nav-subitem" href="/tag/spring-security/">Security</a>
              </li>
            
@@ -483,8 +605,6 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
          
            
          
-           
-         
      </ul>
     </li>
 
@@ -498,8 +618,6 @@ on <a href="/tag/spring-mvc/" data-flip="title">MVC</a>
     </div>
      <ul class="list-body">
        
-           
-         
            
          
            

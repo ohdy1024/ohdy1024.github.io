@@ -6,9 +6,111 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Jun 2023 16:47:51 +0900</pubDate>
-    <lastBuildDate>Tue, 20 Jun 2023 16:47:51 +0900</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2023 01:57:18 +0900</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2023 01:57:18 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>[Spring Boot] Spring Boot 시작하기</title>
+        <description>&lt;h1 id=&quot;spring-boot&quot;&gt;Spring Boot&lt;/h1&gt;
+
+&lt;h2 id=&quot;spring-boot를-사용하는-이유&quot;&gt;Spring Boot를 사용하는 이유&lt;/h2&gt;
+
+&lt;p&gt;스프링 부트는 스프링 프레임워크에 비해 설정이 간단하며 서버를 내장하고 있어 애플리케이션을 독립적으로 사용할 수 있고 외부 서버에 배포할 필요가 없습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;spring-boot-시작하기&quot;&gt;Spring Boot 시작하기&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-자바-설치-확인하기&quot;&gt;1. 자바 설치 확인하기&lt;/h3&gt;
+
+&lt;p&gt;터미널을 열고 다음 명령어를 실행해서 Java가 설치되어 있는지 확인합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ java -version
+openjdk version &quot;17.0.4.1&quot; 2022-08-12 LTS
+OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
+OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2-스프링-프로젝트-생성&quot;&gt;2. 스프링 프로젝트 생성&lt;/h3&gt;
+
+&lt;p&gt;먼저 spring initializr를 이용하여 스프링 부트 프로젝트를 만듭니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://start.spring.io/&quot;&gt;https://start.spring.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;링크에 접속해 아래와 같이 설정을 한 후 GENERATE를 누릅니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project
+    &lt;ul&gt;
+      &lt;li&gt;gradle - Groovy&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Language
+    &lt;ul&gt;
+      &lt;li&gt;Java&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Spring Boot
+    &lt;ul&gt;
+      &lt;li&gt;3.1.0&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Packaging
+    &lt;ul&gt;
+      &lt;li&gt;Jar&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Java
+    &lt;ul&gt;
+      &lt;li&gt;17&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Dependencies
+    &lt;ul&gt;
+      &lt;li&gt;Spring Web&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GENERATE를 눌러 압축 파일이 생성되었다면 압축을 풀어줍니다.&lt;/p&gt;
+
+&lt;p&gt;압축을 풀었다면 vscode, intellij community와 같은 개발 환경에서 프로젝트를 열어줍니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-hello-world-출력하기&quot;&gt;3. Hello World 출력하기&lt;/h3&gt;
+
+&lt;p&gt;프로젝트가 정상적으로 열렸다면 src/main/java/…/DemoApplication.java 파일을 열어 다음과 같이 수정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DemoApplication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;home&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DemoApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 수정하였으면 애플리케이션을 실행합니다. 실행 후 브라우저에 접속하여 url 입력창에 “http://localhost:8080” 을 입력하여 “Hello World!” 문구가 보인다면 성공입니다.&lt;/p&gt;
+
+&lt;p&gt;@RestController는 여기로 HTTP 요청을 처리하고 반환 데이터는 Json 형태로 반환한다는 뜻으로 생각하면 됩니다. @RequstMapping은 특정 url이나 url 패턴을 이 메서드에 매핑한다는 뜻입니다.&lt;/p&gt;
+
+&lt;p&gt;스프링 부트를 사용하면 이와 같이 따로 서버를 설치 및 설정하지도 않고 간단한 설정만으로 웹 애플리케이션을 만들고 실행할 수 있는 장점이 있습니다.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 21 Jun 2023 01:45:00 +0900</pubDate>
+        <link>http://localhost:4000/spring/2023/06/21/boot-getting-started.html</link>
+        <guid isPermaLink="true">http://localhost:4000/spring/2023/06/21/boot-getting-started.html</guid>
+        
+        <category>boot</category>
+        
+        
+        <category>spring</category>
+        
+      </item>
     
       <item>
         <title>[Spring Framework] Spring Framework란?</title>
@@ -85,36 +187,6 @@
         <guid isPermaLink="true">http://localhost:4000/spring/2023/06/19/security.html</guid>
         
         <category>security</category>
-        
-        
-        <category>spring</category>
-        
-      </item>
-    
-      <item>
-        <title>[Spring MVC] MVC</title>
-        <description>
-</description>
-        <pubDate>Mon, 19 Jun 2023 11:45:00 +0900</pubDate>
-        <link>http://localhost:4000/spring/2023/06/19/mvc.html</link>
-        <guid isPermaLink="true">http://localhost:4000/spring/2023/06/19/mvc.html</guid>
-        
-        <category>mvc</category>
-        
-        
-        <category>spring</category>
-        
-      </item>
-    
-      <item>
-        <title>[Spring MVC] MVC</title>
-        <description>
-</description>
-        <pubDate>Mon, 19 Jun 2023 11:45:00 +0900</pubDate>
-        <link>http://localhost:4000/spring/2023/06/19/mvc.html</link>
-        <guid isPermaLink="true">http://localhost:4000/spring/2023/06/19/mvc.html</guid>
-        
-        <category>mvc</category>
         
         
         <category>spring</category>
