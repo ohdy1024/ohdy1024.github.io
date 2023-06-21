@@ -6,9 +6,60 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Jun 2023 03:23:34 +0900</pubDate>
-    <lastBuildDate>Wed, 21 Jun 2023 03:23:34 +0900</lastBuildDate>
+    <pubDate>Wed, 21 Jun 2023 17:51:17 +0900</pubDate>
+    <lastBuildDate>Wed, 21 Jun 2023 17:51:17 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>[Java] 자바란?</title>
+        <description>&lt;h1 id=&quot;자바&quot;&gt;자바&lt;/h1&gt;
+
+&lt;h3 id=&quot;자바란&quot;&gt;자바란?&lt;/h3&gt;
+
+&lt;p&gt;썬 마이크로시스템즈에서 1995년에 개발한 객체 지향 프로그래밍 언어이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;자바-특징&quot;&gt;자바 특징&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바는 클래스 기반의 객체 지향 프로그래밍 언어입니다.
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;자바는 JVM(Java Virtual Machine)이 설치된 모든 플랫폼에서 실행할 수 있는 바이트코드로 컴파일할 수 있습니다. 이러한 플랫폼 독립성은 Java 응용 프로그램을 다양한 운영체제 및 하드웨어 아키텍처에서 이식할 수 있도록 합니다.
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;자바는 더 이상 사용되지 않는 프로그램의 메모리를 자동으로 해제합니다. 따라서 따로 메모리를 관리하지 않아도 되므로, 프로그래밍을 쉽게 할 수 있도록 도와줍니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;객체-지향-프로그래밍oop&quot;&gt;객체 지향 프로그래밍(OOP)&lt;/h3&gt;
+
+&lt;p&gt;객체 지향 프로그래밍은 데이터와 코드를 결합하는 객체 개념을 중심으로 소프트웨어 설계를 구성하고 구조화하는 데 중점을 둔 프로그래밍 패러다임입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;객체 지향 프로그램이 핵심 원칙&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;캡슐화(Encapsulation): 객체는 데이터와 메서드를 함께 캡슐화하여 내부 세부 정보를 숨기고 다른 객체와의 상호 작용을 위한 명확한 인터페이스를 제공합니다.&lt;br /&gt;
+자바에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;public&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;protected&lt;/code&gt; 및 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;default&lt;/code&gt; 와 같은 접근 제한자를 통해 필요한 정보만 외부로 노출시킬 수 있습니다. 또 다른 방법으로는 모든 속성값을 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private&lt;/code&gt; 접근 제한자로 선언을 하고 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getter/setter&lt;/code&gt; 메서드를 통해 선택적으로 외부에서의 접근을 허용할 수 있습니다.
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;상속(Inheritance): 상속을 통해 객체는 다른 객체의 속성과 동작을 상속하여 계층적 관계를 형성할 수 있습니다. 상속을 통해 객체는 기존 객체의 기능을 재사용하고 확장하여 코드 재사용을 촉진합니다.&lt;br /&gt;
+자바에서 “eat()” 메서드가 있는 “Animal” 클래스를 정의합니다. 그리고 “Dog”라는 클래스는 “Animal” 클래스를 상속받아 “eat()” 메서드를 재사용하여 중복 코드를 줄여 코드를 간결하게 할 수 있습니다.
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다향성(Polymorphism): 다형성을 사용하면 다른 유형의 객체를 공통 상위 클래스의 객체로 취급할 수 있습니다. 이를 통해 코드를 일반적이고 유연한 방식으로 작성할 수 있습니다. 객체를 상호 교환하여 사용할 수 있으므로 코드 재사용 및 코드를 유연하게 사용할 수 있는 방법이 제공됩니다.&lt;br /&gt;
+자바에서 다향성은 오버라이딩과 오버로딩이 있습니다. 오버라이딩는 부모 클래스의 메소드를 재정의한다고 생각하면 됩니다. 만약 “Dog”, “Cat” 클래스가 “makeSound()”라는 메서드를 가지고 있는 “Animal” 클래스를 상속받는다고 하겠습니다. 그리고 “Dog” 클래스는 “makeSound()” 메서드의 구현부를 “멍멍 소리를 내다”로 재정의 할 수 있고, “Cat” 클래스는 “냐옹 소리를 내다”로 재정의 할 수 있습니다.
+&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;추상화(Abstraction): 객체의 공통적인 속성과 기능을 추출하여 정의하는 것입니다. 추상화를 통해 프로그래머는 구현 세부 정보를 지정하지 않고 객체의 공통 속성 및 동작을 정의하는 추상 클래스 또는 인터페이스를 만들 수 있습니다.&lt;br /&gt;
+자바에서 “calculateArea()” 메소드가 있는 “Shape” 추상 클래스가 정의되어 있다면, “Rectagle” 클래스는 “Shape” 클래스를 확장하여 “calculateArea()” 메서드의 구현부를 “가로x세로”와 같이 자체 구현할 수 있습니다.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 21 Jun 2023 17:50:00 +0900</pubDate>
+        <link>http://localhost:4000/java/2023/06/21/java-overview.html</link>
+        <guid isPermaLink="true">http://localhost:4000/java/2023/06/21/java-overview.html</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
     
       <item>
         <title>[JavaScript] javascript란?</title>
@@ -59,8 +110,7 @@ HTML 문서의 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&g
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hello Word&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- hello.html --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Hello World&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
@@ -315,50 +365,6 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
         
         
         <category>spring</category>
-        
-      </item>
-    
-      <item>
-        <title>[Java] Java3</title>
-        <description>&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BootSpringBootApplication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, Honeymon&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 19 Jun 2023 11:00:00 +0900</pubDate>
-        <link>http://localhost:4000/java/2023/06/19/java3.html</link>
-        <guid isPermaLink="true">http://localhost:4000/java/2023/06/19/java3.html</guid>
-        
-        
-        <category>java</category>
-        
-      </item>
-    
-      <item>
-        <title>[Java] Java2</title>
-        <description>&lt;p&gt;자바2&lt;/p&gt;
-</description>
-        <pubDate>Mon, 19 Jun 2023 11:00:00 +0900</pubDate>
-        <link>http://localhost:4000/java/2023/06/19/java2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/java/2023/06/19/java2.html</guid>
-        
-        
-        <category>java</category>
-        
-      </item>
-    
-      <item>
-        <title>[Java] Java1</title>
-        <description>&lt;p&gt;자바1&lt;/p&gt;
-</description>
-        <pubDate>Mon, 19 Jun 2023 11:00:00 +0900</pubDate>
-        <link>http://localhost:4000/java/2023/06/19/java1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/java/2023/06/19/java1.html</guid>
-        
-        
-        <category>java</category>
         
       </item>
     
