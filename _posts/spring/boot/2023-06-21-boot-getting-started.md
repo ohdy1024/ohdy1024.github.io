@@ -50,7 +50,7 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 
 GENERATE를 눌러 압축 파일이 생성되었다면 압축을 풀어줍니다.
 
-압축을 풀었다면 vscode, intellij community와 같은 개발 환경에서 프로젝트를 열어줍니다.
+압축을 풀었다면 vscode, intellij 같은 개발 환경에서 프로젝트를 열어줍니다.
 
 ### 3. Hello World 출력하기
 
