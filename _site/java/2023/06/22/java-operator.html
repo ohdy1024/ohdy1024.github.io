@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 자바 시작하기" />
+<meta property="og:title" content="[Java] 연산자" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 자바 시작하기 &middot; 고개의 블로그</title>
+<title>[Java] 연산자 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="자바 시작하기
+  content="연산자
 
 "
 />
 <meta
   property="og:description"
-  content="자바 시작하기
+  content="연산자
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/2023/06/22/java-getting-started.html" />
-<meta property="og:url" content="http://localhost:4000/java/2023/06/22/java-getting-started.html" />
+<link rel="canonical" href="http://localhost:4000/java/2023/06/22/java-operator.html" />
+<meta property="og:url" content="http://localhost:4000/java/2023/06/22/java-operator.html" />
 
 <link
   rel="alternate"
@@ -70,10 +70,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/db/2023/06/21/mysql-overview.html" />
+<link rel="prev" href="http://localhost:4000/java/2023/06/22/java-variable.html" />
  
-<link rel="next" href="http://localhost:4000/java/2023/06/22/java-variable.html" />
-
 
 <link
   rel="apple-touch-icon"
@@ -173,17 +171,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/2023/06/22/java-getting-started"
+  id="post-java/2023/06/22/java-operator"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 자바 시작하기 
+       [Java] 연산자 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-22T13:50:00+09:00"
+      <time datetime="2023-06-22T22:30:00+09:00"
         >22 Jun 2023</time
       >
       
@@ -239,78 +237,287 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="자바-시작하기">자바 시작하기</h1>
+    <h1 id="연산자">연산자</h1>
 
-<h2 id="개발-환경-설정하기-윈도우10">개발 환경 설정하기 (윈도우10)</h2>
+<h3 id="부호-연산자">부호 연산자</h3>
 
-<h3 id="openjdk-17-다운로드-및-설치하기">OpenJDK 17 다운로드 및 설치하기</h3>
+<p>부호 연산자는 단항 연산자로 변수의 부호를 유지하거나 바꿀 때 사용됩니다.</p>
 
-<ol>
-  <li>
-    <p><a href="https://jdk.java.net/java-se-ri/17">https://jdk.java.net/java-se-ri/17</a> 에서 JDK를 다운로드합니다.</p>
-  </li>
-  <li>
-    <p>원하는 장소에 압출 파일을 풉니다.</p>
-  </li>
-  <li>
-    <p>시작 버튼 옆 검색 창에 “시스템 환경 변수 편집”을 검색 후 클릭합니다.</p>
-  </li>
-  <li>
-    <p>시스템 속성 창이 열렸다면 [환경 변수]을 클릭합니다.</p>
-  </li>
-  <li>
-    <p>시스템 변수의 [새로 만들기]를 클릭하고, 나타나는 화면에서 다음과 같이 입력 후 확인 버튼을 누릅니다.</p>
+<p>+ 연산은 잘 사용되지 않고, - 연산자는 변수값의 부호를 변경할 때 사용됩니다. 부호를 변경하는 것도 연산이므로 자동 타입 변환에 주의해야 합니다. (byte, short, int 타입의 연산 결과는 int 타입)</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 변수 이름: JAVA_HOME
- 변수 값: 다운받은 파일의 압축을 푼 OpenJDK의 경로
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>그 다음 변수 목록에서 “Path” 변수를 찾아 [편집]을 누릅니다.</p>
-  </li>
-  <li>
-    <p>편집 창이 나타나면 [새로 만들기]를 클릭한 후 “%JAVA_HOME%\bin” 입력하고 확인 버튼을 눌러 열려있던 창을 모두 닫아줍니다.</p>
-  </li>
-  <li>
-    <p>명령 프롬프트를 열어 다음 명령어를 입력해 설정이 완료되었는지 확인합니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">byte</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">-</span><span class="n">num1</span><span class="o">;</span> <span class="c1">// 컴파일 에러</span>
+</code></pre></div></div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
-openjdk version "17.0.4.1" 2022-08-12 LTS
-OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
-OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
-</code></pre></div>    </div>
-  </li>
-</ol>
+<h3 id="증감-연산자">증감 연산자</h3>
 
-<h3 id="자바-실행하기">자바 실행하기</h3>
+<p>증감 연산자(++, –)는 변수의 값을 1 증가시키거나 1 감소시키는 연산자입니다. 단독으로 증감 연산자를 사용할 경우에는 문제가 없지만 여러 연산자가 있을 경우 증감 연산자의 위치에 따라 결과가 달라질 수 있기 때문에 주의해야 합니다.</p>
 
-<ol>
-  <li>
-    <p>메모장을 열어 다음과 같이 입력 후 파일 이름을 “Hello.java”로 저장을 합니다.</p>
+<p>증감 연산자가 변수 앞에 있으면 먼저 변수를 1 증가 또는 1 감소시킨 후 다른 연산을 수행합니다. 증감 연산자가 변수 뒤에 있으면 모든 연산을 끝낸 후 변수를 1 증가 또는 1 감소시킵니다.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Hello {
-  public static void main(String args[]) {
-    System.out.println("Hello World!");
-  }
-}
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>명령 프롬프트를 열어 작성한 파일의 경로로 이동 후 “javac Hello.java”을 입력합니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">num1</span><span class="o">++</span> <span class="o">+</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="o">++</span><span class="n">num2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">;</span>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>파일 경로&gt;javac Hello.java
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>오류 없이 실행이 되었다면 파일이 있던 위치에 “Hello.class” 파일이 생성되었는지 확인합니다.</p>
-  </li>
-  <li>
-    <p>파일이 생성되었다면 명령 프롬프트에 다음과 같이 입력 후 “Hello World!”가 출력되었다면 성공입니다.</p>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span> <span class="c1">// 11</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span> <span class="c1">// 11</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span> <span class="c1">// 20</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span> <span class="c1">// 21</span>
+</code></pre></div></div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>파일 경로&gt;java Hello
-</code></pre></div>    </div>
-  </li>
-</ol>
+<h3 id="산술-연산자">산술 연산자</h3>
+
+<p>산술 연산자는 더하기(+), 빼기(-), 곱하기(*), 나누기(/), 나머지(%)가 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">result5</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">%</span> <span class="n">num2</span><span class="o">;</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span> <span class="c1">// 13</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span> <span class="c1">// 7</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span> <span class="c1">// 30</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result4</span><span class="o">);</span> <span class="c1">// 3</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result5</span><span class="o">);</span> <span class="c1">// 1</span>
+</code></pre></div></div>
+
+<p>산술 연산자를 정확하게 계산하고 싶다면 실수 타입을 사용하지 않는 것이 좋습니다. 실수 타입은 부동 소수점 방식을 사용하여 나타내는 데 항상 오차가 존재하기 때문입니다.</p>
+
+<h3 id="오버플로우overflow와-언더플로우underflow">오버플로우(overflow)와 언더플로우(underflow)</h3>
+
+<p>오버플로우란 타입이 허용하는 최댓값을 벗어나는 것을 말합니다. 언더플로우는 타입이 허용하는 최솟값을 벗어나는 것을 말합니다. 정수 타입에서 오버플로우 또는 언더플로우가 발생되면 실행 에러가 일어나지 않고 해당 정수 타입의 최댓값 또는 최솟값으로 돌아갑니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">byte</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">127</span><span class="o">;</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span> <span class="c1">// -128</span>
+</code></pre></div></div>
+
+<h3 id="비교관계-연산자">비교(관계) 연산자</h3>
+
+<p>비교 연산자는 두 개의 피연산자 사이에서 크기(&gt;, &gt;=, &lt;, &lt;=) 및 동등(==, !=) 관계를 평가해 true 또는 false 를 산출하는 이항 연산자이다. 비교 연산자는 흐름 제어문인 조건문(if), 반복문(for, while)에서 실행 흐름을 제어할 때 주로 사용된다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>연산식</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>동등비교</td>
+      <td>==</td>
+      <td>두 개 항의 값이 같으면 true, 다르면 false를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>동등비교</td>
+      <td>!=</td>
+      <td>두 개 항의 값이 다르면 true, 같으면 false를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>크기비교</td>
+      <td>&gt;</td>
+      <td>왼쪽 항이 크면 true, 같거나 작으면 false를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>크기비교</td>
+      <td>&gt;=</td>
+      <td>왼쪽 항이 크거나 같으면 true, 작으면 false를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>크기비교</td>
+      <td>&lt;</td>
+      <td>왼쪽 항이 작으면 true, 같거나 크면 false를 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>크기비교</td>
+      <td>&lt;=</td>
+      <td>왼쪽 항이 작거나 같으면 true, 크면 false를 반환합니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>피연산자의 타입이 다를 경우에는 비교 연산을 수행하기 전에 타입을 일치시킵니다. 예를 들어 10 == 10.0 을 비교한다며 10을 double 타입인 10.0으로 변환한 다음 10.0 == 10.0 으로 비교한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">num2</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">==</span> <span class="n">num2</span><span class="o">);</span> <span class="c1">// true</span>
+</code></pre></div></div>
+
+<h3 id="논리-연산자">논리 연산자</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>논리 연산자는 논리곱(&amp;&amp;), 논리합(</td>
+      <td> </td>
+      <td>), 배타적 논리합(^) 그리고 논리 부정(!) 연산을 수행합니다. 논리 연산도 흐름 제어문인 조건문(if), 반복문(for, while) 등에서 주로 사용됩니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>연산식</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND(논리곱)</td>
+      <td>&amp;&amp;</td>
+      <td>피연산자 모두가 true일 경우에만 연산 결과가 true</td>
+    </tr>
+    <tr>
+      <td>OR(논리합)</td>
+      <td>||</td>
+      <td>피연산자 중 하나만 true이면 연산 결과는 true</td>
+    </tr>
+    <tr>
+      <td>XOR(배타적 논리합)</td>
+      <td>^</td>
+      <td>피연산자가 하나는 true이고 다른 하나가 false일 경우에만 true</td>
+    </tr>
+    <tr>
+      <td>NOT(논리 부정)</td>
+      <td>!</td>
+      <td>피연산자의 논리값을 바꿉니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="비트-논리-연산자">비트 논리 연산자</h3>
+
+<p>비트 논리 연산자는 bit 단위로 논리 연산을 수행합니다. 0과 1이 피연산자가 되므로 2진수 0과 1로 저장되는 정수 타입(byte, short, int, long)만 피연산자가 될 수 있고, 부동 소수점 방식으로 저장되는 실수 타입(float, double)은 피연산자가 될 수 없습니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>연산식</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND(논리곱)</td>
+      <td>&amp;</td>
+      <td>두 비트 모두 1일 경우에만 연산 결과가 1</td>
+    </tr>
+    <tr>
+      <td>OR(논리합)</td>
+      <td>|</td>
+      <td>두 비트 중 하나만 1이면 연산 결과는 1</td>
+    </tr>
+    <tr>
+      <td>XOR(배타적 논리합)</td>
+      <td>^</td>
+      <td>두 비트 중 하나는 1이고 다른 하나가 0일 경우 연산 결과는 1</td>
+    </tr>
+    <tr>
+      <td>NOT(논리 부정)</td>
+      <td>~</td>
+      <td>보수</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="비트-이동-연산자">비트 이동 연산자</h3>
+
+<p>비트 이동 연산자는 비트를 왼쪽 또는 오른쪽으로 이동시키는 연산을 수행합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산식</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a « b</td>
+      <td>a의 각 비트를 b만큼 왼쪽으로 이동<br />오른쪽 빈자리는 0으로 채움</td>
+    </tr>
+    <tr>
+      <td>a » b</td>
+      <td>a의 각 비트를 b만큼 오른쪽으로 이동<br />왼쪽 빈자리는 최상위 부호 비트와 같은 값으로 채움</td>
+    </tr>
+    <tr>
+      <td>a »&gt; b</td>
+      <td>a의 각 비트를 b만큼 오른쪽으로 이동<br />왼쪽 빈자리는 0으로 채움</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="대입-연산자">대입 연산자</h3>
+
+<p>대입 연산자는 우측 피연산자의 값을 좌측 피연산자의 변수에 대입한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산식</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>우측의 피연산자의 값을 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>우측의 피연산자의 값을 변수의 값과 더한 후에 다시 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>우측의 피연산자의 값을 변수의 값에서 뺀 후에 다시 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>*=</td>
+      <td>우측의 피연산자의 값을 변수의 값과 곱한 후에 다시 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>우측의 피연산자의 값을 변수의 값과 나눈 후에 다시 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>우측의 피연산자의 값으로 변수의 값을 나눈 후에 나머지를 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>&amp;=</td>
+      <td>우측의 피연산자의 값과 변수의 값을 &amp; 연산 후 결과를 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>|=</td>
+      <td>우측의 피연산자의 값과 변수의 값을 | 연산 후 결과를 변수에 저장</td>
+    </tr>
+    <tr>
+      <td>^=</td>
+      <td>우측의 피연산자의 값과 변수의 값을 ^ 연산 후 결과를 변수에 저장</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="삼항-연산자">삼항 연산자</h3>
+
+<p>삼항 연산자는 3개의 항을 가져 삼항 연산자라고 불립니다.</p>
+
+<p>삼항 연산자의 식은 <strong>(조건식(피연산자1) ? 값 OR 연산식(피연산자2) : 값 OR 연산식(피연산자3) )</strong> 으로 되어있습니다.</p>
+
+<p>조건식이 true이면 피연산자2가 선택되고, false이면 피연산자3이 선택됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span> <span class="c1">// true</span>
+</code></pre></div></div>
 
     <br />
   </div>
@@ -337,14 +544,12 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/db/2023/06/21/mysql-overview.html"
+    <a id="prev" class="button" href="/java/2023/06/22/java-variable.html"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
-    
-    <a id="next" class="button" href="/java/2023/06/22/java-variable.html">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -359,21 +564,8 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
       
       
         
-        
           
-
-
-<li class="h4">
-  <a href="/java/2023/06/22/java-operator.html" data-flip="title">
-    <span>[Java] 연산자</span>
-  </a>
-  <small><time datetime="2023-06-22T22:30:00+09:00">
-    22 Jun 2023
-  </time></small>
-</li>
-
-        
-      
+          
         
         
           
@@ -391,8 +583,21 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
         
       
         
+        
           
-          
+
+
+<li class="h4">
+  <a href="/java/2023/06/22/java-getting-started.html" data-flip="title">
+    <span>[Java] 자바 시작하기</span>
+  </a>
+  <small><time datetime="2023-06-22T13:50:00+09:00">
+    22 Jun 2023
+  </time></small>
+</li>
+
+        
+      
         
         
           

@@ -2,7 +2,7 @@
 layout: post
 title: "[Java] 변수"
 subtitle: "변수"
-date: 2023-06-22 13:50:00 +0900
+date: 2023-06-22 19:30:00 +0900
 categories: java
 comments: true
 ---
