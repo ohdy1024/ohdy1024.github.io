@@ -2,7 +2,23 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/23/java-loop.html</loc>
+      <loc>http://localhost:4000/java/java-method-class/</loc>
+      
+        <lastmod>2023-06-27T21:30:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>1.0</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/java/java-loop/</loc>
       
         <lastmod>2023-06-23T12:00:00+09:00</lastmod>
       
@@ -18,7 +34,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/23/java-conditional-statement.html</loc>
+      <loc>http://localhost:4000/java/java-conditional-statement/</loc>
       
         <lastmod>2023-06-23T12:00:00+09:00</lastmod>
       
@@ -34,7 +50,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/22/java-operator.html</loc>
+      <loc>http://localhost:4000/java/java-operator/</loc>
       
         <lastmod>2023-06-22T22:30:00+09:00</lastmod>
       
@@ -50,7 +66,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/22/java-variable.html</loc>
+      <loc>http://localhost:4000/java/java-variable/</loc>
       
         <lastmod>2023-06-22T19:30:00+09:00</lastmod>
       
@@ -66,7 +82,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/22/java-getting-started.html</loc>
+      <loc>http://localhost:4000/java/java-getting-started/</loc>
       
         <lastmod>2023-06-22T13:50:00+09:00</lastmod>
       
@@ -82,7 +98,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/db/2023/06/21/mysql-overview.html</loc>
+      <loc>http://localhost:4000/db/mysql-overview/</loc>
       
         <lastmod>2023-06-21T18:45:00+09:00</lastmod>
       
@@ -98,7 +114,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/java/2023/06/21/java-overview.html</loc>
+      <loc>http://localhost:4000/java/java-overview/</loc>
       
         <lastmod>2023-06-21T17:50:00+09:00</lastmod>
       
@@ -114,7 +130,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/javascript/2023/06/21/javascript-overview.html</loc>
+      <loc>http://localhost:4000/javascript/javascript-overview/</loc>
       
         <lastmod>2023-06-21T03:15:00+09:00</lastmod>
       
@@ -130,7 +146,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/spring/2023/06/21/boot-getting-started.html</loc>
+      <loc>http://localhost:4000/spring/spring-boot-getting-started/</loc>
       
         <lastmod>2023-06-21T01:45:00+09:00</lastmod>
       
@@ -146,7 +162,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/spring/2023/06/20/framework01.html</loc>
+      <loc>http://localhost:4000/spring/spring-framework/</loc>
       
         <lastmod>2023-06-20T16:40:00+09:00</lastmod>
       

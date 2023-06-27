@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="JavaScript" />
+<meta property="og:title" content="[Spring Framework] Spring Framework란?" />
 <meta property="og:type" content="article" />
 
  
@@ -39,16 +39,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>JavaScript &middot; 고개의 블로그</title>
+<title>[Spring Framework] Spring Framework란? &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="javascript
+  content="Spring Framework란?
+
 "
 />
 <meta
   property="og:description"
-  content="javascript
+  content="Spring Framework란?
+
 "
 />
 
@@ -57,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/category/javascript/" />
-<meta property="og:url" content="http://localhost:4000/category/javascript/" />
+<link rel="canonical" href="http://localhost:4000/spring/spring-framework/" />
+<meta property="og:url" content="http://localhost:4000/spring/spring-framework/" />
 
 <link
   rel="alternate"
@@ -67,10 +69,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
   href="http://localhost:4000/feed.xml"
 />
 
-
-<link rel="prev" href="http://localhost:4000/category/java/" />
  
-<link rel="next" href="http://localhost:4000/category/spring/" />
+<link rel="next" href="http://localhost:4000/spring/spring-boot-getting-started/" />
 
 
 <link
@@ -170,46 +170,207 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
     <main id="_main" class="content" role="main" data-color="#4f86aa" data-image="/assets/img/main_left.jpg">
       
 
-
-
-
+<article
+  id="post-spring/spring-framework"
+  class="post"
+  role="article"
+>
   <header>
-    <h1 class="page-title">JavaScript</h1>
-    <!-- 
-  
-  
-<p class="message">javascript</p>
+    <h1 class="post-title">
+       [Spring Framework] Spring Framework란? 
+    </h1>
+
+    <p class="post-date heading">
+      <time datetime="2023-06-20T16:40:00+09:00"
+        >20 Jun 2023</time
+      >
+      
 
 
 
- -->
+
+
+
+
+
+
+in <a href="/category/spring/" data-flip="title">Spring</a>
+ 
+
+
+
+
+
+
+
+
+
+on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
+
+    </p>
+
+    
+  <div class="hr" style="padding-bottom:0"></div>
+
+
   </header>
-  <hr class="sr-only"/>
-
-
-
   
+
+  <script
+    async
+    src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+  ></script>
   
+  <div class="markdown-body">
     
-    <h2 id="y2023" class="hr">2023</h2>
-    <ul class="related-posts">
+    <style>
+      .googleads {
+        display: block;
+        width: 98%;
+        height: 280px;
+      }
+      @media (min-width: 600px) {
+        .googleads {
+          display: none;
+        }
+      }
+    </style>
+
+    <!--게시물 내용-->
+    <h1 id="spring-framework란">Spring Framework란?</h1>
+
+<h2 id="spring-framework란-1">Spring Framework란?</h2>
+
+<p>스프링은 자바 프로그래밍을 더 빠르고 쉽고 안전하게 만들기 위한 프레임워크입니다.</p>
+
+<h2 id="핵심-개념">핵심 개념</h2>
+
+<h3 id="iocinversion-of-control-컨테이너">IoC(Inversion of Control) 컨테이너</h3>
+
+<p>IoC 컨테이너는 Bean의 인스턴스화, 구성 및 조립을 담당합니다.</p>
+
+<p>스프링의 IoC 컨테이너는 애플리케이션이 시작되면 XML, 어노테이션 또는 Java 클래스의 메타데이터를 활용하여 객체를 생성, 인스턴스화 및 의존성 주입을 처리하여 개발자가 명시적으로 관리하지 않도록 합니다.</p>
+
+<h3 id="didependency-injection-의존성-주입">DI(Dependency Injection, 의존성 주입)</h3>
+
+<p>DI란 사용할 객체를 직접 생성하지 않고 외부 컨테이너가 생성한 객체를 주입받아 사용하는 방식입니다.</p>
+
+<p>스프링 프레임워크에서는 세 가지 방법으로 의존성을 주입합니다.</p>
+
+<ul>
+  <li>생성자를 통한 의존성 주입</li>
+  <li>세터 메서드를 통한 의존성 주입</li>
+  <li>필드에 직접 의존성 주입</li>
+</ul>
+
+<p>DI의 이점 중 하나는 의존성 관리를 IoC 컨테이너에 위임함으로써 객체를 구체적인 구현이 아닌 추상화에 의존하여 구성 요소 간의 느슨한 결합이 촉진됩니다. 이를 통해 개별 구성 요소의 격리된 테스트가 가능하므로 단위 테스트를 보다 쉽게 작성할 수 있습니다.</p>
+
+<h3 id="aopaspect-oriented-programming">AOP(Aspect-Oriented Programming)</h3>
+
+<p>AOP는 애플리케이션의 핵심 비즈니스 논리에서 횡단 관심사(공통 관심사)를 분리하기 위한 프로그래밍 패러다임입니다.</p>
+
+<p><strong>AOP의 핵심 개념</strong></p>
+
+<ul>
+  <li>Aspect: 공통 관심사를 모듈화 한 것으로 일반적으로 애플리케이션의 여러 객체 또는 모듈에 적용되어야 하는 특정 동작 또는 작업을 정의합니다.</li>
+  <li>Join Point: 조인 포인트는 Aspect가 적용 될 수 있는 특정 포인트를 나타냅니다. 조인 포인트의 예로는 메서드 호출, 예외 처리, 제어 흐름의 특정 지점이 있습니다.</li>
+  <li>Advice: 조인 포인트에 도달했을 때 발생해야 하는 일을 정의합니다. 일반적인 유형의 어드바이스는 “before”, “after”, “around”, “after-throwing” 그리고 “after-returning”이 있습니다.</li>
+  <li>Pointcut: 애플리케이션에서 어떤 조인 포인트를 가로채고 관련 어드바이스를 적용해야 하는지 결정하는 표현식입니다. 이를 통해 개발자는 Aspect의 정확한 위치 또는 조건을 지정할 수 있습니다.</li>
+</ul>
+
+<h2 id="주요-기능">주요 기능</h2>
+
+<h3 id="스프링-mvc">스프링 MVC</h3>
+
+<p>Spring MVC(Model-View-Controller)는 웹 애플리케이션 구축에 대한 구조화된 접근 방식을 제공하는 웹 프레임워크입니다. Spring MVC는 웹 개발을 단순화하기 위한 다양한 기능을 제공합니다. 컨트롤러가 요청 처리를 위해 특정 URL 또는 URL 패턴을 메서드에 매핑할 수 있는 요청 매핑 기능 등이 있습니다. MVC(Model-View-Controller) 아키텍처 패턴을 따르며 애플리케이션을 세 가지 주요 구성 요소(모델, 뷰, 컨트롤러)로 구분합니다.</p>
+
+<p>모델은 애플리케이션의 데이터 및 비즈니스 로직을 나타냅니다. 애플리케이션의 데이터, 상태 및 동작을 캡슐화합니다. Spring MVC에서 모델은 일반적으로 애플리케이션 데이터를 보유하고 데이터베이스 또는 데이터 소스와 상호 작용하는 Java클래스 또는 POJO(Plain Old Java Objects)로 구성됩니다.</p>
+
+<p>뷰는 사용자에게 데이터를 제공하는 역할을 합니다. 애플리케이션 사용자 인터페이스의 시각적 표현을 정의합니다. Spring MVC에서 뷰는 JSP, Thymeleaf 와 같은 템플릿 기술을 사용하여 구현됩니다. 뷰는 클라이언트로 다시 전송되는 응답을 렌더링하는 역할을 합니다.</p>
+
+<p>컨트롤러는 모델과 뷰 사이의 중개자 역할을 합니다. 사용자 요청을 수신 및 처리하고, 필요한 처리를 수행하고, 응답을 생성하는 데 사용할 적절한 모델과 뷰를 결정합니다. Spring MVC의 컨트롤러는 Java 클래스로 구현되며 HTTP 요청 처리, 양식 데이터 처리, 비즈니스 로직 호출 및 뷰에서 렌더링할 모델 준비를 담당합니다.</p>
+
+    <br />
+  </div>
+
+  <script></script>
+
+  
+</article>
+ <!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-DFV93GERM8"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-DFV93GERM8");
+</script>
+
+<div class="page-control">
+  <div>
     
-  
-  
+  </div>
+  <div>
+    
+    <a id="next" class="button" href="/spring/spring-boot-getting-started/">다음글 &raquo;</a>
+    
+  </div>
+</div>
+ 
+
+<aside class="related" role="complementary">
+  <h2 class="hr">Related Posts</h2>
+
+  <ul class="related-posts">
+    
+      
+      
+      
+        
+        
+          
 
 
 <li class="h4">
-  <a href="/javascript/javascript-overview/" data-flip="title">
-    <span>[JavaScript] javascript란?</span>
+  <a href="/spring/spring-boot-getting-started/" data-flip="title">
+    <span>[Spring Boot] Spring Boot 시작하기</span>
   </a>
-  <small><time datetime="2023-06-21T03:15:00+09:00">
-    21 Jun
+  <small><time datetime="2023-06-21T01:45:00+09:00">
+    21 Jun 2023
   </time></small>
 </li>
 
+        
+      
+        
+          
+          
+    
   </ul>
+</aside>
 
 
+
+      
+        <aside class="comments" role="complementary">
+  <h2>Comments</h2>
+  <hr />
+
+  <script
+    src="https://utteranc.es/client.js"
+    repo="ohdy1024/blog-comments-repo"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</aside>
 
       
 
@@ -267,7 +428,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
     <li>
       <input type="checkbox" id="list-item-1"/>
       <div  class="list-wrapper">
-      <a class="sidebar-nav-item active" href="/category/javascript/">JavaScript</a>
+      <a class="sidebar-nav-item" href="/category/javascript/">JavaScript</a>
        
     </div>
      <ul class="list-body">

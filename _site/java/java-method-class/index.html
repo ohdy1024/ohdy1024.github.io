@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 연산자" />
+<meta property="og:title" content="[Java] 클래스와 메소드" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 연산자 &middot; 고개의 블로그</title>
+<title>[Java] 클래스와 메소드 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="연산자
+  content="클래스와 메서드
 
 "
 />
 <meta
   property="og:description"
-  content="연산자
+  content="클래스와 메서드
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/2023/06/22/java-operator.html" />
-<meta property="og:url" content="http://localhost:4000/java/2023/06/22/java-operator.html" />
+<link rel="canonical" href="http://localhost:4000/java/java-method-class/" />
+<meta property="og:url" content="http://localhost:4000/java/java-method-class/" />
 
 <link
   rel="alternate"
@@ -70,10 +70,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/java/2023/06/22/java-variable.html" />
+<link rel="prev" href="http://localhost:4000/java/java-loop/" />
  
-<link rel="next" href="http://localhost:4000/java/2023/06/23/java-conditional-statement.html" />
-
 
 <link
   rel="apple-touch-icon"
@@ -173,18 +171,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/2023/06/22/java-operator"
+  id="post-java/java-method-class"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 연산자 
+       [Java] 클래스와 메소드 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-22T22:30:00+09:00"
-        >22 Jun 2023</time
+      <time datetime="2023-06-27T21:30:00+09:00"
+        >27 Jun 2023</time
       >
       
 
@@ -239,286 +237,220 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="연산자">연산자</h1>
+    <h1 id="클래스와-메서드">클래스와 메서드</h1>
 
-<h3 id="부호-연산자">부호 연산자</h3>
+<h2 id="메서드">메서드</h2>
 
-<p>부호 연산자는 단항 연산자로 변수의 부호를 유지하거나 바꿀 때 사용됩니다.</p>
+<h3 id="메서드-1">메서드</h3>
 
-<p>+ 연산은 잘 사용되지 않고, - 연산자는 변수값의 부호를 변경할 때 사용됩니다. 부호를 변경하는 것도 연산이므로 자동 타입 변환에 주의해야 합니다. (byte, short, int 타입의 연산 결과는 int 타입)</p>
+<p>메서드는 클래스 내에서 정의되며 어떠한 특정 작업을 수행하는 코드 블록입니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">byte</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">byte</span> <span class="n">num2</span> <span class="o">=</span> <span class="o">-</span><span class="n">num1</span><span class="o">;</span> <span class="c1">// 컴파일 에러</span>
+<p>메서드는 몇 번이든 호출할 수 있기 때문에 재사용성이 높습니다.</p>
+
+<p>메서드를 사용하기 위해서는 먼저 메소드를 선언 해야 합니다. 메소드 선언은 선언부와 구현부로 나뉩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">접근제한자</span> <span class="n">반환타입</span> <span class="n">메서드이름</span><span class="o">(</span><span class="n">매개변수1</span><span class="o">,</span> <span class="n">매개변수2</span><span class="o">,</span> <span class="o">...)</span> <span class="o">{</span>  <span class="c1">// 선언부</span>
+
+  <span class="n">실행문</span><span class="o">;</span> <span class="c1">// 구현부</span>
+  <span class="o">...</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="증감-연산자">증감 연산자</h3>
+<p>접근 제한자는 메서드의 접근성을 결정합니다.</p>
 
-<p>증감 연산자(++, –)는 변수의 값을 1 증가시키거나 1 감소시키는 연산자입니다. 단독으로 증감 연산자를 사용할 경우에는 문제가 없지만 여러 연산자가 있을 경우 증감 연산자의 위치에 따라 결과가 달라질 수 있기 때문에 주의해야 합니다.</p>
+<p>반환타입은 메서드의 실행이 끝나고 반환할 값의 타입을 나타냅니다. 반환값이 없으면 void로 작성하면 됩니다.</p>
 
-<p>증감 연산자가 변수 앞에 있으면 먼저 변수를 1 증가 또는 1 감소시킨 후 다른 연산을 수행합니다. 증감 연산자가 변수 뒤에 있으면 모든 연산을 끝낸 후 변수를 1 증가 또는 1 감소시킵니다.</p>
+<p>메서드의 이름은 카멜 케이스로 작성됩니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">num1</span><span class="o">++</span> <span class="o">+</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="o">++</span><span class="n">num2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">;</span>
+<p>매개변수는 함수 내부에서 사용할 변수를 외부에서 전달받기 위해 사용합니다.</p>
 
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span><span class="o">);</span> <span class="c1">// 11</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span> <span class="c1">// 11</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span> <span class="c1">// 20</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span> <span class="c1">// 21</span>
+<p>예시로 값을 두 개 전달받아 더한 결과를 반환하는 메소드를 선언해보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 메소드 선언</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="산술-연산자">산술 연산자</h3>
+<p><code class="language-plaintext highlighter-rouge">return</code> 키워드는 메소드의 종료 및 값을 반환한다는 의미를 가집니다.</p>
 
-<p>산술 연산자는 더하기(+), 빼기(-), 곱하기(*), 나누기(/), 나머지(%)가 있습니다.</p>
+<h3 id="메소드-호출">메소드 호출</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result3</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result4</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">result5</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">%</span> <span class="n">num2</span><span class="o">;</span>
+<p>메소드 호출이란 메소드 블록을 실행하는 것입니다.</p>
 
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result1</span><span class="o">);</span> <span class="c1">// 13</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result2</span><span class="o">);</span> <span class="c1">// 7</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result3</span><span class="o">);</span> <span class="c1">// 30</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result4</span><span class="o">);</span> <span class="c1">// 3</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result5</span><span class="o">);</span> <span class="c1">// 1</span>
+<p>위의 메소드를 호출해 보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 메소드 선언</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">sum</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="kt">int</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span> <span class="c1">// 메소드 호출문</span>
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">result</span><span class="o">);</span> <span class="c1">// 3</span>
 </code></pre></div></div>
 
-<p>산술 연산자를 정확하게 계산하고 싶다면 실수 타입을 사용하지 않는 것이 좋습니다. 실수 타입은 부동 소수점 방식을 사용하여 나타내는 데 항상 오차가 존재하기 때문입니다.</p>
+<h3 id="main-메소드">main 메소드</h3>
 
-<h3 id="오버플로우overflow와-언더플로우underflow">오버플로우(overflow)와 언더플로우(underflow)</h3>
+<p>main 메소드는 자바 프로그램 실행을 위한 진입점 역할을 하는 특수한 메소드입니다. 자바 프로그램이 실행되면 JVM(Java Virtual Machine)은 main 메서드를 호출하여 프로그램을 실행합니다.</p>
 
-<p>오버플로우란 타입이 허용하는 최댓값을 벗어나는 것을 말합니다. 언더플로우는 타입이 허용하는 최솟값을 벗어나는 것을 말합니다. 정수 타입에서 오버플로우 또는 언더플로우가 발생되면 실행 에러가 일어나지 않고 해당 정수 타입의 최댓값 또는 최솟값으로 돌아갑니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">byte</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">127</span><span class="o">;</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(++</span><span class="n">num1</span><span class="o">);</span> <span class="c1">// -128</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{}</span>
 </code></pre></div></div>
 
-<h3 id="비교관계-연산자">비교(관계) 연산자</h3>
+<p><code class="language-plaintext highlighter-rouge">public</code>은 main 메서드를 프로그램 내 어디에서나 접근할 수 있도록 하는 접근 제한자입니다.</p>
 
-<p>비교 연산자는 두 개의 피연산자 사이에서 크기(&gt;, &gt;=, &lt;, &lt;=) 및 동등(==, !=) 관계를 평가해 true 또는 false 를 산출하는 이항 연산자이다. 비교 연산자는 흐름 제어문인 조건문(if), 반복문(for, while)에서 실행 흐름을 제어할 때 주로 사용된다.</p>
+<p><code class="language-plaintext highlighter-rouge">static</code>은 클래스를 인스턴스화하지 않고 메소드를 호출할 수 있도록 해주는 키워드입니다. JVM이 인스턴스를 생성하지 않고 main 메서드를 호출하기 위해 사용합니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>구분</th>
-      <th>연산식</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>동등비교</td>
-      <td>==</td>
-      <td>두 개 항의 값이 같으면 true, 다르면 false를 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>동등비교</td>
-      <td>!=</td>
-      <td>두 개 항의 값이 다르면 true, 같으면 false를 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>크기비교</td>
-      <td>&gt;</td>
-      <td>왼쪽 항이 크면 true, 같거나 작으면 false를 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>크기비교</td>
-      <td>&gt;=</td>
-      <td>왼쪽 항이 크거나 같으면 true, 작으면 false를 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>크기비교</td>
-      <td>&lt;</td>
-      <td>왼쪽 항이 작으면 true, 같거나 크면 false를 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>크기비교</td>
-      <td>&lt;=</td>
-      <td>왼쪽 항이 작거나 같으면 true, 크면 false를 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p><code class="language-plaintext highlighter-rouge">void</code>는 main 메소드의 반환 타입으로, main 메소드가 어떤 값도 반환하지 않음을 나타냅니다.</p>
 
-<p>피연산자의 타입이 다를 경우에는 비교 연산을 수행하기 전에 타입을 일치시킵니다. 예를 들어 10 == 10.0 을 비교한다며 10을 double 타입인 10.0으로 변환한 다음 10.0 == 10.0 으로 비교한다.</p>
+<p><code class="language-plaintext highlighter-rouge">main</code>은 메서드의 이름입니다. JVM은 프로그램 실행을 시작하기 위해 main 이름을 가진 메서드를 찾습니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">double</span> <span class="n">num2</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">;</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">==</span> <span class="n">num2</span><span class="o">);</span> <span class="c1">// true</span>
+<p><code class="language-plaintext highlighter-rouge">String[] args</code>는 main 메서드에 전달되는 매개변수입니다.</p>
+
+<h2 id="클래스">클래스</h2>
+
+<h3 id="클래스-1">클래스</h3>
+
+<p>자바에서 클래스는 객체를 생성하기 위한 설계도입니다.</p>
+
+<p>클래스는 객체의 속성(필드)과 동작(메소드)으로 구성됩니다. 클래스명은 첫 문자를 대문자로 하는 파스칼 케이스로 정의합니다. 숫자를 포함해도 되지만 첫 문자는 숫자가 될 수 없고, 특수 문자 중 $, _를 포함할 수 있습니다.</p>
+
+<p>사람의 나이 정보(필드)와 나이를 알려주는 기능(메소드)이 있는 클래스를 만든다면 아래와 같이 나타낼 수 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> <span class="c1">// 필드</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 생성자</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInfo</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// 메소드</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"나이는 : "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="논리-연산자">논리 연산자</h3>
+<h3 id="객체-생성">객체 생성</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td>논리 연산자는 논리곱(&amp;&amp;), 논리합(</td>
-      <td> </td>
-      <td>), 배타적 논리합(^) 그리고 논리 부정(!) 연산을 수행합니다. 논리 연산도 흐름 제어문인 조건문(if), 반복문(for, while) 등에서 주로 사용됩니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p>클래스를 선언했다고 바로 쓸 수 있는 것은 아닙니다. 클래스로부터 객체(인스턴스)를 생성해서 사용 해야 합니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>구분</th>
-      <th>연산식</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AND(논리곱)</td>
-      <td>&amp;&amp;</td>
-      <td>피연산자 모두가 true일 경우에만 연산 결과가 true</td>
-    </tr>
-    <tr>
-      <td>OR(논리합)</td>
-      <td>||</td>
-      <td>피연산자 중 하나만 true이면 연산 결과는 true</td>
-    </tr>
-    <tr>
-      <td>XOR(배타적 논리합)</td>
-      <td>^</td>
-      <td>피연산자가 하나는 true이고 다른 하나가 false일 경우에만 true</td>
-    </tr>
-    <tr>
-      <td>NOT(논리 부정)</td>
-      <td>!</td>
-      <td>피연산자의 논리값을 바꿉니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p>객체를 생성하는 방법은 <code class="language-plaintext highlighter-rouge">new</code> 키워드를 사용해 생성합니다. <code class="language-plaintext highlighter-rouge">new</code> 키워드를 이용해 객체를 생성하는 것을 “인스턴스화”라고 하며, 생성된 객체를 “인스턴스”라고 부릅니다.</p>
 
-<h3 id="비트-논리-연산자">비트 논리 연산자</h3>
+<p><code class="language-plaintext highlighter-rouge">new</code> 키워드는 객체를 생성 후 객체의 주소를 리턴하기 때문에 변수에 저장할 수 있습니다. 이 변수를 “참조 변수”라고 합니다.</p>
 
-<p>비트 논리 연산자는 bit 단위로 논리 연산을 수행합니다. 0과 1이 피연산자가 되므로 2진수 0과 1로 저장되는 정수 타입(byte, short, int, long)만 피연산자가 될 수 있고, 부동 소수점 방식으로 저장되는 실수 타입(float, double)은 피연산자가 될 수 없습니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">클래스</span> <span class="n">변수</span> <span class="o">=</span> <span class="k">new</span> <span class="n">클래스</span><span class="o">();</span>
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>구분</th>
-      <th>연산식</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AND(논리곱)</td>
-      <td>&amp;</td>
-      <td>두 비트 모두 1일 경우에만 연산 결과가 1</td>
-    </tr>
-    <tr>
-      <td>OR(논리합)</td>
-      <td>|</td>
-      <td>두 비트 중 하나만 1이면 연산 결과는 1</td>
-    </tr>
-    <tr>
-      <td>XOR(배타적 논리합)</td>
-      <td>^</td>
-      <td>두 비트 중 하나는 1이고 다른 하나가 0일 경우 연산 결과는 1</td>
-    </tr>
-    <tr>
-      <td>NOT(논리 부정)</td>
-      <td>~</td>
-      <td>보수</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Person.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
 
-<h3 id="비트-이동-연산자">비트 이동 연산자</h3>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> <span class="c1">// 필드</span>
 
-<p>비트 이동 연산자는 비트를 왼쪽 또는 오른쪽으로 이동시키는 연산을 수행합니다.</p>
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 생성자</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+  <span class="o">}</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>연산식</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>a « b</td>
-      <td>a의 각 비트를 b만큼 왼쪽으로 이동<br />오른쪽 빈자리는 0으로 채움</td>
-    </tr>
-    <tr>
-      <td>a » b</td>
-      <td>a의 각 비트를 b만큼 오른쪽으로 이동<br />왼쪽 빈자리는 최상위 부호 비트와 같은 값으로 채움</td>
-    </tr>
-    <tr>
-      <td>a »&gt; b</td>
-      <td>a의 각 비트를 b만큼 오른쪽으로 이동<br />왼쪽 빈자리는 0으로 채움</td>
-    </tr>
-  </tbody>
-</table>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInfo</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// 메소드</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"나이는 : "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"입니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<h3 id="대입-연산자">대입 연산자</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Main.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
 
-<p>대입 연산자는 우측 피연산자의 값을 좌측 피연산자의 변수에 대입한다.</p>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+      <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span> <span class="c1">// 객체 생성</span>
 
-<table>
-  <thead>
-    <tr>
-      <th>연산식</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>=</td>
-      <td>우측의 피연산자의 값을 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>+=</td>
-      <td>우측의 피연산자의 값을 변수의 값과 더한 후에 다시 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>-=</td>
-      <td>우측의 피연산자의 값을 변수의 값에서 뺀 후에 다시 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>*=</td>
-      <td>우측의 피연산자의 값을 변수의 값과 곱한 후에 다시 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>/=</td>
-      <td>우측의 피연산자의 값을 변수의 값과 나눈 후에 다시 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>%=</td>
-      <td>우측의 피연산자의 값으로 변수의 값을 나눈 후에 나머지를 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>&amp;=</td>
-      <td>우측의 피연산자의 값과 변수의 값을 &amp; 연산 후 결과를 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>|=</td>
-      <td>우측의 피연산자의 값과 변수의 값을 | 연산 후 결과를 변수에 저장</td>
-    </tr>
-    <tr>
-      <td>^=</td>
-      <td>우측의 피연산자의 값과 변수의 값을 ^ 연산 후 결과를 변수에 저장</td>
-    </tr>
-  </tbody>
-</table>
+      <span class="n">person</span><span class="o">.</span><span class="na">displayInfo</span><span class="o">();</span> <span class="c1">// "나이는 15세입니다." 출력</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<h3 id="삼항-연산자">삼항 연산자</h3>
+<h3 id="클래스의-구성">클래스의 구성</h3>
 
-<p>삼항 연산자는 3개의 항을 가져 삼항 연산자라고 불립니다.</p>
+<p>클래스의 구성 멤버로 생성자, 필드, 메소드가 있습니다.</p>
 
-<p>삼항 연산자의 식은 <strong>(조건식(피연산자1) ? 값 OR 연산식(피연산자2) : 값 OR 연산식(피연산자3) )</strong> 으로 되어있습니다.</p>
+<p><strong>필드</strong>는 객체의 데이터를 저장하는 역할을 합니다. 필드는 “인스턴스 변수” 또는 “멤버 변수”라고도 불립니다.</p>
 
-<p>조건식이 true이면 피연산자2가 선택되고, false이면 피연산자3이 선택됩니다.</p>
+<p><strong>메소드</strong>는 객체가 수행하는 동작입니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
-<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="kc">false</span><span class="o">;</span>
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span> <span class="c1">// true</span>
+<p><strong>생성자</strong>는 <code class="language-plaintext highlighter-rouge">new</code> 연산자로 객체를 생성할 때 객체의 초기화 역할을 담당합니다. 메소드와 비슷하게 생겼지만, 리턴 타입이 없고 클래스 이름과 같다는 차이점이 있습니다.</p>
+
+<h2 id="생성자">생성자</h2>
+
+<h3 id="생성자-선언">생성자 선언</h3>
+
+<p>모든 클래스는 생성자가 존재하고, 하나 이상을 가질 수 있습니다. 생성자가 없으면 컴파일 시 기본 생성자를 만들어줍니다. 하지만 생성자가 있다면 기본 생성자를 추가하지 않습니다.</p>
+
+<p>생성자는 메소드와 비슷하지만 리턴 타입이 없고 클래스 이름과 동일합니다. 인스턴스 생성 시 값을 전달하면 생성자가 호출될 때 생성자의 매개변수로 값이 전달이 됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Person.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span> <span class="c1">// 필드</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 생성자</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInfo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"세입니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Main.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// 20이라는 값을 생성자로 전달합니다. 전달받은 20을 age라는 필드에 대입합니다.</span>
+    <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
+
+    <span class="n">person</span><span class="o">.</span><span class="na">displayInfo</span><span class="o">()</span> <span class="c1">// "나이는 20세입니다." 출력</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">this</code> 키워드는 매개변수명과 필드명이 동일할 때 필드를 구분하기 위해서 사용합니다.</p>
+
+<h3 id="생성자-오버로딩">생성자 오버로딩</h3>
+
+<p>생성자 오버로딩이란 매개변수가 다른 여러 생성자를 선언하는 것입니다. 생성자를 오버로딩하는 이유는 객체의 필드를 다양하게 초기화하기 위해서입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Person.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 생성자1</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// 생성자2</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInfo</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">"님의 나이는 "</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s">"세입니다."</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">// Main.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="nc">Person</span> <span class="n">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"철수"</span><span class="o">);</span>
+    <span class="nc">Person</span> <span class="n">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="s">"짱구"</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+
+    <span class="n">person1</span><span class="o">.</span><span class="na">displayInfo</span><span class="o">();</span> <span class="c1">// "철수님의 나이는 0세입니다." 출력</span>
+    <span class="n">person2</span><span class="o">.</span><span class="na">displayInfo</span><span class="o">();</span> <span class="c1">// "짱구님의 나이는 5세입니다." 출력</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
 </code></pre></div></div>
 
     <br />
@@ -546,14 +478,12 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/java/2023/06/22/java-variable.html"
+    <a id="prev" class="button" href="/java/java-loop/"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
-    
-    <a id="next" class="button" href="/java/2023/06/23/java-conditional-statement.html">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -568,12 +498,15 @@ in <a href="/category/java/" data-flip="title">Java</a>
       
       
         
+          
+          
+        
         
           
 
 
 <li class="h4">
-  <a href="/java/2023/06/23/java-loop.html" data-flip="title">
+  <a href="/java/java-loop/" data-flip="title">
     <span>[Java] 반복문</span>
   </a>
   <small><time datetime="2023-06-23T12:00:00+09:00">
@@ -589,7 +522,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 
 <li class="h4">
-  <a href="/java/2023/06/23/java-conditional-statement.html" data-flip="title">
+  <a href="/java/java-conditional-statement/" data-flip="title">
     <span>[Java] 조건문</span>
   </a>
   <small><time datetime="2023-06-23T12:00:00+09:00">
@@ -600,18 +533,15 @@ in <a href="/category/java/" data-flip="title">Java</a>
         
       
         
-          
-          
-        
         
           
 
 
 <li class="h4">
-  <a href="/java/2023/06/22/java-variable.html" data-flip="title">
-    <span>[Java] 변수</span>
+  <a href="/java/java-operator/" data-flip="title">
+    <span>[Java] 연산자</span>
   </a>
-  <small><time datetime="2023-06-22T19:30:00+09:00">
+  <small><time datetime="2023-06-22T22:30:00+09:00">
     22 Jun 2023
   </time></small>
 </li>

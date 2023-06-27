@@ -54,7 +54,7 @@ disqus_shortname: xxxx
 copyright: "&copy; 2023.06. by 고개"
 
 # Format of the permalinks
-permalink:
+permalink: /:categories/:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate: 3

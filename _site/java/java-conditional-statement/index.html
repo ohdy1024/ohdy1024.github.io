@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 자바 시작하기" />
+<meta property="og:title" content="[Java] 조건문" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 자바 시작하기 &middot; 고개의 블로그</title>
+<title>[Java] 조건문 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="자바 시작하기
+  content="조건문
 
 "
 />
 <meta
   property="og:description"
-  content="자바 시작하기
+  content="조건문
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/2023/06/22/java-getting-started.html" />
-<meta property="og:url" content="http://localhost:4000/java/2023/06/22/java-getting-started.html" />
+<link rel="canonical" href="http://localhost:4000/java/java-conditional-statement/" />
+<meta property="og:url" content="http://localhost:4000/java/java-conditional-statement/" />
 
 <link
   rel="alternate"
@@ -70,9 +70,9 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/db/2023/06/21/mysql-overview.html" />
+<link rel="prev" href="http://localhost:4000/java/java-operator/" />
  
-<link rel="next" href="http://localhost:4000/java/2023/06/22/java-variable.html" />
+<link rel="next" href="http://localhost:4000/java/java-loop/" />
 
 
 <link
@@ -173,18 +173,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/2023/06/22/java-getting-started"
+  id="post-java/java-conditional-statement"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 자바 시작하기 
+       [Java] 조건문 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-22T13:50:00+09:00"
-        >22 Jun 2023</time
+      <time datetime="2023-06-23T12:00:00+09:00"
+        >23 Jun 2023</time
       >
       
 
@@ -239,78 +239,179 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="자바-시작하기">자바 시작하기</h1>
+    <h1 id="조건문">조건문</h1>
 
-<h2 id="개발-환경-설정하기-윈도우10">개발 환경 설정하기 (윈도우10)</h2>
+<h3 id="조건문-1">조건문</h3>
 
-<h3 id="openjdk-17-다운로드-및-설치하기">OpenJDK 17 다운로드 및 설치하기</h3>
+<p>코드를 조건에 따라 코드의 실행 흐름을 제어하는 기능을 가진 제어문입니다.</p>
 
-<ol>
-  <li>
-    <p><a href="https://jdk.java.net/java-se-ri/17">https://jdk.java.net/java-se-ri/17</a> 에서 JDK를 다운로드합니다.</p>
-  </li>
-  <li>
-    <p>원하는 장소에 압출 파일을 풉니다.</p>
-  </li>
-  <li>
-    <p>시작 버튼 옆 검색 창에 “시스템 환경 변수 편집”을 검색 후 클릭합니다.</p>
-  </li>
-  <li>
-    <p>시스템 속성 창이 열렸다면 [환경 변수]을 클릭합니다.</p>
-  </li>
-  <li>
-    <p>시스템 변수의 [새로 만들기]를 클릭하고, 나타나는 화면에서 다음과 같이 입력 후 확인 버튼을 누릅니다.</p>
+<h3 id="if-문">if 문</h3>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 변수 이름: JAVA_HOME
- 변수 값: 다운받은 파일의 압축을 푼 OpenJDK의 경로
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>그 다음 변수 목록에서 “Path” 변수를 찾아 [편집]을 누릅니다.</p>
-  </li>
-  <li>
-    <p>편집 창이 나타나면 [새로 만들기]를 클릭한 후 “%JAVA_HOME%\bin” 입력하고 확인 버튼을 눌러 열려있던 창을 모두 닫아줍니다.</p>
-  </li>
-  <li>
-    <p>명령 프롬프트를 열어 다음 명령어를 입력해 설정이 완료되었는지 확인합니다.</p>
+<p>if 문은 조건의 결과에 따라 블록 실행 여부가 결정됩니다.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
-openjdk version "17.0.4.1" 2022-08-12 LTS
-OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
-OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
-</code></pre></div>    </div>
-  </li>
-</ol>
+<p>조건식에는 true 또는 false 값을 반환하는 연산식이나 boolean 타입의 변수가 올 수 있습니다. 조건식이 true이면 블록을 실행하고 false이면 블록을 실행하지 않습니다. 블록 안에 실행문이 하나라면 중괄호를 생략할 수 있습니다.</p>
 
-<h3 id="자바-실행하기">자바 실행하기</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">실행문</span><span class="o">;</span>
+  <span class="o">...</span>
+<span class="o">}</span>
 
-<ol>
-  <li>
-    <p>메모장을 열어 다음과 같이 입력 후 파일 이름을 “Hello.java”로 저장을 합니다.</p>
+<span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span>
+  <span class="n">실행문</span><span class="o">;</span>
+</code></pre></div></div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Hello {
-  public static void main(String args[]) {
-    System.out.println("Hello World!");
-  }
-}
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>명령 프롬프트를 열어 작성한 파일의 경로로 이동 후 “javac Hello.java”을 입력합니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>파일 경로&gt;javac Hello.java
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>오류 없이 실행이 되었다면 파일이 있던 위치에 “Hello.class” 파일이 생성되었는지 확인합니다.</p>
-  </li>
-  <li>
-    <p>파일이 생성되었다면 명령 프롬프트에 다음과 같이 입력 후 “Hello World!”가 출력되었다면 성공입니다.</p>
+<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">// 또는</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
+</code></pre></div></div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>파일 경로&gt;java Hello
-</code></pre></div>    </div>
-  </li>
-</ol>
+<h3 id="if-else-문">if-else 문</h3>
+
+<p>if 문으로만 복잡한 내용을 처리하는 데 한계가 있습니다. if-else 문은 조건식이 true이면 if 문 블록이 실행되고, false이면 else 블록이 실행됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// 조건식이 true일 때 실행</span>
+  <span class="n">실행문</span><span class="o">;</span>
+  <span class="o">...</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="c1">//조건식이 false일 때 실행</span>
+  <span class="n">실행문</span><span class="o">;</span>
+  <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 작거나 같다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="else-if-문">else if 문</h3>
+
+<p>else if문은 2개 이상의 조건식을 사용하여 흐름을 제어할 수 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// 조건식1이 true이면 실행</span>
+  <span class="n">실행문</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">조건식2</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// 조건식2가 true이면 실행</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="c1">// 조건식이 모두 false이면 실행</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5와 같다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 작다."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="switch-문">switch 문</h3>
+
+<p>switch 문도 if 문과 마찬가지로 흐름을 제어할 때 사용됩니다.</p>
+
+<p>switch 문은 괄호 안의 변수값에 따라 해당 case로 가서 실행문을 실행시킵니다. 만약 변수값과 동일한 값을 갖는 case가 없으면 default로 가서 실행문을 실행시킵니다. default는 생략이 가능합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">break</code> 키워드는 switch문 밖으로 빠져나가는 기능을 하는 키워드입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">변수</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nl">값1:</span>
+    <span class="n">실행문1</span><span class="o">;</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="nl">값2:</span>
+    <span class="n">실행문2</span><span class="o">;</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="n">실행문3</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">6</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+<span class="k">switch</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1 입니다."</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2 입니다."</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 입니다."</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4 입니다."</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5 입니다."</span><span class="o">);</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"6 입니다."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>만약 <code class="language-plaintext highlighter-rouge">break</code> 키워드를 사용하지 않는다면 변수값에 맞는 case가 실행된 후 <code class="language-plaintext highlighter-rouge">break</code> 키워드를 만나기 전까지 다음 case들도 실행이 됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+
+<span class="k">switch</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5 입니다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
+    <span class="k">break</span><span class="o">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"6 입니다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>자바 14 이후부터 Switch Expressions을 사용하면 값을 변수에 바로 대입할 수도 있습니다. 단일 값이라면 화살표 오른쪽에 값을 기술하면 되고, 중괄호를 사용할 경우에는 <code class="language-plaintext highlighter-rouge">yield</code> 키워드로 값을 지정하면 됩니다. 이 경우에는 default가 존재해야 합니다.</p>
+
+<p>1~4 사이의 값을 Switch Expressions 을 이용해서 모두 5로 변환시켜 보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">4</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+
+<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="k">switch</span><span class="o">(</span><span class="n">num1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="mi">1</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 1입니다."</span><span class="o">);</span>
+    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">4</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">case</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 2입니다."</span><span class="o">);</span>
+    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">3</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">case</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 3입니다."</span><span class="o">);</span>
+    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="k">default</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 4입니다."</span><span class="o">);</span>
+    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
+
+</code></pre></div></div>
 
     <br />
   </div>
@@ -337,14 +438,14 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/db/2023/06/21/mysql-overview.html"
+    <a id="prev" class="button" href="/java/java-operator/"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
     
-    <a id="next" class="button" href="/java/2023/06/22/java-variable.html">다음글 &raquo;</a>
+    <a id="next" class="button" href="/java/java-loop/">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -364,7 +465,23 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 
 
 <li class="h4">
-  <a href="/java/2023/06/23/java-loop.html" data-flip="title">
+  <a href="/java/java-method-class/" data-flip="title">
+    <span>[Java] 클래스와 메소드</span>
+  </a>
+  <small><time datetime="2023-06-27T21:30:00+09:00">
+    27 Jun 2023
+  </time></small>
+</li>
+
+        
+      
+        
+        
+          
+
+
+<li class="h4">
+  <a href="/java/java-loop/" data-flip="title">
     <span>[Java] 반복문</span>
   </a>
   <small><time datetime="2023-06-23T12:00:00+09:00">
@@ -375,28 +492,15 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
         
       
         
-        
           
-
-
-<li class="h4">
-  <a href="/java/2023/06/23/java-conditional-statement.html" data-flip="title">
-    <span>[Java] 조건문</span>
-  </a>
-  <small><time datetime="2023-06-23T12:00:00+09:00">
-    23 Jun 2023
-  </time></small>
-</li>
-
-        
-      
+          
         
         
           
 
 
 <li class="h4">
-  <a href="/java/2023/06/22/java-operator.html" data-flip="title">
+  <a href="/java/java-operator/" data-flip="title">
     <span>[Java] 연산자</span>
   </a>
   <small><time datetime="2023-06-22T22:30:00+09:00">
@@ -404,9 +508,6 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
   </time></small>
 </li>
 
-        
-      
-        
         
       
     
