@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 조건문" />
+<meta property="og:title" content="[Spring Boot] Spring Boot 시작하기" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 조건문 &middot; 고개의 블로그</title>
+<title>[Spring Boot] Spring Boot 시작하기 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="조건문
+  content="Spring Boot
 
 "
 />
 <meta
   property="og:description"
-  content="조건문
+  content="Spring Boot
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/java-conditional-statement/" />
-<meta property="og:url" content="http://localhost:4000/java/java-conditional-statement/" />
+<link rel="canonical" href="http://localhost:4000/spring/spring-boot-getting-started" />
+<meta property="og:url" content="http://localhost:4000/spring/spring-boot-getting-started" />
 
 <link
   rel="alternate"
@@ -70,9 +70,9 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/java/java-operator/" />
+<link rel="prev" href="http://localhost:4000/spring/spring-framework" />
  
-<link rel="next" href="http://localhost:4000/java/java-loop/" />
+<link rel="next" href="http://localhost:4000/javascript/javascript-overview" />
 
 
 <link
@@ -173,18 +173,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/java-conditional-statement"
+  id="post-spring/spring-boot-getting-started"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 조건문 
+       [Spring Boot] Spring Boot 시작하기 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-23T12:00:00+09:00"
-        >23 Jun 2023</time
+      <time datetime="2023-06-21T01:45:00+09:00"
+        >21 Jun 2023</time
       >
       
 
@@ -196,7 +196,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 
 
 
-in <a href="/category/java/" data-flip="title">Java</a>
+in <a href="/category/spring/" data-flip="title">Spring</a>
  
 
 
@@ -207,7 +207,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 
 
-
+on <a href="/tag/spring-boot/" data-flip="title">Boot</a>
 
     </p>
 
@@ -239,179 +239,94 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="조건문">조건문</h1>
+    <h1 id="spring-boot">Spring Boot</h1>
 
-<h3 id="조건문-1">조건문</h3>
+<h2 id="spring-boot를-사용하는-이유">Spring Boot를 사용하는 이유</h2>
 
-<p>코드를 조건에 따라 코드의 실행 흐름을 제어하는 기능을 가진 제어문입니다.</p>
+<p>스프링 부트는 스프링 프레임워크에 비해 설정이 간단하며 서버를 내장하고 있어 애플리케이션을 독립적으로 사용할 수 있고 외부 서버에 배포할 필요가 없습니다.</p>
 
-<h3 id="if-문">if 문</h3>
+<h2 id="spring-boot-시작하기">Spring Boot 시작하기</h2>
 
-<p>if 문은 조건의 결과에 따라 블록 실행 여부가 결정됩니다.</p>
+<h3 id="1-자바-설치-확인하기">1. 자바 설치 확인하기</h3>
 
-<p>조건식에는 true 또는 false 값을 반환하는 연산식이나 boolean 타입의 변수가 올 수 있습니다. 조건식이 true이면 블록을 실행하고 false이면 블록을 실행하지 않습니다. 블록 안에 실행문이 하나라면 중괄호를 생략할 수 있습니다.</p>
+<p>터미널을 열고 다음 명령어를 실행해서 Java가 설치되어 있는지 확인합니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">실행문</span><span class="o">;</span>
-  <span class="o">...</span>
-<span class="o">}</span>
-
-<span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span>
-  <span class="n">실행문</span><span class="o">;</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
+openjdk version "17.0.4.1" 2022-08-12 LTS
+OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
+OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 </code></pre></div></div>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+<h3 id="2-스프링-프로젝트-생성">2. 스프링 프로젝트 생성</h3>
 
-<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="c1">// 또는</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
-</code></pre></div></div>
+<p>먼저 spring initializr를 이용하여 스프링 부트 프로젝트를 만듭니다.</p>
 
-<h3 id="if-else-문">if-else 문</h3>
+<p><a href="https://start.spring.io/">https://start.spring.io/</a></p>
 
-<p>if 문으로만 복잡한 내용을 처리하는 데 한계가 있습니다. if-else 문은 조건식이 true이면 if 문 블록이 실행되고, false이면 else 블록이 실행됩니다.</p>
+<p>링크에 접속해 아래와 같이 설정을 한 후 GENERATE를 누릅니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식</span><span class="o">)</span> <span class="o">{</span>
-  <span class="c1">// 조건식이 true일 때 실행</span>
-  <span class="n">실행문</span><span class="o">;</span>
-  <span class="o">...</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-  <span class="c1">//조건식이 false일 때 실행</span>
-  <span class="n">실행문</span><span class="o">;</span>
-  <span class="o">...</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<ul>
+  <li>Project
+    <ul>
+      <li>gradle - Groovy</li>
+    </ul>
+  </li>
+  <li>Language
+    <ul>
+      <li>Java</li>
+    </ul>
+  </li>
+  <li>Spring Boot
+    <ul>
+      <li>3.1.0</li>
+    </ul>
+  </li>
+  <li>Packaging
+    <ul>
+      <li>Jar</li>
+    </ul>
+  </li>
+  <li>Java
+    <ul>
+      <li>17</li>
+    </ul>
+  </li>
+  <li>Dependencies
+    <ul>
+      <li>Spring Web</li>
+    </ul>
+  </li>
+</ul>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+<p>GENERATE를 눌러 압축 파일이 생성되었다면 압축을 풀어줍니다.</p>
 
-<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 작거나 같다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>압축을 풀었다면 vscode, intellij 같은 개발 환경에서 프로젝트를 열어줍니다.</p>
 
-<h3 id="else-if-문">else if 문</h3>
+<h3 id="3-hello-world-출력하기">3. Hello World 출력하기</h3>
 
-<p>else if문은 2개 이상의 조건식을 사용하여 흐름을 제어할 수 있습니다.</p>
+<p>프로젝트가 정상적으로 열렸다면 src/main/java/…/DemoApplication.java 파일을 열어 다음과 같이 수정합니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(</span><span class="n">조건식1</span><span class="o">)</span> <span class="o">{</span>
-  <span class="c1">// 조건식1이 true이면 실행</span>
-  <span class="n">실행문</span><span class="o">;</span>
-<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">조건식2</span><span class="o">)</span> <span class="o">{</span>
-  <span class="c1">// 조건식2가 true이면 실행</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-  <span class="c1">// 조건식이 모두 false이면 실행</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RestController</span>
+<span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoApplication</span> <span class="o">{</span>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+    <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="s">"Hello World!"</span><span class="o">;</span>
+    <span class="o">}</span>
 
-<span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 크다."</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5와 같다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5보다 작다."</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">DemoApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
 
-<h3 id="switch-문">switch 문</h3>
-
-<p>switch 문도 if 문과 마찬가지로 흐름을 제어할 때 사용됩니다.</p>
-
-<p>switch 문은 괄호 안의 변수값에 따라 해당 case로 가서 실행문을 실행시킵니다. 만약 변수값과 동일한 값을 갖는 case가 없으면 default로 가서 실행문을 실행시킵니다. default는 생략이 가능합니다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">break</code> 키워드는 switch문 밖으로 빠져나가는 기능을 하는 키워드입니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span><span class="o">(</span><span class="n">변수</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">case</span> <span class="nl">값1:</span>
-    <span class="n">실행문1</span><span class="o">;</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="nl">값2:</span>
-    <span class="n">실행문2</span><span class="o">;</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="n">실행문3</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">6</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<p>위와 같이 수정하였으면 애플리케이션을 실행합니다. 실행 후 브라우저에 접속하여 url 입력창에 “http://localhost:8080” 을 입력하여 “Hello World!” 문구가 보인다면 성공입니다.</p>
 
-<span class="k">switch</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1 입니다."</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2 입니다."</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 입니다."</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4 입니다."</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5 입니다."</span><span class="o">);</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"6 입니다."</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>@RestController는 여기로 HTTP 요청을 처리하고 반환 데이터는 Json 형태로 반환한다는 뜻으로 생각하면 됩니다. @RequstMapping은 특정 url이나 url 패턴을 이 메서드에 매핑한다는 뜻입니다.</p>
 
-<p>만약 <code class="language-plaintext highlighter-rouge">break</code> 키워드를 사용하지 않는다면 변수값에 맞는 case가 실행된 후 <code class="language-plaintext highlighter-rouge">break</code> 키워드를 만나기 전까지 다음 case들도 실행이 됩니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-<span class="k">switch</span><span class="o">(</span><span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"1 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"2 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-  <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"3 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-  <span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"4 입니다."</span><span class="o">);</span> <span class="c1">// 실행 o</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">case</span> <span class="mi">5</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"5 입니다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
-    <span class="k">break</span><span class="o">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"6 입니다."</span><span class="o">);</span> <span class="c1">// 실행 x</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>자바 14 이후부터 Switch Expressions을 사용하면 값을 변수에 바로 대입할 수도 있습니다. 단일 값이라면 화살표 오른쪽에 값을 기술하면 되고, 중괄호를 사용할 경우에는 <code class="language-plaintext highlighter-rouge">yield</code> 키워드로 값을 지정하면 됩니다. 이 경우에는 default가 존재해야 합니다.</p>
-
-<p>1~4 사이의 값을 Switch Expressions 을 이용해서 모두 5로 변환시켜 보겠습니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)(</span><span class="nc">Math</span><span class="o">.</span><span class="na">random</span><span class="o">()*</span><span class="mi">4</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-
-<span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="k">switch</span><span class="o">(</span><span class="n">num1</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">case</span> <span class="mi">1</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 1입니다."</span><span class="o">);</span>
-    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">4</span><span class="o">;</span>
-  <span class="o">}</span>
-  <span class="k">case</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 2입니다."</span><span class="o">);</span>
-    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">3</span><span class="o">;</span>
-  <span class="o">}</span>
-  <span class="k">case</span> <span class="mi">3</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 3입니다."</span><span class="o">);</span>
-    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">;</span>
-  <span class="o">}</span>
-  <span class="k">default</span> <span class="o">-&gt;</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"num1은 4입니다."</span><span class="o">);</span>
-    <span class="n">yield</span> <span class="n">num1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-  <span class="o">}</span>
-<span class="o">};</span>
-
-<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num2</span><span class="o">);</span>
-
-</code></pre></div></div>
+<p>스프링 부트를 사용하면 이와 같이 따로 서버를 설치 및 설정하지도 않고 간단한 설정만으로 웹 애플리케이션을 만들고 실행할 수 있는 장점이 있습니다.</p>
 
     <br />
   </div>
@@ -438,14 +353,14 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/java/java-operator/"
+    <a id="prev" class="button" href="/spring/spring-framework"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
     
-    <a id="next" class="button" href="/java/java-loop/">다음글 &raquo;</a>
+    <a id="next" class="button" href="/javascript/javascript-overview">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -460,38 +375,6 @@ in <a href="/category/java/" data-flip="title">Java</a>
       
       
         
-        
-          
-
-
-<li class="h4">
-  <a href="/java/java-method-class/" data-flip="title">
-    <span>[Java] 클래스와 메소드</span>
-  </a>
-  <small><time datetime="2023-06-27T21:30:00+09:00">
-    27 Jun 2023
-  </time></small>
-</li>
-
-        
-      
-        
-        
-          
-
-
-<li class="h4">
-  <a href="/java/java-loop/" data-flip="title">
-    <span>[Java] 반복문</span>
-  </a>
-  <small><time datetime="2023-06-23T12:00:00+09:00">
-    23 Jun 2023
-  </time></small>
-</li>
-
-        
-      
-        
           
           
         
@@ -500,11 +383,11 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 
 <li class="h4">
-  <a href="/java/java-operator/" data-flip="title">
-    <span>[Java] 연산자</span>
+  <a href="/spring/spring-framework" data-flip="title">
+    <span>[Spring Framework] Spring Framework란?</span>
   </a>
-  <small><time datetime="2023-06-22T22:30:00+09:00">
-    22 Jun 2023
+  <small><time datetime="2023-06-20T16:40:00+09:00">
+    20 Jun 2023
   </time></small>
 </li>
 

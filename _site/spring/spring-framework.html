@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 반복문" />
+<meta property="og:title" content="[Spring Framework] Spring Framework란?" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 반복문 &middot; 고개의 블로그</title>
+<title>[Spring Framework] Spring Framework란? &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="반복문
+  content="Spring Framework란?
 
 "
 />
 <meta
   property="og:description"
-  content="반복문
+  content="Spring Framework란?
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/java-loop/" />
-<meta property="og:url" content="http://localhost:4000/java/java-loop/" />
+<link rel="canonical" href="http://localhost:4000/spring/spring-framework" />
+<meta property="og:url" content="http://localhost:4000/spring/spring-framework" />
 
 <link
   rel="alternate"
@@ -69,10 +69,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
   href="http://localhost:4000/feed.xml"
 />
 
-
-<link rel="prev" href="http://localhost:4000/java/java-conditional-statement/" />
  
-<link rel="next" href="http://localhost:4000/java/java-method-class/" />
+<link rel="next" href="http://localhost:4000/spring/spring-boot-getting-started" />
 
 
 <link
@@ -173,18 +171,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/java-loop"
+  id="post-spring/spring-framework"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 반복문 
+       [Spring Framework] Spring Framework란? 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-23T12:00:00+09:00"
-        >23 Jun 2023</time
+      <time datetime="2023-06-20T16:40:00+09:00"
+        >20 Jun 2023</time
       >
       
 
@@ -196,7 +194,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 
 
 
-in <a href="/category/java/" data-flip="title">Java</a>
+in <a href="/category/spring/" data-flip="title">Spring</a>
  
 
 
@@ -207,7 +205,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 
 
-
+on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
 
     </p>
 
@@ -239,142 +237,58 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="반복문">반복문</h1>
+    <h1 id="spring-framework란">Spring Framework란?</h1>
 
-<h3 id="반복문-1">반복문</h3>
+<h2 id="spring-framework란-1">Spring Framework란?</h2>
 
-<p>반복문이란 프로그램 내에서 똑같은 명령을 일정 횟수만큼 반복하여 수행하도록 하는 제어문입니다.</p>
+<p>스프링은 자바 프로그래밍을 더 빠르고 쉽고 안전하게 만들기 위한 프레임워크입니다.</p>
 
-<h3 id="for-문">for 문</h3>
+<h2 id="핵심-개념">핵심 개념</h2>
 
-<p>for 문은 초기화식, 조건식, 증감식, 실행문으로 구성되어 있습니다. 초기화식은 조건식과 실행문, 증감식에서 사용할 변수를 초기화하는 역할을 합니다. 증감식은 반복문을 제어하는 변수의 값을 증가 또는 감소시키는 역할을 합니다.</p>
+<h3 id="iocinversion-of-control-컨테이너">IoC(Inversion of Control) 컨테이너</h3>
 
-<p><strong>for 문 실행 순서</strong></p>
+<p>IoC 컨테이너는 Bean의 인스턴스화, 구성 및 조립을 담당합니다.</p>
 
-<ol>
-  <li>
-    <p>제일 먼저 초기화식이 실행됩니다.</p>
-  </li>
-  <li>
-    <p>조건식을 평가합니다.</p>
-  </li>
-  <li>
-    <p>평가 결과가 “true”라면 실행문을 모두 실행한 후 증감식이 실행됩니다.</p>
+<p>스프링의 IoC 컨테이너는 애플리케이션이 시작되면 XML, 어노테이션 또는 Java 클래스의 메타데이터를 활용하여 객체를 생성, 인스턴스화 및 의존성 주입을 처리하여 개발자가 명시적으로 관리하지 않도록 합니다.</p>
 
-    <ul>
-      <li>“false”라면 for 문을 종료합니다.</li>
-    </ul>
-  </li>
-  <li>
-    <p>그리고 2번 과정을 다시 실행합니다.</p>
-  </li>
-</ol>
+<h3 id="didependency-injection-의존성-주입">DI(Dependency Injection, 의존성 주입)</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="n">초기화식</span><span class="o">;</span> <span class="n">조건식</span><span class="o">;</span> <span class="n">증감식</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">실행문</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>DI란 사용할 객체를 직접 생성하지 않고 외부 컨테이너가 생성한 객체를 주입받아 사용하는 방식입니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span> <span class="c1">// 1 2 3 4</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>스프링 프레임워크에서는 세 가지 방법으로 의존성을 주입합니다.</p>
 
-<h3 id="while-문">while 문</h3>
+<ul>
+  <li>생성자를 통한 의존성 주입</li>
+  <li>세터 메서드를 통한 의존성 주입</li>
+  <li>필드에 직접 의존성 주입</li>
+</ul>
 
-<p>while 문은 조건식이 “true”일 경우 계속해서 반복하고, false가 되면 반복을 멈추고 while 문을 종료합니다.</p>
+<p>DI의 이점 중 하나는 의존성 관리를 IoC 컨테이너에 위임함으로써 객체를 구체적인 구현이 아닌 추상화에 의존하여 구성 요소 간의 느슨한 결합이 촉진됩니다. 이를 통해 개별 구성 요소의 격리된 테스트가 가능하므로 단위 테스트를 보다 쉽게 작성할 수 있습니다.</p>
 
-<p><strong>while 문 실행 순서</strong></p>
+<h3 id="aopaspect-oriented-programming">AOP(Aspect-Oriented Programming)</h3>
 
-<ol>
-  <li>
-    <p>조건식을 평가합니다.</p>
-  </li>
-  <li>
-    <p>평가 결과가 “true”일 때 실행문을 모두 실행한 후 조건식을 다시 평가합니다.</p>
-    <ul>
-      <li>평과 결과가 “false”이면 실행문을 종료합니다.</li>
-    </ul>
-  </li>
-</ol>
+<p>AOP는 애플리케이션의 핵심 비즈니스 논리에서 횡단 관심사(공통 관심사)를 분리하기 위한 프로그래밍 패러다임입니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span><span class="o">(</span><span class="n">조건식</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">실행문</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p><strong>AOP의 핵심 개념</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span>  <span class="c1">// 1 2 3 4</span>
-  <span class="n">num</span><span class="o">++;</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<ul>
+  <li>Aspect: 공통 관심사를 모듈화 한 것으로 일반적으로 애플리케이션의 여러 객체 또는 모듈에 적용되어야 하는 특정 동작 또는 작업을 정의합니다.</li>
+  <li>Join Point: 조인 포인트는 Aspect가 적용 될 수 있는 특정 포인트를 나타냅니다. 조인 포인트의 예로는 메서드 호출, 예외 처리, 제어 흐름의 특정 지점이 있습니다.</li>
+  <li>Advice: 조인 포인트에 도달했을 때 발생해야 하는 일을 정의합니다. 일반적인 유형의 어드바이스는 “before”, “after”, “around”, “after-throwing” 그리고 “after-returning”이 있습니다.</li>
+  <li>Pointcut: 애플리케이션에서 어떤 조인 포인트를 가로채고 관련 어드바이스를 적용해야 하는지 결정하는 표현식입니다. 이를 통해 개발자는 Aspect의 정확한 위치 또는 조건을 지정할 수 있습니다.</li>
+</ul>
 
-<h3 id="do-while-문">do-while 문</h3>
+<h2 id="주요-기능">주요 기능</h2>
 
-<p>do-while 문은 while 문과 비슷하지만 블록 내부를 먼저 실행시킨다는 차이점이 있습니다.</p>
+<h3 id="스프링-mvc">스프링 MVC</h3>
 
-<p><strong>do-while 문 실행 순서</strong></p>
+<p>Spring MVC(Model-View-Controller)는 웹 애플리케이션 구축에 대한 구조화된 접근 방식을 제공하는 웹 프레임워크입니다. Spring MVC는 웹 개발을 단순화하기 위한 다양한 기능을 제공합니다. 컨트롤러가 요청 처리를 위해 특정 URL 또는 URL 패턴을 메서드에 매핑할 수 있는 요청 매핑 기능 등이 있습니다. MVC(Model-View-Controller) 아키텍처 패턴을 따르며 애플리케이션을 세 가지 주요 구성 요소(모델, 뷰, 컨트롤러)로 구분합니다.</p>
 
-<ol>
-  <li>실행문을 먼저 실행합니다.
-<br /></li>
-  <li>실행문이 모두 실행되면 조건식을 평가합니다.
-<br /></li>
-  <li>평가 결과가 “true”이면 실행문을 실행 후 조건식으로 돌아가서 조건식을 다시 평가합니다.
-    <ul>
-      <li>“false”이면 do-while문을 종료합니다.</li>
-    </ul>
-  </li>
-</ol>
+<p>모델은 애플리케이션의 데이터 및 비즈니스 로직을 나타냅니다. 애플리케이션의 데이터, 상태 및 동작을 캡슐화합니다. Spring MVC에서 모델은 일반적으로 애플리케이션 데이터를 보유하고 데이터베이스 또는 데이터 소스와 상호 작용하는 Java클래스 또는 POJO(Plain Old Java Objects)로 구성됩니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="o">{</span>
-  <span class="n">실행문</span><span class="o">;</span>
-<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">조건문</span><span class="o">);</span>
-</code></pre></div></div>
+<p>뷰는 사용자에게 데이터를 제공하는 역할을 합니다. 애플리케이션 사용자 인터페이스의 시각적 표현을 정의합니다. Spring MVC에서 뷰는 JSP, Thymeleaf 와 같은 템플릿 기술을 사용하여 구현됩니다. 뷰는 클라이언트로 다시 전송되는 응답을 렌더링하는 역할을 합니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
-<span class="k">do</span> <span class="o">{</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span> <span class="c1">// 5</span>
-<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="o">);</span>
-</code></pre></div></div>
-
-<h3 id="break-문">break 문</h3>
-
-<p>break 문은 반복문인 for 문, while 문, do-while 문을 실행 중지하거나 조건문인 switch 문을 종료할 때 사용합니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-  <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span>
-    <span class="k">break</span><span class="o">;</span>
-
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span> <span class="c1">// 1 2</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="continue-문">continue 문</h3>
-
-<p>continue 문은 반복문에서 사용되는데, 블록 내부에서 continue 문이 실행되면 for 문의 증감식 또는 while 문, do-while 문의 조건식으로 바로 이동합니다.</p>
-
-<p>continue 문은 반복문을 종료하지 않고 계속 반복을 수행한다는 점이 break 문과 다릅니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-  <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span>
-    <span class="k">continue</span><span class="o">;</span>
-
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span> <span class="c1">// 1 2 4</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-
-<span class="k">while</span> <span class="o">(</span><span class="n">num</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">num</span><span class="o">++;</span>
-    <span class="k">continue</span><span class="o">;</span>
-  <span class="o">}</span>
-  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">num</span><span class="o">++</span> <span class="o">+</span> <span class="s">" "</span><span class="o">);</span> <span class="c1">// 1 2 4</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<p>컨트롤러는 모델과 뷰 사이의 중개자 역할을 합니다. 사용자 요청을 수신 및 처리하고, 필요한 처리를 수행하고, 응답을 생성하는 데 사용할 적절한 모델과 뷰를 결정합니다. Spring MVC의 컨트롤러는 Java 클래스로 구현되며 HTTP 요청 처리, 양식 데이터 처리, 비즈니스 로직 호출 및 뷰에서 렌더링할 모델 준비를 담당합니다.</p>
 
     <br />
   </div>
@@ -401,14 +315,10 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/java/java-conditional-statement/"
-      >&laquo; 이전글</a
-    >
-    
   </div>
   <div>
     
-    <a id="next" class="button" href="/java/java-method-class/">다음글 &raquo;</a>
+    <a id="next" class="button" href="/spring/spring-boot-getting-started">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -428,11 +338,11 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 
 <li class="h4">
-  <a href="/java/java-method-class/" data-flip="title">
-    <span>[Java] 클래스와 메소드</span>
+  <a href="/spring/spring-boot-getting-started" data-flip="title">
+    <span>[Spring Boot] Spring Boot 시작하기</span>
   </a>
-  <small><time datetime="2023-06-27T21:30:00+09:00">
-    27 Jun 2023
+  <small><time datetime="2023-06-21T01:45:00+09:00">
+    21 Jun 2023
   </time></small>
 </li>
 
@@ -441,38 +351,6 @@ in <a href="/category/java/" data-flip="title">Java</a>
         
           
           
-        
-        
-          
-
-
-<li class="h4">
-  <a href="/java/java-conditional-statement/" data-flip="title">
-    <span>[Java] 조건문</span>
-  </a>
-  <small><time datetime="2023-06-23T12:00:00+09:00">
-    23 Jun 2023
-  </time></small>
-</li>
-
-        
-      
-        
-        
-          
-
-
-<li class="h4">
-  <a href="/java/java-operator/" data-flip="title">
-    <span>[Java] 연산자</span>
-  </a>
-  <small><time datetime="2023-06-22T22:30:00+09:00">
-    22 Jun 2023
-  </time></small>
-</li>
-
-        
-      
     
   </ul>
 </aside>

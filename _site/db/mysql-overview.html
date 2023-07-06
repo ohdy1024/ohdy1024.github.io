@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Spring Boot] Spring Boot 시작하기" />
+<meta property="og:title" content="[MySQL] MySQL" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Spring Boot] Spring Boot 시작하기 &middot; 고개의 블로그</title>
+<title>[MySQL] MySQL &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="Spring Boot
+  content="MySQL
 
 "
 />
 <meta
   property="og:description"
-  content="Spring Boot
+  content="MySQL
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/spring/spring-boot-getting-started/" />
-<meta property="og:url" content="http://localhost:4000/spring/spring-boot-getting-started/" />
+<link rel="canonical" href="http://localhost:4000/db/mysql-overview" />
+<meta property="og:url" content="http://localhost:4000/db/mysql-overview" />
 
 <link
   rel="alternate"
@@ -70,9 +70,9 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/spring/spring-framework/" />
+<link rel="prev" href="http://localhost:4000/java/java-overview" />
  
-<link rel="next" href="http://localhost:4000/javascript/javascript-overview/" />
+<link rel="next" href="http://localhost:4000/java/java-getting-started" />
 
 
 <link
@@ -173,17 +173,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-spring/spring-boot-getting-started"
+  id="post-db/mysql-overview"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Spring Boot] Spring Boot 시작하기 
+       [MySQL] MySQL 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-21T01:45:00+09:00"
+      <time datetime="2023-06-21T18:45:00+09:00"
         >21 Jun 2023</time
       >
       
@@ -196,7 +196,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 
 
 
-in <a href="/category/spring/" data-flip="title">Spring</a>
+in <a href="/category/db/" data-flip="title">데이터베이스</a>
  
 
 
@@ -207,7 +207,7 @@ in <a href="/category/spring/" data-flip="title">Spring</a>
 
 
 
-on <a href="/tag/spring-boot/" data-flip="title">Boot</a>
+on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
     </p>
 
@@ -239,94 +239,25 @@ on <a href="/tag/spring-boot/" data-flip="title">Boot</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="spring-boot">Spring Boot</h1>
+    <h1 id="mysql">MySQL</h1>
 
-<h2 id="spring-boot를-사용하는-이유">Spring Boot를 사용하는 이유</h2>
+<h3 id="mysql-1">MySQL</h3>
 
-<p>스프링 부트는 스프링 프레임워크에 비해 설정이 간단하며 서버를 내장하고 있어 애플리케이션을 독립적으로 사용할 수 있고 외부 서버에 배포할 필요가 없습니다.</p>
+<p>MySQL은 Oracle에서 개발하여 널리 사용되는 관계형 데이터베이스 관리 시스템(RDBMS)입니다. 다양한 애플리케이션에서 구조화된 데이터를 관리하기 위한 도구 역할을 합니다.</p>
 
-<h2 id="spring-boot-시작하기">Spring Boot 시작하기</h2>
+<h3 id="mysql-특징">MySQL 특징</h3>
 
-<h3 id="1-자바-설치-확인하기">1. 자바 설치 확인하기</h3>
+<p><strong>데이터베이스 관리 시스템</strong>: MySQL은 사용자가 데이터베이스를 생성, 구성 및 관리할 수 있는 데이터베이스 관리 시스템입니다. 데이터베이스는 단순한 목록에서 복잡한 시스템에 이르기까지 다양할 수 있는 구조화된 데이터 모음입니다. MySQL은 데이터 저장, 검색 및 조작을 위한 강력하고 효율적인 플랫폼을 제공합니다.</p>
 
-<p>터미널을 열고 다음 명령어를 실행해서 Java가 설치되어 있는지 확인합니다.</p>
+<p><strong>관계형 데이터베이스</strong>: MySQL은 데이터를 미리 정의된 관계가 있는 테이블로 구성하기 때문에 관계형 데이터베이스 관리 시스템으로 분류됩니다. 데이터가 행(레코드)과 열(속성)로 구성된 테이블에 저장되는 관계형 모델의 원칙을 따릅니다. 이러한 테이블은 기본 및 외래 키 제약 조건을 통해 서로 관련될 수 있으므로 효율적인 데이터 검색 및 조작이 가능합니다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -version
-openjdk version "17.0.4.1" 2022-08-12 LTS
-OpenJDK Runtime Environment (build 17.0.4.1+1-LTS)
-OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
-</code></pre></div></div>
+<p><strong>구조적 쿼리 언어(SQL)</strong>: MySQL은 데이터베이스 관리를 위한 표준 언어로 SQL(구조적 쿼리 언어)을 사용합니다. SQL은 데이터베이스 생성, 수정 및 쿼리를 위한 다양한 명령 및 구문 세트를 제공합니다. 사용자는 SQL 문을 사용하여 MySQL 데이터베이스와 상호 작용하고 데이터 삽입, 업데이트, 삭제 및 검색과 같은 작업을 수행하고 복잡한 쿼리를 정의하여 데이터베이스에서 특정 정보를 추출할 수 있습니다.</p>
 
-<h3 id="2-스프링-프로젝트-생성">2. 스프링 프로젝트 생성</h3>
+<p><strong>클라이언트/서버 아키텍처</strong>: MySQL은 클라이언트/서버 아키텍처에서 작동합니다. MySQL 서버는 데이터베이스 저장 및 관리를 담당하고 클라이언트 애플리케이션은 서버에 연결하여 데이터와 상호 작용합니다. 명령줄 도구, 그래픽 사용자 인터페이스 또는 웹 기반 애플리케이션과 같은 여러 클라이언트 프로그램이 동시에 MySQL 서버에 액세스할 수 있습니다.</p>
 
-<p>먼저 spring initializr를 이용하여 스프링 부트 프로젝트를 만듭니다.</p>
+<p><strong>확장성 및 성능</strong>: MySQL은 확장성 및 성능 기능으로 유명합니다. 소규모에서 대규모 애플리케이션까지 처리할 수 있으며 높은 동시 사용자 액세스를 지원합니다. MySQL은 다양한 최적화 기술, 캐싱 메커니즘 및 인덱싱 옵션을 제공하여 성능을 개선하고 효율적인 데이터 검색을 보장합니다.</p>
 
-<p><a href="https://start.spring.io/">https://start.spring.io/</a></p>
-
-<p>링크에 접속해 아래와 같이 설정을 한 후 GENERATE를 누릅니다.</p>
-
-<ul>
-  <li>Project
-    <ul>
-      <li>gradle - Groovy</li>
-    </ul>
-  </li>
-  <li>Language
-    <ul>
-      <li>Java</li>
-    </ul>
-  </li>
-  <li>Spring Boot
-    <ul>
-      <li>3.1.0</li>
-    </ul>
-  </li>
-  <li>Packaging
-    <ul>
-      <li>Jar</li>
-    </ul>
-  </li>
-  <li>Java
-    <ul>
-      <li>17</li>
-    </ul>
-  </li>
-  <li>Dependencies
-    <ul>
-      <li>Spring Web</li>
-    </ul>
-  </li>
-</ul>
-
-<p>GENERATE를 눌러 압축 파일이 생성되었다면 압축을 풀어줍니다.</p>
-
-<p>압축을 풀었다면 vscode, intellij 같은 개발 환경에서 프로젝트를 열어줍니다.</p>
-
-<h3 id="3-hello-world-출력하기">3. Hello World 출력하기</h3>
-
-<p>프로젝트가 정상적으로 열렸다면 src/main/java/…/DemoApplication.java 파일을 열어 다음과 같이 수정합니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RestController</span>
-<span class="nd">@SpringBootApplication</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoApplication</span> <span class="o">{</span>
-
-    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
-    <span class="nc">String</span> <span class="nf">home</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="s">"Hello World!"</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">DemoApplication</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
-    <span class="o">}</span>
-
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>위와 같이 수정하였으면 애플리케이션을 실행합니다. 실행 후 브라우저에 접속하여 url 입력창에 “http://localhost:8080” 을 입력하여 “Hello World!” 문구가 보인다면 성공입니다.</p>
-
-<p>@RestController는 여기로 HTTP 요청을 처리하고 반환 데이터는 Json 형태로 반환한다는 뜻으로 생각하면 됩니다. @RequstMapping은 특정 url이나 url 패턴을 이 메서드에 매핑한다는 뜻입니다.</p>
-
-<p>스프링 부트를 사용하면 이와 같이 따로 서버를 설치 및 설정하지도 않고 간단한 설정만으로 웹 애플리케이션을 만들고 실행할 수 있는 장점이 있습니다.</p>
+<p><strong>오픈 소스</strong>: MySQL은 오픈 소스 소프트웨어이므로 GNU GPL(일반 공중 사용 허가서)의 조건에 따라 자유롭게 사용, 수정 및 배포할 수 있습니다. 오픈 소스 특성은 광범위한 채택, 적극적인 커뮤니티 지원, 주변에 구축된 도구 및 프레임워크의 방대한 생태계에 기여했습니다.</p>
 
     <br />
   </div>
@@ -353,14 +284,14 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/spring/spring-framework/"
+    <a id="prev" class="button" href="/java/java-overview"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
     
-    <a id="next" class="button" href="/javascript/javascript-overview/">다음글 &raquo;</a>
+    <a id="next" class="button" href="/java/java-getting-started">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -377,22 +308,6 @@ OpenJDK 64-Bit Server VM (build 17.0.4.1+1-LTS, mixed mode, sharing)
         
           
           
-        
-        
-          
-
-
-<li class="h4">
-  <a href="/spring/spring-framework/" data-flip="title">
-    <span>[Spring Framework] Spring Framework란?</span>
-  </a>
-  <small><time datetime="2023-06-20T16:40:00+09:00">
-    20 Jun 2023
-  </time></small>
-</li>
-
-        
-      
     
   </ul>
 </aside>

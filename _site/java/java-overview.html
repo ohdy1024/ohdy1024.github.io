@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Spring Framework] Spring Framework란?" />
+<meta property="og:title" content="[Java] 자바란?" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Spring Framework] Spring Framework란? &middot; 고개의 블로그</title>
+<title>[Java] 자바란? &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="Spring Framework란?
+  content="자바
 
 "
 />
 <meta
   property="og:description"
-  content="Spring Framework란?
+  content="자바
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/spring/spring-framework/" />
-<meta property="og:url" content="http://localhost:4000/spring/spring-framework/" />
+<link rel="canonical" href="http://localhost:4000/java/java-overview" />
+<meta property="og:url" content="http://localhost:4000/java/java-overview" />
 
 <link
   rel="alternate"
@@ -69,8 +69,10 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
   href="http://localhost:4000/feed.xml"
 />
 
+
+<link rel="prev" href="http://localhost:4000/javascript/javascript-overview" />
  
-<link rel="next" href="http://localhost:4000/spring/spring-boot-getting-started/" />
+<link rel="next" href="http://localhost:4000/db/mysql-overview" />
 
 
 <link
@@ -171,18 +173,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-spring/spring-framework"
+  id="post-java/java-overview"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Spring Framework] Spring Framework란? 
+       [Java] 자바란? 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-06-20T16:40:00+09:00"
-        >20 Jun 2023</time
+      <time datetime="2023-06-21T17:50:00+09:00"
+        >21 Jun 2023</time
       >
       
 
@@ -194,7 +196,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 
 
 
-in <a href="/category/spring/" data-flip="title">Spring</a>
+in <a href="/category/java/" data-flip="title">Java</a>
  
 
 
@@ -205,7 +207,7 @@ in <a href="/category/spring/" data-flip="title">Spring</a>
 
 
 
-on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
+
 
     </p>
 
@@ -237,58 +239,41 @@ on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="spring-framework란">Spring Framework란?</h1>
+    <h1 id="자바">자바</h1>
 
-<h2 id="spring-framework란-1">Spring Framework란?</h2>
+<h3 id="자바란">자바란?</h3>
 
-<p>스프링은 자바 프로그래밍을 더 빠르고 쉽고 안전하게 만들기 위한 프레임워크입니다.</p>
+<p>썬 마이크로시스템즈에서 1995년에 개발한 객체 지향 프로그래밍 언어이다.</p>
 
-<h2 id="핵심-개념">핵심 개념</h2>
+<h3 id="자바-특징">자바 특징</h3>
 
-<h3 id="iocinversion-of-control-컨테이너">IoC(Inversion of Control) 컨테이너</h3>
+<p>자바는 클래스 기반의 객체 지향 프로그래밍 언어입니다.</p>
 
-<p>IoC 컨테이너는 Bean의 인스턴스화, 구성 및 조립을 담당합니다.</p>
+<p>자바는 JVM(Java Virtual Machine)이 설치된 모든 플랫폼에서 실행할 수 있는 바이트코드로 컴파일할 수 있습니다. 이러한 플랫폼 독립성은 Java 응용 프로그램을 다양한 운영체제 및 하드웨어 아키텍처에서 이식할 수 있도록 합니다.</p>
 
-<p>스프링의 IoC 컨테이너는 애플리케이션이 시작되면 XML, 어노테이션 또는 Java 클래스의 메타데이터를 활용하여 객체를 생성, 인스턴스화 및 의존성 주입을 처리하여 개발자가 명시적으로 관리하지 않도록 합니다.</p>
+<p>자바는 더 이상 사용되지 않는 프로그램의 메모리를 자동으로 해제합니다. 따라서 따로 메모리를 관리하지 않아도 되므로, 프로그래밍을 쉽게 할 수 있도록 도와줍니다.</p>
 
-<h3 id="didependency-injection-의존성-주입">DI(Dependency Injection, 의존성 주입)</h3>
+<h3 id="객체-지향-프로그래밍oop">객체 지향 프로그래밍(OOP)</h3>
 
-<p>DI란 사용할 객체를 직접 생성하지 않고 외부 컨테이너가 생성한 객체를 주입받아 사용하는 방식입니다.</p>
+<p>객체 지향 프로그래밍은 데이터와 코드를 결합하는 객체 개념을 중심으로 소프트웨어 설계를 구성하고 구조화하는 데 중점을 둔 프로그래밍 패러다임입니다.</p>
 
-<p>스프링 프레임워크에서는 세 가지 방법으로 의존성을 주입합니다.</p>
+<p><strong>객체 지향 프로그램이 핵심 원칙</strong></p>
 
-<ul>
-  <li>생성자를 통한 의존성 주입</li>
-  <li>세터 메서드를 통한 의존성 주입</li>
-  <li>필드에 직접 의존성 주입</li>
-</ul>
+<p><strong>캡슐화(Encapsulation)</strong>: 캡슐화란 데이터와 코드의 형태를 외부로부터 알 수 없게하고, 데이터의 구조와 역할, 기능을 하나의 캡슐형태로 만드는 방법입니다.</p>
 
-<p>DI의 이점 중 하나는 의존성 관리를 IoC 컨테이너에 위임함으로써 객체를 구체적인 구현이 아닌 추상화에 의존하여 구성 요소 간의 느슨한 결합이 촉진됩니다. 이를 통해 개별 구성 요소의 격리된 테스트가 가능하므로 단위 테스트를 보다 쉽게 작성할 수 있습니다.</p>
+<p>자바에서는 <code class="language-plaintext highlighter-rouge">public</code>, <code class="language-plaintext highlighter-rouge">private</code>, <code class="language-plaintext highlighter-rouge">protected</code> 및 <code class="language-plaintext highlighter-rouge">default</code> 와 같은 접근 제한자를 통해 필요한 정보만 외부로 노출시킬 수 있습니다. 또 다른 방법으로 모든 속성을 <code class="language-plaintext highlighter-rouge">private</code> 접근 제한자로 선언을 한 후 <code class="language-plaintext highlighter-rouge">getter/setter</code> 메서드를 통해 외부에서의 접근을 선택적으로 허용할 수 있습니다.</p>
 
-<h3 id="aopaspect-oriented-programming">AOP(Aspect-Oriented Programming)</h3>
+<p><strong>상속(Inheritance)</strong>: 상속이란 기존 상위클래스에 기능을 가져와 재사용할 수 있으면서도 동시에 하위 클래스에 새로운 기능도 추가할 수 있는 것입니다.</p>
 
-<p>AOP는 애플리케이션의 핵심 비즈니스 논리에서 횡단 관심사(공통 관심사)를 분리하기 위한 프로그래밍 패러다임입니다.</p>
+<p>자바에서 “eat()” 메서드가 정의되어 있는 “Animal” 클래스가 있다면 “Dog” 클래스는 “Animal” 클래스를 상속받아 “eat()” 메소드를 재사용하여 코드 중복을 줄이고 “bark()”라는 새로운 기능도 추가할 수 있습니다.</p>
 
-<p><strong>AOP의 핵심 개념</strong></p>
+<p><strong>다향성(Polymorphism)</strong>: 다형성을 사용하면 다른 유형의 객체를 공통 상위 클래스의 객체로 취급할 수 있습니다. 이를 통해 코드를 일반적이고 유연한 방식으로 작성할 수 있습니다. 객체를 상호 교환하여 사용할 수 있으므로 코드 재사용 및 코드를 유연하게 사용할 수 있는 방법이 제공됩니다.</p>
 
-<ul>
-  <li>Aspect: 공통 관심사를 모듈화 한 것으로 일반적으로 애플리케이션의 여러 객체 또는 모듈에 적용되어야 하는 특정 동작 또는 작업을 정의합니다.</li>
-  <li>Join Point: 조인 포인트는 Aspect가 적용 될 수 있는 특정 포인트를 나타냅니다. 조인 포인트의 예로는 메서드 호출, 예외 처리, 제어 흐름의 특정 지점이 있습니다.</li>
-  <li>Advice: 조인 포인트에 도달했을 때 발생해야 하는 일을 정의합니다. 일반적인 유형의 어드바이스는 “before”, “after”, “around”, “after-throwing” 그리고 “after-returning”이 있습니다.</li>
-  <li>Pointcut: 애플리케이션에서 어떤 조인 포인트를 가로채고 관련 어드바이스를 적용해야 하는지 결정하는 표현식입니다. 이를 통해 개발자는 Aspect의 정확한 위치 또는 조건을 지정할 수 있습니다.</li>
-</ul>
+<p>자바에서 대표적인 다향성의 예로 오버라이딩과 오버로딩 있습니다. 오버라이딩은 부모 클래스의 메소드를 재정의한다고 생각하면 됩니다. 만약 “Dog”, “Cat” 클래스가 “makeSound()”라는 메서드를 가지고 있는 “Animal” 클래스를 상속받는다고 하겠습니다. 상속받은 “Dog” 클래스는 “makeSound()” 메서드의 구현부를 “멍멍 소리를 내다”로 재정의 할 수 있고, “Cat” 클래스는 “냐옹 소리를 내다”로 재정의 할 수 있습니다.</p>
 
-<h2 id="주요-기능">주요 기능</h2>
+<p><strong>추상화(Abstraction)</strong>: 객체의 공통적인 속성과 기능을 추출하여 정의하는 것입니다. 추상화를 통해 프로그래머는 구현 세부 정보를 지정하지 않고 객체의 공통 속성 및 동작을 정의하는 추상 클래스 또는 인터페이스를 만들 수 있습니다.</p>
 
-<h3 id="스프링-mvc">스프링 MVC</h3>
-
-<p>Spring MVC(Model-View-Controller)는 웹 애플리케이션 구축에 대한 구조화된 접근 방식을 제공하는 웹 프레임워크입니다. Spring MVC는 웹 개발을 단순화하기 위한 다양한 기능을 제공합니다. 컨트롤러가 요청 처리를 위해 특정 URL 또는 URL 패턴을 메서드에 매핑할 수 있는 요청 매핑 기능 등이 있습니다. MVC(Model-View-Controller) 아키텍처 패턴을 따르며 애플리케이션을 세 가지 주요 구성 요소(모델, 뷰, 컨트롤러)로 구분합니다.</p>
-
-<p>모델은 애플리케이션의 데이터 및 비즈니스 로직을 나타냅니다. 애플리케이션의 데이터, 상태 및 동작을 캡슐화합니다. Spring MVC에서 모델은 일반적으로 애플리케이션 데이터를 보유하고 데이터베이스 또는 데이터 소스와 상호 작용하는 Java클래스 또는 POJO(Plain Old Java Objects)로 구성됩니다.</p>
-
-<p>뷰는 사용자에게 데이터를 제공하는 역할을 합니다. 애플리케이션 사용자 인터페이스의 시각적 표현을 정의합니다. Spring MVC에서 뷰는 JSP, Thymeleaf 와 같은 템플릿 기술을 사용하여 구현됩니다. 뷰는 클라이언트로 다시 전송되는 응답을 렌더링하는 역할을 합니다.</p>
-
-<p>컨트롤러는 모델과 뷰 사이의 중개자 역할을 합니다. 사용자 요청을 수신 및 처리하고, 필요한 처리를 수행하고, 응답을 생성하는 데 사용할 적절한 모델과 뷰를 결정합니다. Spring MVC의 컨트롤러는 Java 클래스로 구현되며 HTTP 요청 처리, 양식 데이터 처리, 비즈니스 로직 호출 및 뷰에서 렌더링할 모델 준비를 담당합니다.</p>
+<p>자바에서 “calculateArea()” 메소드가 있는 “Shape” 추상 클래스가 정의되어 있다면, “Rectagle” 클래스는 “Shape” 클래스를 확장하여 “calculateArea()” 메서드의 구현부를 “가로x세로”와 같이 자체 구현할 수 있습니다.</p>
 
     <br />
   </div>
@@ -315,10 +300,14 @@ on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
 <div class="page-control">
   <div>
     
+    <a id="prev" class="button" href="/javascript/javascript-overview"
+      >&laquo; 이전글</a
+    >
+    
   </div>
   <div>
     
-    <a id="next" class="button" href="/spring/spring-boot-getting-started/">다음글 &raquo;</a>
+    <a id="next" class="button" href="/db/mysql-overview">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -338,19 +327,51 @@ on <a href="/tag/spring-framework/" data-flip="title">Framework</a>
 
 
 <li class="h4">
-  <a href="/spring/spring-boot-getting-started/" data-flip="title">
-    <span>[Spring Boot] Spring Boot 시작하기</span>
+  <a href="/java/java-array" data-flip="title">
+    <span>[Java] 배열</span>
   </a>
-  <small><time datetime="2023-06-21T01:45:00+09:00">
-    21 Jun 2023
+  <small><time datetime="2023-06-29T21:30:00+09:00">
+    29 Jun 2023
   </time></small>
 </li>
 
         
       
         
+        
           
+
+
+<li class="h4">
+  <a href="/java/java-method-class" data-flip="title">
+    <span>[Java] 클래스와 메소드</span>
+  </a>
+  <small><time datetime="2023-06-27T21:30:00+09:00">
+    27 Jun 2023
+  </time></small>
+</li>
+
+        
+      
+        
+        
           
+
+
+<li class="h4">
+  <a href="/java/java-loop" data-flip="title">
+    <span>[Java] 반복문</span>
+  </a>
+  <small><time datetime="2023-06-23T12:00:00+09:00">
+    23 Jun 2023
+  </time></small>
+</li>
+
+        
+      
+        
+        
+      
     
   </ul>
 </aside>
