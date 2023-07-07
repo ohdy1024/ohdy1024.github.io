@@ -151,3 +151,28 @@ byte num2 = (byte) num1;
 
 System.out.println(num2) // -24
 ```
+
+### 상수
+
+상수란 값이 변하지 않는 값을 의미합니다. 자바에서 상수를 선언할 때 `final`을 사용하여 선언합니다. `final`을 사용하면 값을 한 번만 할당할 수 있습니다.
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    final String name = "철수";
+    System.out.print(name);
+  }
+}
+```
+
+자바에서 상수는 보통 `static`과 함꼐 사용하여 선언합니다.
+
+```java
+public class Main {
+  final static String name = "철수";
+
+  public static void main(String[] args) {
+    System.out.print(name);
+  }
+}
+```
