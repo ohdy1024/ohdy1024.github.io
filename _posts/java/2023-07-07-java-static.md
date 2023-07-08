@@ -2,7 +2,7 @@
 layout: post
 title: "[Java] 클래스 메서드와 클래스 변수"
 subtitle: "클래스 메서드, 클래스 변수, static, 정적 변수"
-date: 2023-07-06 13:10:00 +0900
+date: 2023-07-07 16:10:00 +0900
 categories: java
 comments: true
 ---
