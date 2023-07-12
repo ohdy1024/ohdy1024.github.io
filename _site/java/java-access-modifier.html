@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 클래스 메서드와 클래스 변수" />
+<meta property="og:title" content="[Java] 접근 제어자" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 클래스 메서드와 클래스 변수 &middot; 고개의 블로그</title>
+<title>[Java] 접근 제어자 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="클래스 변수와 클래스 메소드
+  content="접근 제어자
 
 "
 />
 <meta
   property="og:description"
-  content="클래스 변수와 클래스 메소드
+  content="접근 제어자
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/java/java-static" />
-<meta property="og:url" content="http://localhost:4000/java/java-static" />
+<link rel="canonical" href="http://localhost:4000/java/java-access-modifier" />
+<meta property="og:url" content="http://localhost:4000/java/java-access-modifier" />
 
 <link
   rel="alternate"
@@ -70,9 +70,9 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/java/java-array" />
+<link rel="prev" href="http://localhost:4000/java/java-inheritance" />
  
-<link rel="next" href="http://localhost:4000/java/java-inheritance" />
+<link rel="next" href="http://localhost:4000/java/java-abstract-interface" />
 
 
 <link
@@ -173,18 +173,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-java/java-static"
+  id="post-java/java-access-modifier"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [Java] 클래스 메서드와 클래스 변수 
+       [Java] 접근 제어자 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-07-07T16:10:00+09:00"
-        >07 Jul 2023</time
+      <time datetime="2023-07-11T12:58:00+09:00"
+        >11 Jul 2023</time
       >
       
 
@@ -239,158 +239,175 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="클래스-변수와-클래스-메소드">클래스 변수와 클래스 메소드</h1>
+    <h1 id="접근-제어자">접근 제어자</h1>
 
-<h3 id="인스턴스-변수와-클래스-변수">인스턴스 변수와 클래스 변수</h3>
+<h3 id="접근-제어자access-modifier">접근 제어자(Access Modifier)</h3>
 
-<p>선언 방법에 따라 인스턴스 변수와 클래스 변수로 나뉩니다. 인스턴스 변수는 객체 생성 후 사용할 수 있고, 클래스 변수는 객체 생성 없이 사용할 수 있는 차이점이 있습니다.</p>
+<p>자바에서는 객체를 외부에서 수정 및 접근하는 것을 제한하기 위한 기능으로 접근 제어자을 사용합니다.</p>
 
-<h3 id="인스턴스-변수">인스턴스 변수</h3>
+<p>접근 제어자는 <code class="language-plaintext highlighter-rouge">private</code>, <code class="language-plaintext highlighter-rouge">default</code>, <code class="language-plaintext highlighter-rouge">protected</code>, <code class="language-plaintext highlighter-rouge">private</code>가 있습니다.</p>
 
-<p>인스턴스 변수는 객체를 생성한 후 사용할 수 있습니다. 인스턴스 변수는 생성된 각 개체마다 값이 다를 수 있습니다.</p>
+<p>범위는 <code class="language-plaintext highlighter-rouge">public</code> &gt; <code class="language-plaintext highlighter-rouge">protected</code> &gt; <code class="language-plaintext highlighter-rouge">default</code> &gt; <code class="language-plaintext highlighter-rouge">private</code> 순으로 좁아집니다.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+<p>클래스는 <code class="language-plaintext highlighter-rouge">public</code>, <code class="language-plaintext highlighter-rouge">default</code>를 가질 수 있으며, 멤버(필드, 생성자, 메서드)는 모든 접근 제어자를 가질 수 있습니다.</p>
 
-    <span class="nc">Person</span> <span class="n">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>
-    <span class="nc">Person</span> <span class="n">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">20</span><span class="o">);</span>
+<p><code class="language-plaintext highlighter-rouge">private</code>는 클래스 내부에서만 접근이 가능합니다.</p>
 
-    <span class="n">person1</span><span class="o">.</span><span class="na">display</span><span class="o">();</span> <span class="c1">// 15</span>
-    <span class="n">person2</span><span class="o">.</span><span class="na">display</span><span class="o">();</span> <span class="c1">// 20</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 
-  <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"age: "</span> <span class="o">+</span> <span class="n">age</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="this">this</h3>
-
-<p>객체 내부에서 인스턴스 변수에 접근하기 위해 <code class="language-plaintext highlighter-rouge">this</code>를 사용합니다. 주로 생성자에서 인스턴스 변수의 값을 할당할 때 인스턴스 변수와 매개변수 명이 동일하면 인스턴스 변수임을 나타내기 위해 사용합니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span> <span class="c1">// this.age는 인스턴스 변수를 가르킵니다.</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="클래스-변수">클래스 변수</h3>
-
-<p>클래스 내에 선언된 변수 앞에 <code class="language-plaintext highlighter-rouge">static</code>을 붙이면 “클래스 변수”가 됩니다. 클래스 변수는 모든 인스턴스 간에 공유되는 변수입니다. 객체를 생성할 필요 없이 클래스를 통해 바로 사용이 가능합니다.</p>
-
-<p>모든 인스턴스 간에 공유되기 때문에 일반적으로 여러 인스턴스에서 공유해야 하는 상수 또는 변수는 클래스 변수로 선언하는 것이 좋습니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span>
-  <span class="kd">static</span> <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="nc">Circle</span><span class="o">.</span><span class="na">PI</span><span class="o">);</span> <span class="c1">// 3.14</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>객체를 생성해서 사용할 수 있지만 일반적으로 클래스 변수는 객체를 생성하지 않고 사용합니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span>
-  <span class="kd">static</span> <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Circle</span> <span class="n">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Circle</span><span class="o">();</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">PI</span><span class="o">);</span> <span class="c1">// 3.14</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="클래스-메서드">클래스 메서드</h3>
-
-<p>클래스 메서드도 앞에 <code class="language-plaintext highlighter-rouge">static</code> 키워드를 붙인 메서드입니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span>
-  <span class="kd">static</span> <span class="kt">double</span> <span class="no">PI</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">;</span>
-
-  <span class="kd">static</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">(</span><span class="kt">double</span> <span class="n">radius</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="o">(</span><span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="o">)</span> <span class="o">*</span> <span class="no">PI</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">num</span><span class="o">;</span> <span class="c1">// 내부에 있는 메서드는 private 선언된 필드에 접근 가능</span>
   <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="nc">Circle</span><span class="o">.</span><span class="na">area</span><span class="o">(</span><span class="mf">2.0</span><span class="o">));</span> <span class="c1">// 12.56</span>
+    <span class="no">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="no">A</span><span class="o">();</span>
+
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">num</span><span class="o">);</span> <span class="c1">// 다른 클래스에서는 접근이 불가능해 오류 발생</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getNum</span><span class="o">());</span> <span class="c1">// 1</span>
   <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>접근 제어자를 생략하면 <code class="language-plaintext highlighter-rouge">default</code> 접근 제어자를 가지며, 같은 패키지 내에서만 접근 가능합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="클래스-메소드에서-인스턴스-변수-인스턴스-메서드-접근-불가">클래스 메소드에서 인스턴스 변수, 인스턴스 메서드 접근 불가</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test.test1</span><span class="o">;</span>
 
-<p>인스턴스 변수, 인스턴스 메서드는 인스턴스가 생성 되어야 사용이 가능합니다. 반면 클래스 메서드는 인스턴스 생성 이전부터 호출이 가능합니다. 그렇기 때문에 클래스 메서드에서 인스턴스 변수, 메서드를 사용할 수 없습니다.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"age: "</span> <span class="o">+</span> <span class="n">age</span><span class="o">);</span> <span class="c1">// 에러 발생</span>
-  <span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">B</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>클래스 메서드에서 인스턴스 변수 및 인스턴스 메서드를 사용하고 싶다면 객체를 먼저 생성한 후 접근해야 합니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
-
-  <span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="kt">int</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-  <span class="o">}</span>
-
-  <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"age: "</span> <span class="o">+</span> <span class="n">person</span><span class="o">.</span><span class="na">age</span><span class="o">);</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+<span class="kn">import</span> <span class="nn">com.test.test1.*</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Person</span><span class="o">.</span><span class="na">display</span><span class="o">();</span> <span class="c1">// age: 15 출력</span>
+    <span class="no">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="no">A</span><span class="o">();</span> <span class="c1">// 패키지 동일</span>
+    <span class="no">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="no">B</span><span class="o">();</span> <span class="c1">// 패키지 다름</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">num</span><span class="o">);</span> <span class="c1">// 5</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">num</span><span class="o">);</span> <span class="c1">// 접근 불가</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="static-블록">static 블록</h3>
+<p><code class="language-plaintext highlighter-rouge">protected</code>는 같은 패키지와 자식클래스에서 접근이 가능합니다.</p>
 
-<p>복잡한 초기화 작업이 필요할 떄 static 블록을 이용하면 됩니다. static 블록은 클래스가 메모리로 로딩될 떄 자동으로 실행됩니다. 여러 개가 선언되어 있을 경우에는 순서대로 실행됩니다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test.test1</span><span class="o">;</span>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">B</span> <span class="o">{</span>
+  <span class="kd">protected</span> <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
-  <span class="kd">static</span> <span class="nc">String</span> <span class="n">date</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test.test1</span><span class="o">;</span>
 
-  <span class="kd">static</span> <span class="o">{</span>
-    <span class="n">date</span> <span class="o">=</span> <span class="nc">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">C</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="no">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="no">B</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">.</span><span class="na">num2</span><span class="o">;</span> <span class="c1">// B 클래스와 같은 패키지이므로 접근 가능</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.test.test1.B</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="kd">extends</span> <span class="no">B</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum1</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">num1</span><span class="o">;</span>
   <span class="o">}</span>
 
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// B를 상속받아 num2 필드에 접근 가능</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.test.test1.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">date</span><span class="o">);</span> <span class="c1">// 2023-07-07</span>
+    <span class="no">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="no">A</span><span class="o">();</span>
+    <span class="no">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="no">B</span><span class="o">();</span>
+    <span class="no">C</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="no">C</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getNum2</span><span class="o">());</span> <span class="c1">// 3</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getNum2</span><span class="o">());</span> <span class="c1">// 3</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">num2</span><span class="o">);</span> <span class="c1">// 접근 불가</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">public</code>은 어디에서나 접근이 가능합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test.test1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">B</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test.test1</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">C</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num3</span> <span class="o">=</span> <span class="mi">8</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="no">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="no">B</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">b</span><span class="o">.</span><span class="na">num2</span><span class="o">;</span> <span class="c1">// B 클래스와 같은 패키지이므로 접근 가능</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.test.test1.B</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">A</span> <span class="kd">extends</span> <span class="no">B</span> <span class="o">{</span>
+  <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum1</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">num1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getNum2</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">num2</span><span class="o">;</span> <span class="c1">// B를 상속받아 num2 필드에 접근 가능</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.test.test1.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="no">A</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="no">A</span><span class="o">();</span>
+    <span class="no">B</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="no">B</span><span class="o">();</span>
+    <span class="no">C</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="no">C</span><span class="o">();</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="na">getNum2</span><span class="o">());</span> <span class="c1">// 3</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">getNum2</span><span class="o">());</span> <span class="c1">// 3</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="na">num2</span><span class="o">);</span> <span class="c1">// 3</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -420,14 +437,14 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/java/java-array"
+    <a id="prev" class="button" href="/java/java-inheritance"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
     
-    <a id="next" class="button" href="/java/java-inheritance">다음글 &raquo;</a>
+    <a id="next" class="button" href="/java/java-abstract-interface">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -458,21 +475,8 @@ in <a href="/category/java/" data-flip="title">Java</a>
         
       
         
-        
           
-
-
-<li class="h4">
-  <a href="/java/java-access-modifier" data-flip="title">
-    <span>[Java] 접근 제어자</span>
-  </a>
-  <small><time datetime="2023-07-11T12:58:00+09:00">
-    11 Jul 2023
-  </time></small>
-</li>
-
-        
-      
+          
         
         
           
@@ -490,8 +494,21 @@ in <a href="/category/java/" data-flip="title">Java</a>
         
       
         
+        
           
-          
+
+
+<li class="h4">
+  <a href="/java/java-static" data-flip="title">
+    <span>[Java] 클래스 메서드와 클래스 변수</span>
+  </a>
+  <small><time datetime="2023-07-07T16:10:00+09:00">
+    07 Jul 2023
+  </time></small>
+</li>
+
+        
+      
     
   </ul>
 </aside>
