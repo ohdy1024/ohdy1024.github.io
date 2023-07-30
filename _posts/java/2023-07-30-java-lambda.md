@@ -2,7 +2,7 @@
 layout: post
 title: "[Java] 람다"
 subtitle: "람다, 람다식, Lambda"
-date: 2023-07-25 12:05:00 +0900
+date: 2023-07-30 13:05:00 +0900
 categories: java
 comments: true
 ---
