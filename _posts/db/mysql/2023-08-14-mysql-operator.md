@@ -2,7 +2,7 @@
 layout: post
 title: "[MySQL] DDL, DML, DCL"
 subtitle: "DDL, DML, DCL"
-date: 2023-08-13 18:45:00 +0900
+date: 2023-08-14 13:45:00 +0900
 categories: db
 tags: mysql
 comments: true
