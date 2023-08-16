@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[MySQL] 연산자와 함수" />
+<meta property="og:title" content="[MySQL] SELECT 문 (데이터 조회하기)" />
 <meta property="og:type" content="article" />
 
  
@@ -39,17 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[MySQL] 연산자와 함수 &middot; 고개의 블로그</title>
+<title>[MySQL] SELECT 문 (데이터 조회하기) &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="연산자
+  content="SELECT 문 (데이터 조회)
 
 "
 />
 <meta
   property="og:description"
-  content="연산자
+  content="SELECT 문 (데이터 조회)
 
 "
 />
@@ -59,8 +59,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/db/mysql-operator" />
-<meta property="og:url" content="http://localhost:4000/db/mysql-operator" />
+<link rel="canonical" href="http://localhost:4000/db/mysql-select" />
+<meta property="og:url" content="http://localhost:4000/db/mysql-select" />
 
 <link
   rel="alternate"
@@ -70,10 +70,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/db/mysql-ddl-dml-dcl" />
+<link rel="prev" href="http://localhost:4000/db/mysql-operator" />
  
-<link rel="next" href="http://localhost:4000/db/mysql-select" />
-
 
 <link
   rel="apple-touch-icon"
@@ -173,13 +171,13 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-db/mysql-operator"
+  id="post-db/mysql-select"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [MySQL] 연산자와 함수 
+       [MySQL] SELECT 문 (데이터 조회하기) 
     </h1>
 
     <p class="post-date heading">
@@ -239,158 +237,135 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
     </style>
 
     <!--게시물 내용-->
-    <h2 id="연산자">연산자</h2>
+    <h1 id="select-문-데이터-조회">SELECT 문 (데이터 조회)</h1>
 
-<p>MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 연산자를 제공합니다.</p>
+<h2 id="select">SELECT</h2>
 
-<h3 id="산술-연산자">산술 연산자</h3>
+<h3 id="select-1">SELECT</h3>
 
-<p>산술 연산자는 숫자 데이터에 대한 수학적 계산을 수행하기 위한 연산자입니다.</p>
+<p><code class="language-plaintext highlighter-rouge">SELECT</code> 문은 데이터베이스의 테이블에서 데이터를 조회하는 SQL 문입니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>산술 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>+</td>
-      <td>더하기</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>빼기</td>
-    </tr>
-    <tr>
-      <td>*</td>
-      <td>곱하기</td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>나누기</td>
-    </tr>
-    <tr>
-      <td>DIV</td>
-      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 소수 부분을 버립니다.</td>
-    </tr>
-    <tr>
-      <td>% 또는 MOD</td>
-      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 나머지를 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
+</code></pre></div></div>
 
-<h3 id="비교-연산자">비교 연산자</h3>
+<h3 id="where">WHERE</h3>
 
-<p>비교 연산자는 값을 비교하여 불린 값을 반환하는 연산자입니다. 참(true)이면 1을 반환하고 거짓(false)이면 0을 반환합니다.</p>
+<p><code class="language-plaintext highlighter-rouge">WHERE</code> 절은 <code class="language-plaintext highlighter-rouge">SELECT</code> 문에서 특정 조건을 충족하는 데이터를 조회합니다. 다양한 연산자를 함께 사용하여 더 자세하게 데이터를 조회할 수 있습니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>비교 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>&gt;</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&gt;=</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크거나 같으면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 작은면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;=</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자가보다 적거나 같은면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>=</td>
-      <td>두 피연산자가 같으면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;&gt; 또는 !=</td>
-      <td>두 피연산자가 같지 않으면 참을 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>기본 문법</strong></p>
 
-<h3 id="논리-연산자">논리 연산자</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">조건문</span><span class="p">;</span>
+</code></pre></div></div>
 
-<p>논리 연산자는 논리식을 평가하여 참(true)은 1, 거짓(false)는 0, UNKNOWN은 NULL을 반환합니다.</p>
+<p><strong>컬럼 값이 a보다 큰 데이터 조회</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>논리 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AND</td>
-      <td>왼쪽과 오른쪽 조건이 모두 참이면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>OR</td>
-      <td>왼쪽 또는 오른쪽 조건 중 하나라도 참이면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>NOT</td>
-      <td>조건이 거짓이면 참을 반환하고 조건이 참이면 거짓을 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">;</span>
+</code></pre></div></div>
 
-<h3 id="between-in-연산자">BETWEEN, IN 연산자</h3>
+<p><strong>컬럼 값이 a 또는 b와 일치하는 데이터 조회</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BETWEEN</td>
-      <td>지정된 범위 내에서 값을 선택하는데 사용됩니다. 시작 값과 끝 값을 모두 포함합니다.</td>
-    </tr>
-    <tr>
-      <td>IN</td>
-      <td>일련의 값을 지정하고 해당 값과 일치하는 레코드를 검색하는데 사용됩니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="o">=</span> <span class="n">a</span> <span class="k">OR</span> <span class="err">컬럼</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
 
-<h3 id="like-연산자">LIKE 연산자</h3>
+<span class="c1">-- OR</span>
 
-<p><code class="language-plaintext highlighter-rouge">LIKE</code> 연산자는 컬럼의 데이터 내에서 특정 패턴과 일치하는 데이터를 검색하는데 사용됩니다.</p>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="k">IN</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>와일드카드</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>%</td>
-      <td>모든 문자를 나타냅니다.(공백 포함)</td>
-    </tr>
-    <tr>
-      <td>_</td>
-      <td>단일 문자를 나타냅니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>컬럼 값이 a ~ b 사이의 값을 가지는 데이터 조회</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="o">&gt;=</span> <span class="n">a</span> <span class="k">AND</span> <span class="err">컬럼</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="c1">-- OR</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="k">BETWEEN</span> <span class="n">a</span> <span class="k">AND</span> <span class="n">b</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼 값이 a로 시작하는 데이터 조회</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="k">LIKE</span> <span class="s1">'a%'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼 값이 a로 시작하는 두 글자인 데이터 조회</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">컬럼</span> <span class="k">LIKE</span> <span class="s1">'a_'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="order-by">ORDER BY</h3>
+
+<p><code class="language-plaintext highlighter-rouge">ORDER BY</code> 절은 쿼리 결과를 특정 순서로 출력할 수 있습니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="p">[</span><span class="k">ASC</span> <span class="o">|</span> <span class="k">DESC</span><span class="p">],</span> <span class="err">컬럼</span><span class="mi">2</span> <span class="p">[</span><span class="k">ASC</span> <span class="o">|</span> <span class="k">DESC</span><span class="p">],</span> <span class="p">...;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">WHERE</code> 절과 함께 사용하면 순서를 주의해야 합니다. <code class="language-plaintext highlighter-rouge">ORDER BY</code> 절은 <code class="language-plaintext highlighter-rouge">WHERE</code> 절 뒤에 나와야 합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">조건문</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="p">[</span><span class="k">ASC</span> <span class="o">|</span> <span class="k">DESC</span><span class="p">],</span> <span class="p">...;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼1을 기준으로 오름차순 정렬</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼1을 기준으로 내림차순 정렬</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="limit">LIMIT</h3>
+
+<p><code class="language-plaintext highlighter-rouge">LIMIT</code> 절은 쿼리에서 반환되는 행의 수를 제한하는데 사용됩니다. <code class="language-plaintext highlighter-rouge">LIMIT</code> 절은 첫 번째 데이터를 0번으로 시작하며, 0번부터 조회할 경우 생략이 가능합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">LIMIT</span> <span class="err">시작</span><span class="p">,</span> <span class="err">개수</span>
+
+<span class="c1">-- OR</span>
+
+<span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">LIMIT</span> <span class="err">개수</span> <span class="k">OFFSET</span> <span class="err">시작</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>첫 번째 데이터를 포함하는 세 개의 데이터 출력</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">LIMIT</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="c1">-- OR</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">LIMIT</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="c1">-- OR</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">LIMIT</span> <span class="mi">3</span> <span class="k">OFFSET</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="distinct">DISTINCT</h3>
+
+<p><code class="language-plaintext highlighter-rouge">DISTINCT</code> 절은 쿼리 결과에서 중복 데이터를 1개만 남깁니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="group-by">GROUP BY</h3>
+
+<p><code class="language-plaintext highlighter-rouge">GROUP BY</code> 절은 하나 이상의 컬럼을 기반으로 행을 그룹화하는데 사용됩니다. <code class="language-plaintext highlighter-rouge">GROUP BY</code> 절은 보통 집계 함수와 함께 사용합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">집계</span> <span class="err">함수</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼1을 그룹화 후, 컬럼1 그룹이 컬림2을 가지고 있는 개수</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="having">HAVING</h3>
+
+<p><code class="language-plaintext highlighter-rouge">HAVING</code> 절은 <code class="language-plaintext highlighter-rouge">GROUP BY</code> 절과 함께 사용되며, 집계된 값에 조건을 적용하여 쿼리 결과를 필터링합니다. <code class="language-plaintext highlighter-rouge">WHERE</code> 절은 행이 그룹화되기 전에 행을 필터링하는 반면 <code class="language-plaintext highlighter-rouge">HAVING</code> 절은 <code class="language-plaintext highlighter-rouge">GROUP BY</code> 작업의 결과를 필터링합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...,</span> <span class="err">집계</span> <span class="err">함수</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="p">...</span> <span class="k">HAVING</span> <span class="err">조건문</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>컬럼1을 그룹화 후, 컬럼1 그룹이 컬림2을 가지고 있는 개수가 두 개 이상일 경우</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
 
     <br />
   </div>
@@ -417,14 +392,12 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/db/mysql-ddl-dml-dcl"
+    <a id="prev" class="button" href="/db/mysql-operator"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
-    
-    <a id="next" class="button" href="/db/mysql-select">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -439,13 +412,16 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       
       
         
+          
+          
+        
         
           
 
 
 <li class="h4">
-  <a href="/db/mysql-select" data-flip="title">
-    <span>[MySQL] SELECT 문 (데이터 조회하기)</span>
+  <a href="/db/mysql-operator" data-flip="title">
+    <span>[MySQL] 연산자와 함수</span>
   </a>
   <small><time datetime="2023-08-16T13:04:00+09:00">
     16 Aug 2023
@@ -454,9 +430,6 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
         
       
-        
-          
-          
         
         
           
