@@ -24,7 +24,7 @@
       start_with="on " separator=", " %}
     </p>
 
-    {% include message.html text=post.description %}
+    <!-- {% include message.html text=post.description %} -->
   </header>
   {% for tag_slug in post.tags %} {% unless tag.header-img %} {% assign tag =
   site.featured_tags | where: "slug", tag_slug | first %} {% endunless %} {%

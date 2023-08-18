@@ -43,14 +43,12 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
  
 <meta
   name="description"
-  content="SELECT 문 (데이터 조회)
-
+  content="MySQL의 SELECT 문은 데이터베이스의 테이블에서 데이터를 조회하는 SQL 문입니다. WHERE, ORDER BY, LIMIT, GROUP BY, HAVING, DISTINCT 절 등을 이용해 데이터를 더 상세히 조회할 수 있습니다. 연산자를 함께 사용해 다양한 조건을 만들 수 있습니다. 연산자로는 산술 연산자, 비교 연산자, 논리 연산자 등이 있습니다.
 "
 />
 <meta
   property="og:description"
-  content="SELECT 문 (데이터 조회)
-
+  content="MySQL의 SELECT 문은 데이터베이스의 테이블에서 데이터를 조회하는 SQL 문입니다. WHERE, ORDER BY, LIMIT, GROUP BY, HAVING, DISTINCT 절 등을 이용해 데이터를 더 상세히 조회할 수 있습니다. 연산자를 함께 사용해 다양한 조건을 만들 수 있습니다. 연산자로는 산술 연산자, 비교 연산자, 논리 연산자 등이 있습니다.
 "
 />
 
@@ -70,8 +68,10 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/db/mysql-operator" />
+<link rel="prev" href="http://localhost:4000/db/mysql-ddl-dml-dcl" />
  
+<link rel="next" href="http://localhost:4000/db/mysql-operator" />
+
 
 <link
   rel="apple-touch-icon"
@@ -209,10 +209,14 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
     </p>
 
-    
-  <div class="hr" style="padding-bottom:0"></div>
+    <!-- 
+  
+  
+<p class="message">MySQL의 SELECT 문은 데이터베이스의 테이블에서 데이터를 조회하는 SQL 문입니다. WHERE, ORDER BY, LIMIT, GROUP BY, HAVING, DISTINCT 절 등을 이용해 데이터를 더 상세히 조회할 수 있습니다. 연산자를 함께 사용해 다양한 조건을 만들 수 있습니다. 연산자로는 산술 연산자, 비교 연산자, 논리 연산자 등이 있습니다.</p>
 
 
+
+ -->
   </header>
   
 
@@ -367,6 +371,159 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="mi">2</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">;</span>
 </code></pre></div></div>
 
+<h2 id="연산자">연산자</h2>
+
+<p>MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 연산자를 제공합니다.</p>
+
+<h3 id="산술-연산자">산술 연산자</h3>
+
+<p>산술 연산자는 숫자 데이터에 대한 수학적 계산을 수행하기 위한 연산자입니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>산술 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+</td>
+      <td>더하기</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>빼기</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>곱하기</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>나누기</td>
+    </tr>
+    <tr>
+      <td>DIV</td>
+      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 소수 부분을 버립니다.</td>
+    </tr>
+    <tr>
+      <td>% 또는 MOD</td>
+      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 나머지를 반환합니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="비교-연산자">비교 연산자</h3>
+
+<p>비교 연산자는 값을 비교하여 불린 값을 반환하는 연산자입니다. 참(true)이면 1을 반환하고 거짓(false)이면 0을 반환합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>비교 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&gt;</td>
+      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크거나 같으면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>왼쪽 피연산자가 오른쪽 피연산자보다 작은면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>왼쪽 피연산자가 오른쪽 피연산자가보다 적거나 같은면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>=</td>
+      <td>두 피연산자가 같으면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>&lt;&gt; 또는 !=</td>
+      <td>두 피연산자가 같지 않으면 참을 반환합니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="논리-연산자">논리 연산자</h3>
+
+<p>논리 연산자는 논리식을 평가하여 참(true)은 1, 거짓(false)는 0, UNKNOWN은 NULL을 반환합니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>논리 연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND</td>
+      <td>왼쪽과 오른쪽 조건이 모두 참이면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>OR</td>
+      <td>왼쪽 또는 오른쪽 조건 중 하나라도 참이면 참을 반환합니다.</td>
+    </tr>
+    <tr>
+      <td>NOT</td>
+      <td>조건이 거짓이면 참을 반환하고 조건이 참이면 거짓을 반환합니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="between-in-연산자">BETWEEN, IN 연산자</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>연산자</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BETWEEN</td>
+      <td>지정된 범위 내에서 값을 선택하는데 사용됩니다. 시작 값과 끝 값을 모두 포함합니다.</td>
+    </tr>
+    <tr>
+      <td>IN</td>
+      <td>일련의 값을 지정하고 해당 값과 일치하는 레코드를 검색하는데 사용됩니다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="like-연산자">LIKE 연산자</h3>
+
+<p><code class="language-plaintext highlighter-rouge">LIKE</code> 연산자는 컬럼의 데이터 내에서 특정 패턴과 일치하는 데이터를 검색하는데 사용됩니다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>와일드카드</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>%</td>
+      <td>모든 문자를 나타냅니다.(공백 포함)</td>
+    </tr>
+    <tr>
+      <td>_</td>
+      <td>단일 문자를 나타냅니다.</td>
+    </tr>
+  </tbody>
+</table>
+
     <br />
   </div>
 
@@ -392,12 +549,14 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/db/mysql-operator"
+    <a id="prev" class="button" href="/db/mysql-ddl-dml-dcl"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
+    
+    <a id="next" class="button" href="/db/mysql-operator">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -412,24 +571,24 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       
       
         
-          
-          
-        
         
           
 
 
 <li class="h4">
   <a href="/db/mysql-operator" data-flip="title">
-    <span>[MySQL] 연산자와 함수</span>
+    <span>[MySQL] 내장 함수</span>
   </a>
-  <small><time datetime="2023-08-16T13:04:00+09:00">
-    16 Aug 2023
+  <small><time datetime="2023-08-18T22:54:00+09:00">
+    18 Aug 2023
   </time></small>
 </li>
 
         
       
+        
+          
+          
         
         
           
@@ -496,10 +655,10 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
     </main>
     <div class="right-side">
-  <div class="ad-first"></div>
+  <!-- <div class="ad-first"></div>
   <br />
   <br />
-  <div class="ad-second"></div>
+  <div class="ad-second"></div> -->
 </div>
 
   </div>
@@ -636,12 +795,12 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       </nav>
       <br />
 
-      <div style="text-align: center">
+      <!-- <div style="text-align: center">
         <a href="https://hits.seeyoufarm.com"
           ><img
             src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fohdy1024.github.io&count_bg=%23DDBB8D&title_bg=%23CA6531&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=false"
         /></a>
-      </div>
+      </div> -->
 
       <br />
 

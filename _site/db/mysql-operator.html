@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[MySQL] 연산자와 함수" />
+<meta property="og:title" content="[MySQL] 내장 함수" />
 <meta property="og:type" content="article" />
 
  
@@ -39,18 +39,16 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[MySQL] 연산자와 함수 &middot; 고개의 블로그</title>
+<title>[MySQL] 내장 함수 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="연산자
-
+  content="MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 내장 함수를 제공합니다. MySQL의 내장 함수는 문자열 함수, 집계 함수, 흐름 제어 함수, 수학 함수, 날짜 및 시간 함수 등이 있습니다.
 "
 />
 <meta
   property="og:description"
-  content="연산자
-
+  content="MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 내장 함수를 제공합니다. MySQL의 내장 함수는 문자열 함수, 집계 함수, 흐름 제어 함수, 수학 함수, 날짜 및 시간 함수 등이 있습니다.
 "
 />
 
@@ -70,10 +68,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/db/mysql-ddl-dml-dcl" />
+<link rel="prev" href="http://localhost:4000/db/mysql-select" />
  
-<link rel="next" href="http://localhost:4000/db/mysql-select" />
-
 
 <link
   rel="apple-touch-icon"
@@ -179,12 +175,12 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 >
   <header>
     <h1 class="post-title">
-       [MySQL] 연산자와 함수 
+       [MySQL] 내장 함수 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-08-16T13:04:00+09:00"
-        >16 Aug 2023</time
+      <time datetime="2023-08-18T22:54:00+09:00"
+        >18 Aug 2023</time
       >
       
 
@@ -211,10 +207,14 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
     </p>
 
-    
-  <div class="hr" style="padding-bottom:0"></div>
+    <!-- 
+  
+  
+<p class="message">MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 내장 함수를 제공합니다. MySQL의 내장 함수는 문자열 함수, 집계 함수, 흐름 제어 함수, 수학 함수, 날짜 및 시간 함수 등이 있습니다.</p>
 
 
+
+ -->
   </header>
   
 
@@ -239,158 +239,361 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
     </style>
 
     <!--게시물 내용-->
-    <h2 id="연산자">연산자</h2>
+    <h1 id="내장-함수">내장 함수</h1>
 
-<p>MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 연산자를 제공합니다.</p>
+<h3 id="내장-함수-1">내장 함수</h3>
 
-<h3 id="산술-연산자">산술 연산자</h3>
+<p>MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 내장 함수를 제공합니다.</p>
 
-<p>산술 연산자는 숫자 데이터에 대한 수학적 계산을 수행하기 위한 연산자입니다.</p>
+<h3 id="문자열-함수">문자열 함수</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>산술 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>+</td>
-      <td>더하기</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>빼기</td>
-    </tr>
-    <tr>
-      <td>*</td>
-      <td>곱하기</td>
-    </tr>
-    <tr>
-      <td>/</td>
-      <td>나누기</td>
-    </tr>
-    <tr>
-      <td>DIV</td>
-      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 소수 부분을 버립니다.</td>
-    </tr>
-    <tr>
-      <td>% 또는 MOD</td>
-      <td>왼쪽 피연산자를 오른쪽 피연산자로 나눈 후 나머지를 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p>MySQL은 문자열을 조작하고 작업할 수 있는 다양한 문자열 함수를 제공합니다.</p>
 
-<h3 id="비교-연산자">비교 연산자</h3>
+<h4 id="concat">CONCAT</h4>
 
-<p>비교 연산자는 값을 비교하여 불린 값을 반환하는 연산자입니다. 참(true)이면 1을 반환하고 거짓(false)이면 0을 반환합니다.</p>
+<p><code class="language-plaintext highlighter-rouge">CONCAT()</code> 함수는 두 개 이상의 문자열을 연결합니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>비교 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>&gt;</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&gt;=</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 크거나 같으면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자보다 작은면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;=</td>
-      <td>왼쪽 피연산자가 오른쪽 피연산자가보다 적거나 같은면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>=</td>
-      <td>두 피연산자가 같으면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>&lt;&gt; 또는 !=</td>
-      <td>두 피연산자가 같지 않으면 참을 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CONCAT</span><span class="p">(</span><span class="err">문자열</span><span class="mi">1</span><span class="p">,</span> <span class="err">문자열</span><span class="mi">2</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
 
-<h3 id="논리-연산자">논리 연산자</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CONCAT</span><span class="p">(</span><span class="s1">'짱구는'</span><span class="p">,</span> <span class="s1">' '</span><span class="p">,</span> <span class="s1">'못말려'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 짱구는 못말려</span>
+</code></pre></div></div>
 
-<p>논리 연산자는 논리식을 평가하여 참(true)은 1, 거짓(false)는 0, UNKNOWN은 NULL을 반환합니다.</p>
+<h4 id="concat_ws">CONCAT_WS</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>논리 연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>AND</td>
-      <td>왼쪽과 오른쪽 조건이 모두 참이면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>OR</td>
-      <td>왼쪽 또는 오른쪽 조건 중 하나라도 참이면 참을 반환합니다.</td>
-    </tr>
-    <tr>
-      <td>NOT</td>
-      <td>조건이 거짓이면 참을 반환하고 조건이 참이면 거짓을 반환합니다.</td>
-    </tr>
-  </tbody>
-</table>
+<p><code class="language-plaintext highlighter-rouge">CONCAT_WS()</code> 함수는 지정된 기호로 문자열을 연결합니다.</p>
 
-<h3 id="between-in-연산자">BETWEEN, IN 연산자</h3>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CONCAT_WS</span><span class="p">(</span><span class="err">구분</span> <span class="err">기호</span><span class="p">,</span> <span class="err">문자열</span><span class="mi">1</span><span class="p">,</span> <span class="err">문자열</span><span class="mi">2</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>연산자</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BETWEEN</td>
-      <td>지정된 범위 내에서 값을 선택하는데 사용됩니다. 시작 값과 끝 값을 모두 포함합니다.</td>
-    </tr>
-    <tr>
-      <td>IN</td>
-      <td>일련의 값을 지정하고 해당 값과 일치하는 레코드를 검색하는데 사용됩니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CONCAT_WS</span><span class="p">(</span><span class="s1">'-'</span><span class="p">,</span> <span class="s1">'2023'</span><span class="p">,</span> <span class="s1">'08'</span><span class="p">,</span> <span class="s1">'18'</span><span class="p">)</span> <span class="k">AS</span> <span class="nb">date</span><span class="p">;</span>
+<span class="c1">-- 출력: 2023-08-18</span>
+</code></pre></div></div>
 
-<h3 id="like-연산자">LIKE 연산자</h3>
+<h4 id="substring">SUBSTRING</h4>
 
-<p><code class="language-plaintext highlighter-rouge">LIKE</code> 연산자는 컬럼의 데이터 내에서 특정 패턴과 일치하는 데이터를 검색하는데 사용됩니다.</p>
+<p><code class="language-plaintext highlighter-rouge">SUBSTRING()</code> 함수는 문자열에서 하위 문자열을 추출합니다.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>와일드카드</th>
-      <th>설명</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>%</td>
-      <td>모든 문자를 나타냅니다.(공백 포함)</td>
-    </tr>
-    <tr>
-      <td>_</td>
-      <td>단일 문자를 나타냅니다.</td>
-    </tr>
-  </tbody>
-</table>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SUBSTRING</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">시작</span><span class="p">);</span>
+<span class="k">SUBSTRING</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">시작</span><span class="p">,</span> <span class="err">길이</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 못말려</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 짱구</span>
+</code></pre></div></div>
+
+<h4 id="left-right">LEFT, RIGHT</h4>
+
+<p><code class="language-plaintext highlighter-rouge">LEFT()</code>, <code class="language-plaintext highlighter-rouge">RIGHT()</code> 함수는 문자열의 왼쪽 또는 오른쪽에서 지정된 수의 문자를 추출합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">LEFT</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">길이</span><span class="p">);</span>
+<span class="k">RIGHT</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">길이</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">LEFT</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 짱구는</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">RIGHT</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 못말려</span>
+</code></pre></div></div>
+
+<h4 id="upper-lower">UPPER, LOWER</h4>
+
+<p><code class="language-plaintext highlighter-rouge">UPPER()</code>와 <code class="language-plaintext highlighter-rouge">LOWER()</code> 함수는 문자열을 대문자 또는 소문자로 변환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPPER</span><span class="p">(</span><span class="err">문자열</span><span class="p">);</span>
+<span class="k">LOWER</span><span class="p">(</span><span class="err">문자열</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">UPPER</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: HELLO</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">LOWER</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: hello</span>
+</code></pre></div></div>
+
+<h4 id="length-char_length">LENGTH, CHAR_LENGTH</h4>
+
+<p><code class="language-plaintext highlighter-rouge">LENGTH()</code> 함수는 문자열의 바이트 길이를 반환합니다. <code class="language-plaintext highlighter-rouge">CHAR_LENGTH()</code> 함수는 문자열의 길이를 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">LENGTH</span><span class="p">(</span><span class="err">문자열</span><span class="p">);</span>
+<span class="k">CHAR_LENGTH</span><span class="p">(</span><span class="err">문자열</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">LENGTH</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 19</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">CHAR_LENGTH</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 7</span>
+</code></pre></div></div>
+
+<h4 id="trim">TRIM</h4>
+
+<p><code class="language-plaintext highlighter-rouge">TRIM()</code> 함수는 문자열의 좌우측 공백을 제거합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">TRIM</span><span class="p">(</span><span class="err">문자열</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">TRIM</span><span class="p">(</span><span class="s1">'   짱구는 못말려    '</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 짱구는 못말려</span>
+</code></pre></div></div>
+
+<h4 id="replace">REPLACE</h4>
+
+<p><code class="language-plaintext highlighter-rouge">REPLACE()</code> 함수는 문자열을 부분 교체합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REPLACE</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">기존</span> <span class="err">문자열</span><span class="p">,</span> <span class="err">교체</span> <span class="err">문자열</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">REPLACE</span><span class="p">(</span><span class="s1">'짱구는 못말려'</span><span class="p">,</span> <span class="s1">'짱구는'</span><span class="p">,</span> <span class="s1">'짱아도'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="locate">LOCATE</h4>
+
+<p><code class="language-plaintext highlighter-rouge">LOCATE()</code> 함수는 다른 문자열 내에서 하위 문자열을 검색하고 해당 위치를 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">LOCATE</span><span class="p">(</span><span class="err">검색</span> <span class="err">문자열</span><span class="p">,</span> <span class="err">문자열</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">LOCATE</span><span class="p">(</span><span class="s1">'말려'</span><span class="p">,</span> <span class="s1">'짱구는 못말려'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 6</span>
+</code></pre></div></div>
+
+<h4 id="repeat">REPEAT</h4>
+
+<p><code class="language-plaintext highlighter-rouge">REPEAT()</code> 함수는 지정된 횟수만큼 문자열을 반복합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">REPEAT</span><span class="p">(</span><span class="err">문자열</span><span class="p">,</span> <span class="err">반복</span> <span class="err">횟수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">REPEAT</span><span class="p">(</span><span class="s1">'부리 '</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 부리 부리 부리</span>
+</code></pre></div></div>
+
+<h3 id="집계함수">집계함수</h3>
+
+<h4 id="sum">SUM</h4>
+
+<p><code class="language-plaintext highlighter-rouge">SUM()</code> 함수는 컬럼 값의 합계를 계산합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="avg">AVG</h4>
+
+<p><code class="language-plaintext highlighter-rouge">AVG()</code> 함수는 컬럼 값의 평균을 계산합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="count">COUNT</h4>
+
+<p><code class="language-plaintext highlighter-rouge">COUNT()</code> 함수는 레코드의 수를 계산합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="min-max">MIN, MAX</h4>
+
+<p><code class="language-plaintext highlighter-rouge">MIN()</code>, <code class="language-plaintext highlighter-rouge">MAX()</code> 함수는 컬럼에서 최솟값, 최댓값을 검색합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span> <span class="c1">-- 최솟값</span>
+<span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="err">컬럼</span><span class="p">)</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span> <span class="c1">-- 최댓값</span>
+</code></pre></div></div>
+
+<h3 id="날짜-및-시간-함수">날짜 및 시간 함수</h3>
+
+<p>날짜 및 시간 함수는 데이터베이스 내에서 날짜 및 시간 값 작업을 위한 기능을 제공합니다.</p>
+
+<h4 id="date">DATE</h4>
+
+<p><code class="language-plaintext highlighter-rouge">DATE()</code> 함수는 <code class="language-plaintext highlighter-rouge">DATE</code> 또는 <code class="language-plaintext highlighter-rouge">DATETIME</code> 표현식의 날짜 부분을 추출합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">DATE</span><span class="p">(</span><span class="s1">'2023-08-18'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18'</span>
+
+<span class="k">SELECT</span> <span class="nb">DATE</span><span class="p">(</span><span class="s1">'2023-08-18 14:30:00'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18'</span>
+</code></pre></div></div>
+
+<h4 id="timestamp">TIMESTAMP</h4>
+
+<p><code class="language-plaintext highlighter-rouge">TIMESTAMP()</code> 함수는 단일 인수 또는 두 개의 인수를 받으며 <code class="language-plaintext highlighter-rouge">TIMESTAMP</code> 값을 반환합니다. 단일 인수로는 <code class="language-plaintext highlighter-rouge">DATE</code> 또는 <code class="language-plaintext highlighter-rouge">DATETIME</code> 표현식을 인수로 받습니다. 두 개의 인수는 첫 번째로 <code class="language-plaintext highlighter-rouge">DATE</code> 또는 <code class="language-plaintext highlighter-rouge">DATETIME</code> 표현식을 인수로 받으며, 두 번째 인수는 첫 번째 인수에 더할 <code class="language-plaintext highlighter-rouge">TIME</code> 표현식을 인수로 받습니다.</p>
+
+<p><strong>단일 인수</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">TIMESTAMP</span><span class="p">(</span><span class="s1">'2023-08-18'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18 00:00:00'</span>
+
+<span class="k">SELECT</span> <span class="nb">TIMESTAMP</span><span class="p">(</span><span class="s1">'2023-08-18 14:30:00'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18 14:30:00'</span>
+</code></pre></div></div>
+
+<p><strong>두 개 인수</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nb">TIMESTAMP</span><span class="p">(</span><span class="s1">'2023-08-18'</span><span class="p">,</span> <span class="s1">'00:30:00'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18 00:30:00';</span>
+
+<span class="k">SELECT</span> <span class="nb">TIMESTAMP</span><span class="p">(</span><span class="s1">'2023-08-18 14:30:00'</span><span class="p">,</span> <span class="s1">'00:30:00'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: '2023-08-18 15:00:00'</span>
+</code></pre></div></div>
+
+<h4 id="now">NOW</h4>
+
+<p><code class="language-plaintext highlighter-rouge">NOW()</code> 함수는 현재 날짜와 시간을 <code class="language-plaintext highlighter-rouge">YYYY-MM-DD hh:mm:ss</code> 또는 <code class="language-plaintext highlighter-rouge">YYYYMMDDHHMMSS</code> 형식으로 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NOW</span><span class="p">();</span>
+<span class="c1">-- 출력: '2023-08-18 15:16:00'</span>
+
+<span class="k">SELECT</span> <span class="n">NOW</span><span class="p">()</span> <span class="o">+</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">-- 출력: '20230818151600';</span>
+</code></pre></div></div>
+
+<h3 id="흐름-제어-함수">흐름 제어 함수</h3>
+
+<p>흐름 제어 함수는 순차적인 흐름을 제어할 때 사용하는 함수입니다.</p>
+
+<h4 id="if">IF</h4>
+
+<p><code class="language-plaintext highlighter-rouge">IF()</code> 함수는 세 개의 인수를 받습니다. 첫 번째 인수가 참(true)이면 두 번째 인수를 반환하고, 거짓(false)이면 세 번째 인수를 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IF</span><span class="p">(</span><span class="err">표현식</span><span class="mi">1</span><span class="p">,</span> <span class="err">표현식</span><span class="mi">2</span><span class="p">,</span> <span class="err">표현식</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">IF</span><span class="p">(</span><span class="mi">1</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 3</span>
+
+<span class="k">SELECT</span> <span class="n">IF</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 'yes'</span>
+</code></pre></div></div>
+
+<h4 id="ifnull">IFNULL</h4>
+
+<p><code class="language-plaintext highlighter-rouge">IFNULL()</code> 함수는 두 개의 인수를 받습니다. 첫 번째 인수가 NULL이 아니라면 첫 번째 인수를 반환하고, NULL일 경우 두 번째 인수를 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">IFNULL</span><span class="p">(</span><span class="err">표현식</span><span class="mi">1</span><span class="p">,</span> <span class="err">표현식</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">IFNULL</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="n">IFNULL</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+</code></pre></div></div>
+
+<h4 id="nullif">NULLIF</h4>
+
+<p><code class="language-plaintext highlighter-rouge">NULLIF()</code> 함수는 두 개의 인수를 받아 첫 번째 인수와 두 번째 인수가 같은지 비교합니다. 같다면 NULL을 반환하고 같지 않으면 첫 번째 인수를 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">NULLIF</span><span class="p">(</span><span class="err">표현식</span><span class="mi">1</span><span class="p">,</span> <span class="err">표현식</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">NULLIF</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: NULL</span>
+
+<span class="k">SELECT</span> <span class="k">NULLIF</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="k">NULLIF</span><span class="p">(</span><span class="mi">1</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="k">false</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: NULL</span>
+</code></pre></div></div>
+
+<h3 id="수학-함수">수학 함수</h3>
+
+<p>수학 함수는 수학 계산에 주로 사용되는 다양한 수학 함수를 제공합니다. 모든 수학 함수는 오류 발생 시 NULL을 반환합니다.</p>
+
+<h4 id="abs">ABS</h4>
+
+<p><code class="language-plaintext highlighter-rouge">ABS()</code> 함수는 인수의 절대값을 반환합니다. 인수가 NULL이면 NULL을 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ABS</span><span class="p">(</span><span class="err">인수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">ABS</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="k">ABS</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="k">ABS</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: NULL</span>
+</code></pre></div></div>
+
+<h4 id="ceiling">CEILING</h4>
+
+<p><code class="language-plaintext highlighter-rouge">CEILING()</code> 함수는 인수보다 작지 않은 가장 작은 정수 값을 반환합니다. 인수가 NULL이면 NULL을 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CEILING</span><span class="p">(</span><span class="err">인수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CEILING</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">00</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="n">CEILING</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 2</span>
+</code></pre></div></div>
+
+<h4 id="round">ROUND</h4>
+
+<p><code class="language-plaintext highlighter-rouge">ROUND()</code> 함수는 두 개의 인수를 받습니다. 첫 번째 인수는 숫자를 받으며, 두 번째 인수는 반올림 할 자릿수를 받습니다. 두 번쨰 인수를 생략할 수 있으며 생략 시 기본값은 0입니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ROUND</span><span class="p">(</span><span class="err">숫자</span><span class="p">,</span> <span class="err">반올림</span> <span class="err">자릿수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1.2</span>
+
+<span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1.23</span>
+</code></pre></div></div>
+
+<h4 id="floor">FLOOR</h4>
+
+<p><code class="language-plaintext highlighter-rouge">FLOOR()</code> 함수는 인수보다 크지 않은 가장 큰 정수 값을 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">FLOOR</span><span class="p">(</span><span class="err">인수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">FLOOR</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="mi">23</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 1</span>
+
+<span class="k">SELECT</span> <span class="n">FLOOR</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 2</span>
+</code></pre></div></div>
+
+<h4 id="power-pow">POWER, POW</h4>
+
+<p><code class="language-plaintext highlighter-rouge">POW()</code> 와 <code class="language-plaintext highlighter-rouge">POWER()</code> 함수는 거듭제곱 값을 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">POW</span><span class="p">(</span><span class="err">밑</span><span class="p">,</span> <span class="err">지수</span><span class="p">);</span>
+<span class="n">POWER</span><span class="p">(</span><span class="err">밑</span><span class="p">,</span> <span class="err">지수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">POW</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 8</span>
+</code></pre></div></div>
+
+<h4 id="sqrt">SQRT</h4>
+
+<p><code class="language-plaintext highlighter-rouge">SQRT()</code> 함수는 인수의 제곱근을 반환합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SQRT</span><span class="p">(</span><span class="err">인수</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SQRT</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="k">AS</span> <span class="k">RESULT</span><span class="p">;</span>
+<span class="c1">-- 출력: 4</span>
+</code></pre></div></div>
 
     <br />
   </div>
@@ -417,14 +620,12 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/db/mysql-ddl-dml-dcl"
+    <a id="prev" class="button" href="/db/mysql-select"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
-    
-    <a id="next" class="button" href="/db/mysql-select">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -438,6 +639,9 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       
       
       
+        
+          
+          
         
         
           
@@ -454,9 +658,6 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
         
       
-        
-          
-          
         
         
           
@@ -523,10 +724,10 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 
     </main>
     <div class="right-side">
-  <div class="ad-first"></div>
+  <!-- <div class="ad-first"></div>
   <br />
   <br />
-  <div class="ad-second"></div>
+  <div class="ad-second"></div> -->
 </div>
 
   </div>
@@ -663,12 +864,12 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       </nav>
       <br />
 
-      <div style="text-align: center">
+      <!-- <div style="text-align: center">
         <a href="https://hits.seeyoufarm.com"
           ><img
             src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fohdy1024.github.io&count_bg=%23DDBB8D&title_bg=%23CA6531&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=false"
         /></a>
-      </div>
+      </div> -->
 
       <br />
 
