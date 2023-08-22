@@ -2,6 +2,7 @@
 layout: post
 title: "[Java] 자바 시작하기"
 subtitle: "자바 시작하기"
+description: "OpenJDK 17 다운로드 및 설치하기"
 date: 2023-06-22 13:50:00 +0900
 categories: java
 comments: true

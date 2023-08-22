@@ -2,6 +2,7 @@
 layout: post
 title: "[Java] 자바란?"
 subtitle: "개요"
+description: "자바는 클래스 기반의 객체 지향 프로그래밍 언어입니다. 자바는 JVM(Java Virtual Machine)이 설치된 모든 플랫폼에서 실행할 수 있는 바이트코드로 컴파일할 수 있습니다. 이러한 플랫폼 독립성은 Java 응용 프로그램을 다양한 운영체제 및 하드웨어 아키텍처에서 이식할 수 있도록 합니다."
 date: 2023-06-21 17:50:00 +0900
 categories: java
 comments: true

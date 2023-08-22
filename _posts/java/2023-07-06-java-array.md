@@ -2,6 +2,7 @@
 layout: post
 title: "[Java] 배열"
 subtitle: "배열, array"
+description: "배열은 동일한 데이터 타입의 데이터를 연속된 공간에 저장하기 위한 자료구조입니다. 배열은 길이를 늘리거나 줄일 수 없는 특징을 가지고 있습니다. 배열이 생성되면 인덱스를 사용하여 개별 요소에 접근할 수 있습니다."
 date: 2023-07-06 13:10:00 +0900
 categories: java
 comments: true

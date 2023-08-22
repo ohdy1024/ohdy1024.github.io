@@ -2,6 +2,7 @@
 layout: post
 title: "[Java] 조건문"
 subtitle: "조건문 if문 if-else문 switch문"
+description: "조건문이란 코드를 조건에 따라 코드의 실행 흐름을 제어하는 기능을 가진 제어문입니다. 조건문에는 if 문, if-else 문, switch 문이 있습니다."
 date: 2023-06-23 12:00:00 +0900
 categories: java
 comments: true
@@ -9,9 +10,9 @@ comments: true
 
 # 조건문
 
-### 조건문
+### 조건문이란?
 
-코드를 조건에 따라 코드의 실행 흐름을 제어하는 기능을 가진 제어문입니다.
+조건문이란 코드를 조건에 따라 코드의 실행 흐름을 제어하는 기능을 가진 제어문입니다.
 
 ### if 문
 

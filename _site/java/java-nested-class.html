@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[Java] 중첩 클래스와 익명 클래스" />
+<meta property="og:title" content="[Java] 중첩 클래스" />
 <meta property="og:type" content="article" />
 
  
@@ -39,19 +39,15 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[Java] 중첩 클래스와 익명 클래스 &middot; 고개의 블로그</title>
+<title>[Java] 중첩 클래스 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="중첩 클래스와 익명 클래스
-
-"
+  content="중첩 클래스란 다른 클래스 내에 정의된 클래스입니다. 자바는 정적 중첩 클래스, 비정적 중첩 클래스, 로컬 클래스, 익명 클래스 네 가지 유형의 중첩 클래스를 지원합니다. 정적 중첩 클래스는 외부 클래스의 인스턴스가 아닌 외부 클래스 자체와 연관됩니다. 정적이므로 외부 클래스의 비정적(인스턴스) 멤버에 접근할 수 없지만 정적 멤버에는 자유롭게 접근하고 사용할 수 있습니다...."
 />
 <meta
   property="og:description"
-  content="중첩 클래스와 익명 클래스
-
-"
+  content="중첩 클래스란 다른 클래스 내에 정의된 클래스입니다. 자바는 정적 중첩 클래스, 비정적 중첩 클래스, 로컬 클래스, 익명 클래스 네 가지 유형의 중첩 클래스를 지원합니다. 정적 중첩 클래스는 외부 클래스의 인스턴스가 아닌 외부 클래스 자체와 연관됩니다. 정적이므로 외부 클래스의 비정적(인스턴스) 멤버에 접근할 수 없지만 정적 멤버에는 자유롭게 접근하고 사용할 수 있습니다...."
 />
 
 
@@ -179,7 +175,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 >
   <header>
     <h1 class="post-title">
-       [Java] 중첩 클래스와 익명 클래스 
+       [Java] 중첩 클래스 
     </h1>
 
     <p class="post-date heading">
@@ -212,7 +208,11 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </p>
 
     <!-- 
-  <div class="hr" style="padding-bottom:0"></div>
+  
+  
+<p class="message">중첩 클래스란 다른 클래스 내에 정의된 클래스입니다. 자바는 정적 중첩 클래스, 비정적 중첩 클래스, 로컬 클래스, 익명 클래스 네 가지 유형의 중첩 클래스를 지원합니다. 정적 중첩 클래스는 외부 클래스의 인스턴스가 아닌 외부 클래스 자체와 연관됩니다. 정적이므로 외부 클래스의 비정적(인스턴스) 멤버에 접근할 수 없지만 정적 멤버에는 자유롭게 접근하고 사용할 수 있습니다. 비정적 중첩 클래스는 내부(Inner) 클래스라고도 불립니다. 다른 클래스 내에서 정의된 클래스이며 외부 클래스의 인스턴스와 연결됩니다. 정적 중첩 클래스와 달리 내부 클래스는 외부 클래스의 정적 멤버와 비정적(인스턴스) 멤버 모두 접근할 수 있습니다. 생성자 또는 메서드 내부에서 선언된 클래스를 로컬 클래스라고 합니다. 익명 클래스는 이름 없이 생성되고 다른 클래스 내에서 정의되는 중첩 클래스 유형입니다. 이를 통해 클래스를 동시에 선언하고 인스턴스화 할 수 있으므로 기존 클래스의 확장을 간결하게 구현할 수 있습니다.</p>
+
+
 
  -->
   </header>
@@ -239,9 +239,9 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="중첩-클래스와-익명-클래스">중첩 클래스와 익명 클래스</h1>
+    <h1 id="중첩-클래스nested-class">중첩 클래스(Nested Class)</h1>
 
-<h3 id="중첩-클래스nested-class">중첩 클래스(Nested Class)</h3>
+<h3 id="중첩-클래스란">중첩 클래스란?</h3>
 
 <p>중첩 클래스란 다른 클래스 내에 정의된 클래스입니다.</p>
 
@@ -453,7 +453,7 @@ Local variable: 20
 
 <li class="h4">
   <a href="/java/java-lambda" data-flip="title">
-    <span>[Java] 람다</span>
+    <span>[Java] 람다식</span>
   </a>
   <small><time datetime="2023-07-30T13:05:00+09:00">
     30 Jul 2023

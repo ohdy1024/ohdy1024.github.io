@@ -43,15 +43,11 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
  
 <meta
   name="description"
-  content="추상 클래스와 인터페이스
-
-"
+  content="추상 클래스는 abstract 키워드로 선언된 클래스입니다. 추상 클래스의 주요 목적은 여러 하위 클래스에서 공유할 수 있는 공통 특성 및 동작을 정의하는 것입니다. 추상 클래스는 직접 객체를 생성할 수 없습니다. 대신 다른 클래스에 의해 상속되도록 설계되어 추상 메서드에 대한 구현을 제공할 수 있습니다. 추상 클래스는 하나 이상의 추상 메서드를 포함할 수..."
 />
 <meta
   property="og:description"
-  content="추상 클래스와 인터페이스
-
-"
+  content="추상 클래스는 abstract 키워드로 선언된 클래스입니다. 추상 클래스의 주요 목적은 여러 하위 클래스에서 공유할 수 있는 공통 특성 및 동작을 정의하는 것입니다. 추상 클래스는 직접 객체를 생성할 수 없습니다. 대신 다른 클래스에 의해 상속되도록 설계되어 추상 메서드에 대한 구현을 제공할 수 있습니다. 추상 클래스는 하나 이상의 추상 메서드를 포함할 수..."
 />
 
 
@@ -212,7 +208,11 @@ in <a href="/category/java/" data-flip="title">Java</a>
     </p>
 
     <!-- 
-  <div class="hr" style="padding-bottom:0"></div>
+  
+  
+<p class="message">추상 클래스는 abstract 키워드로 선언된 클래스입니다. 추상 클래스의 주요 목적은 여러 하위 클래스에서 공유할 수 있는 공통 특성 및 동작을 정의하는 것입니다. 추상 클래스는 직접 객체를 생성할 수 없습니다. 대신 다른 클래스에 의해 상속되도록 설계되어 추상 메서드에 대한 구현을 제공할 수 있습니다. 추상 클래스는 하나 이상의 추상 메서드를 포함할 수 있습니다. 추상 메서드는 자식 클래스들마다 선언부는 같지만 구현부는 다른 메서드가 있을 때 사용합니다. 추상 메서드는 abstract 키워드를 붙여 메서드를 선언합니다. 일반 메서드와 다르게 구현부가 없습니다. 인터페이스는 구현 클래스가 준수해야 하는 가이드라인입니다. 인터페이스는 추상 메서드와 상수만 포함하기 때문에, 무엇을 해야 하는지 정의하지만 어떻게 해야 하는지는 정의하지 않습니다.</p>
+
+
 
  -->
   </header>
@@ -243,7 +243,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 <h2 id="추상-클래스">추상 클래스</h2>
 
-<h3 id="추상-클래스-1">추상 클래스</h3>
+<h3 id="추상-클래스란">추상 클래스란?</h3>
 
 <p>추상 클래스는 <code class="language-plaintext highlighter-rouge">abstract</code> 키워드로 선언된 클래스입니다. 추상 클래스의 주요 목적은 여러 하위 클래스에서 공유할 수 있는 공통 특성 및 동작을 정의하는 것입니다.</p>
 
@@ -290,7 +290,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="추상-메서드">추상 메서드</h3>
+<h3 id="추상-메서드란">추상 메서드란?</h3>
 
 <p>추상 클래스는 하나 이상의 추상 메서드를 포함할 수 있습니다. 추상 메서드는 자식 클래스들마다 선언부는 같지만 구현부는 다른 메서드가 있을 때 사용합니다. 추상 메서드는 <code class="language-plaintext highlighter-rouge">abstract</code> 키워드를 붙여 메서드를 선언합니다. 일반 메서드와 다르게 구현부가 없습니다.</p>
 
@@ -331,7 +331,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 <h2 id="인터페이스">인터페이스</h2>
 
-<h3 id="인터페이스-1">인터페이스</h3>
+<h3 id="인터페이스란">인터페이스란?</h3>
 
 <p>인터페이스는 구현 클래스가 준수해야 하는 가이드라인입니다. 인터페이스는 추상 메서드와 상수만 포함하기 때문에, 무엇을 해야 하는지 정의하지만 어떻게 해야 하는지는 정의하지 않습니다.</p>
 
@@ -415,7 +415,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="추상-메서드-1">추상 메서드</h3>
+<h3 id="추상-메서드">추상 메서드</h3>
 
 <p>인터페이스는 구현 클래스가 재정의해야 하는 추상 메서드를 가질 수 있습니다. 인터페이스의 추상 메서드는 앞에 <code class="language-plaintext highlighter-rouge">public</code> 과 <code class="language-plaintext highlighter-rouge">abstract</code>가 선언되어야 합니다. 생략하더라도 컴파일 과정에서 자동으로 붙게 됩니다.</p>
 
@@ -652,7 +652,7 @@ in <a href="/category/java/" data-flip="title">Java</a>
 
 <li class="h4">
   <a href="/java/java-lambda" data-flip="title">
-    <span>[Java] 람다</span>
+    <span>[Java] 람다식</span>
   </a>
   <small><time datetime="2023-07-30T13:05:00+09:00">
     30 Jul 2023

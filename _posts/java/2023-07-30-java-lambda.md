@@ -1,15 +1,16 @@
 ---
 layout: post
-title: "[Java] 람다"
+title: "[Java] 람다식"
 subtitle: "람다, 람다식, Lambda"
+description: "람다식(Lambda Expression)은 함수형 프로그래밍을 위해 자바 8에서 도입됐습니다. 람다식은 함수형 인터페이스를 간결한 방법으로 구현할 수 있습니다. 함수형 인터페이스는 하나의 추상 메서드가 있는 인터페이스입니다."
 date: 2023-07-30 13:05:00 +0900
 categories: java
 comments: true
 ---
 
-# 람다
+# 람다식(Lambda Expression)
 
-### 람다식(Lambda Expression)
+### 람다식이란?
 
 람다식(Lambda Expression)은 함수형 프로그래밍을 위해 자바 8에서 도입됐습니다. 람다식은 함수형 인터페이스를 간결한 방법으로 구현할 수 있습니다. 함수형 인터페이스는 하나의 추상 메서드가 있는 인터페이스입니다.
 
