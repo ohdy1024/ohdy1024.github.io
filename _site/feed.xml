@@ -6,9 +6,286 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 18 Aug 2023 23:06:37 +0900</pubDate>
-    <lastBuildDate>Fri, 18 Aug 2023 23:06:37 +0900</lastBuildDate>
+    <pubDate>Tue, 22 Aug 2023 12:53:17 +0900</pubDate>
+    <lastBuildDate>Tue, 22 Aug 2023 12:53:17 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>[MySQL] 테이블</title>
+        <description>&lt;h1 id=&quot;테이블&quot;&gt;테이블&lt;/h1&gt;
+
+&lt;h2 id=&quot;테이블-1&quot;&gt;테이블&lt;/h2&gt;
+
+&lt;h3 id=&quot;테이블-2&quot;&gt;테이블&lt;/h3&gt;
+
+&lt;p&gt;테이블은 2차원 구조로 행과 열로 구성되어 있습니다. 행은 로우(row)나 레코드(record)로 부르며, 열은 컬럼(column) 또는 필드(filed)라고 부릅니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;테이블-생성&quot;&gt;테이블 생성&lt;/h3&gt;
+
+&lt;p&gt;테이블을 생성하려면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CREATE TABLE&lt;/code&gt; 문을 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;제약조건&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;데이터-타입&quot;&gt;데이터 타입&lt;/h2&gt;
+
+&lt;h3 id=&quot;데이터-타입-1&quot;&gt;데이터 타입&lt;/h3&gt;
+
+&lt;p&gt;데이터 타입은 열의 데이터 종류를 식별하기 위해 사용됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;숫자-데이터-타입&quot;&gt;숫자 데이터 타입&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;타입&lt;/th&gt;
+      &lt;th&gt;바이트&lt;/th&gt;
+      &lt;th&gt;Signed 범위&lt;/th&gt;
+      &lt;th&gt;Unsigned 범위&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TINYINT&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;-128 ~ 127&lt;/td&gt;
+      &lt;td&gt;0 ~ 255&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SMALLINT&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;-32768 ~ 32767&lt;/td&gt;
+      &lt;td&gt;0 ~ 65535&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MEDIUMINT&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;-8388608 ~ 8388607&lt;/td&gt;
+      &lt;td&gt;0 ~ 16777215&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;INT&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;-2147483648 ~ 2147483647&lt;/td&gt;
+      &lt;td&gt;0 ~ 4294967295&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BIGINT&lt;/td&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;-9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807&lt;/td&gt;
+      &lt;td&gt;0 ~ 18446744073709551615&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;날짜-및-시간-데이터-타입&quot;&gt;날짜 및 시간 데이터 타입&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;타입&lt;/th&gt;
+      &lt;th&gt;데이터 형식&lt;/th&gt;
+      &lt;th&gt;범위&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DATE&lt;/td&gt;
+      &lt;td&gt;‘YYYY-MM-DD’&lt;/td&gt;
+      &lt;td&gt;‘1000-01-01’ ~ ‘9999-12-31’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TIME&lt;/td&gt;
+      &lt;td&gt;‘hh:mm:ss’&lt;/td&gt;
+      &lt;td&gt;‘-838:59:59.000000’ ~ ‘838:59:59.000000’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DATETIME&lt;/td&gt;
+      &lt;td&gt;‘YYYY-MM-DD hh:mm:ss’&lt;/td&gt;
+      &lt;td&gt;‘1000-01-01 00:00:00’ ~ ‘9999-12-31 23:59:59’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TIMESTAMP&lt;/td&gt;
+      &lt;td&gt;‘YYYY-MM-DD hh:mm:ss’&lt;/td&gt;
+      &lt;td&gt;‘1970-01-01 00:00:01’ ~ ‘2038-01-19 03:14:07’&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;YEAR&lt;/td&gt;
+      &lt;td&gt;YYYY&lt;/td&gt;
+      &lt;td&gt;1901 ~ 2155&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;문자열-데이터-타입&quot;&gt;문자열 데이터 타입&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;타입&lt;/th&gt;
+      &lt;th&gt;범위&lt;/th&gt;
+      &lt;th&gt;설명&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CHAR&lt;/td&gt;
+      &lt;td&gt;0 ~ 255&lt;/td&gt;
+      &lt;td&gt;고정 길이 문자열을 저장하는데 사용됩니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;VARCHAR&lt;/td&gt;
+      &lt;td&gt;0 ~ 65,535&lt;/td&gt;
+      &lt;td&gt;가변 길이 문자열을 저장하는데 사용됩니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TEXT&lt;/td&gt;
+      &lt;td&gt;최대 65,535&lt;/td&gt;
+      &lt;td&gt;가변 길이 문자열을 저장하는데 사용됩니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BLOB&lt;/td&gt;
+      &lt;td&gt;최대 65,535&lt;/td&gt;
+      &lt;td&gt;이미지, 비디오 파일 등과 같은 바이너리 데이터를 저장하는데 사용됩니다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ENUM&lt;/td&gt;
+      &lt;td&gt;최대 65,535개의 개별 요소&lt;/td&gt;
+      &lt;td&gt;열거한 값 중 하나의 값만 저장하는데 사용됩니다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;제약-조건&quot;&gt;제약 조건&lt;/h2&gt;
+
+&lt;h3 id=&quot;제약-조건-1&quot;&gt;제약 조건&lt;/h3&gt;
+
+&lt;p&gt;제약 조건은 테이블에 저장된 데이터의 무결성 및 일관성을 보장하기 위해 테이블에 적용할 수 있는 조건입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;not-null&quot;&gt;NOT NULL&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NOT NULL&lt;/code&gt; 선언된 컬럼은 NULL 값이 포함될 수 없습니다. 즉, 모든 컬럼은 데이터를 반드시 가져야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NOT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;unique&quot;&gt;UNIQUE&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNIQUE&lt;/code&gt;로 선언된 컬럼은 각 컬럼마다 고유한 값을 가집니다. 즉, 컬럼에 중복된 값이 있을 수 없습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UNIQUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;primary-key&quot;&gt;PRIMARY KEY&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PRIMARY KEY&lt;/code&gt;로 선언된 컬럼은 빈 값을 가질 수 없는 고유 인덱스입니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NOT NULL&lt;/code&gt;을 명시적으로 선언하지 않으면 자동으로 선언됩니다. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PRIMARY KEY&lt;/code&gt;는 테이블마다 하나씩만 가질 수 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 또는&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;PRIMARY&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;foreign-key&quot;&gt;FOREIGN KEY&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FOREIGN KEY&lt;/code&gt;는 한 테이블의 값을 다른 테이블의 값에 연결하여 두 테이블 간의 관계를 설정합니다. 다른 테이블의 연결될 컬럼은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PRIMARY KEY&lt;/code&gt; 또는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNIQUE&lt;/code&gt;가 선언되어 있어야 합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;참조옵션&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;참조옵션&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FOREIGN KEY&lt;/code&gt;의 참조옵션은 부모테이블의 행이 수정되거나 삭제되면 하위 테이블의 관련 행에 어떤 일이 발생해야 하는지 정의하는 옵션입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CASCADE&lt;/code&gt;는 부모 데이터가 삭제 또는 수정되면 자식 데이터도 삭제 또는 수정됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CASCADE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CASCADE&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SET NULL&lt;/code&gt;은 부모 데이터가 삭제 또는 수정되면 자식 데이터는 NULL로 수정됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;NULL&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SET DEFAULT&lt;/code&gt;는 부모 데이터가 삭제 또는 수정되면 자식 데이터는 DEFAULT값을 수정됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DEFAULT&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RESTRICT&lt;/code&gt;는 자식 데이터가 존재할 경우 부모 데이터는 삭제 또는 수정이 불가능합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;RESTRICT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;UPDATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;RESTRICT&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NO ACTION&lt;/code&gt;은 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RESTRICT&lt;/code&gt;와 동일하고 옵션을 지정하지 않으면 자동으로 선언됩니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...,&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;FOREIGN&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;KEY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;REFERENCES&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;부모테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;check&quot;&gt;CHECK&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHECK&lt;/code&gt; 조건은 데이터가 삽입되거나 수정될 때 만족해야 하는 조건을 정의합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;테이블명&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;컬럼&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;데이터타입&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CHECK&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;조건문&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;age 값이 0보다 큰 값만 삽입되어야 하는 경우&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;INT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CHECK&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 22 Aug 2023 12:52:00 +0900</pubDate>
+        <link>http://localhost:4000/db/mysql-table</link>
+        <guid isPermaLink="true">http://localhost:4000/db/mysql-table</guid>
+        
+        <category>mysql</category>
+        
+        
+        <category>db</category>
+        
+      </item>
     
       <item>
         <title>[MySQL] 내장 함수</title>
