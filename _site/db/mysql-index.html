@@ -29,7 +29,7 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
-<meta property="og:title" content="[MySQL] DDL, DML, DCL" />
+<meta property="og:title" content="[MySQL] 인덱스" />
 <meta property="og:type" content="article" />
 
  
@@ -39,15 +39,17 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <meta property="og:image:width" content="640" />
 <meta property="og:image:height" content="360" />
  
-<title>[MySQL] DDL, DML, DCL &middot; 고개의 블로그</title>
+<title>[MySQL] 인덱스 &middot; 고개의 블로그</title>
  
 <meta
   name="description"
-  content="DDL은 데이터베이스 구조를 정의하고 관리하는 데 사용되는 SQL 명령의 하위 집합을 나타냅니다. DDL 문은 테이블, 인덱스, 뷰 및 스키마와 같은 데이터베이스 개체를 생성, 변경 및 삭제하는 역할을 합니다. DML은 데이터베이스 내의 데이터를 조회, 삽입, 수정 및 삭제하는 작업을 수행하는데 사용됩니다. DCL은 데이터베이스 관리 시스템(DBMS)에서 데이터의 접근과 보안에 관련된 권한을 관리하고..."
+  content="MySQL에서는 키(KEY)와 인덱스(INDEX)를 같은 의미로 사용합니다. 인덱스는 데이터 검색을 빠르게 하기 위해서 사용됩니다. 인덱스가 없으면 데이터베이스 엔진은 원하는 데이터를 찾기 위해 테이블의 전체 데이터를 검색해야 합니다. 인덱스는 테이블의 모든 데이터를 검사하지 않고도 관련 데이터를 찾아내기에 쿼리 실행 시간이 빨라집니다.
+"
 />
 <meta
   property="og:description"
-  content="DDL은 데이터베이스 구조를 정의하고 관리하는 데 사용되는 SQL 명령의 하위 집합을 나타냅니다. DDL 문은 테이블, 인덱스, 뷰 및 스키마와 같은 데이터베이스 개체를 생성, 변경 및 삭제하는 역할을 합니다. DML은 데이터베이스 내의 데이터를 조회, 삽입, 수정 및 삭제하는 작업을 수행하는데 사용됩니다. DCL은 데이터베이스 관리 시스템(DBMS)에서 데이터의 접근과 보안에 관련된 권한을 관리하고..."
+  content="MySQL에서는 키(KEY)와 인덱스(INDEX)를 같은 의미로 사용합니다. 인덱스는 데이터 검색을 빠르게 하기 위해서 사용됩니다. 인덱스가 없으면 데이터베이스 엔진은 원하는 데이터를 찾기 위해 테이블의 전체 데이터를 검색해야 합니다. 인덱스는 테이블의 모든 데이터를 검사하지 않고도 관련 데이터를 찾아내기에 쿼리 실행 시간이 빨라집니다.
+"
 />
 
 
@@ -55,8 +57,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="http://localhost:4000/db/mysql-ddl-dml-dcl" />
-<meta property="og:url" content="http://localhost:4000/db/mysql-ddl-dml-dcl" />
+<link rel="canonical" href="http://localhost:4000/db/mysql-index" />
+<meta property="og:url" content="http://localhost:4000/db/mysql-index" />
 
 <link
   rel="alternate"
@@ -66,10 +68,8 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
 />
 
 
-<link rel="prev" href="http://localhost:4000/java/java-thread" />
+<link rel="prev" href="http://localhost:4000/db/mysql-table" />
  
-<link rel="next" href="http://localhost:4000/db/mysql-select-operators" />
-
 
 <link
   rel="apple-touch-icon"
@@ -169,18 +169,18 @@ Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/)
       
 
 <article
-  id="post-db/mysql-ddl-dml-dcl"
+  id="post-db/mysql-index"
   class="post"
   role="article"
 >
   <header>
     <h1 class="post-title">
-       [MySQL] DDL, DML, DCL 
+       [MySQL] 인덱스 
     </h1>
 
     <p class="post-date heading">
-      <time datetime="2023-08-14T13:45:00+09:00"
-        >14 Aug 2023</time
+      <time datetime="2023-08-28T12:20:00+09:00"
+        >28 Aug 2023</time
       >
       
 
@@ -210,7 +210,7 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
     <!-- 
   
   
-<p class="message">DDL은 데이터베이스 구조를 정의하고 관리하는 데 사용되는 SQL 명령의 하위 집합을 나타냅니다. DDL 문은 테이블, 인덱스, 뷰 및 스키마와 같은 데이터베이스 개체를 생성, 변경 및 삭제하는 역할을 합니다. DML은 데이터베이스 내의 데이터를 조회, 삽입, 수정 및 삭제하는 작업을 수행하는데 사용됩니다. DCL은 데이터베이스 관리 시스템(DBMS)에서 데이터의 접근과 보안에 관련된 권한을 관리하고 제어하는 언어입니다. DCL은 데이터베이스 시스템 내에서 데이터의 무단 접근을 방지하거나 권한 있는 사용자에게 적절한 데이터 접근 권한을 부여하는 역할을 합니다</p>
+<p class="message">MySQL에서는 키(KEY)와 인덱스(INDEX)를 같은 의미로 사용합니다. 인덱스는 데이터 검색을 빠르게 하기 위해서 사용됩니다. 인덱스가 없으면 데이터베이스 엔진은 원하는 데이터를 찾기 위해 테이블의 전체 데이터를 검색해야 합니다. 인덱스는 테이블의 모든 데이터를 검사하지 않고도 관련 데이터를 찾아내기에 쿼리 실행 시간이 빨라집니다.</p>
 
 
 
@@ -239,172 +239,290 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
     </style>
 
     <!--게시물 내용-->
-    <h1 id="ddl-dml-dcl">DDL, DML, DCL</h1>
+    <h1 id="인덱스">인덱스</h1>
 
-<h2 id="ddldata-definition-language-데이터-정의어">DDL(Data Definition Language, 데이터 정의어)</h2>
+<h2 id="인덱스란">인덱스란?</h2>
 
-<h3 id="ddl이란">DDL이란?</h3>
+<p>MySQL에서는 키(KEY)와 인덱스(INDEX)를 같은 의미로 사용합니다. 인덱스는 데이터 검색을 빠르게 하기 위해서 사용됩니다. 인덱스가 없으면 데이터베이스 엔진은 원하는 데이터를 찾기 위해 테이블의 전체 데이터를 검색해야 합니다. 인덱스는 테이블의 모든 데이터를 검사하지 않고도 관련 데이터를 찾아내기에 쿼리 실행 시간이 빨라집니다.</p>
 
-<p>DDL은 데이터베이스 구조를 정의하고 관리하는 데 사용되는 SQL 명령의 하위 집합을 나타냅니다. DDL 문은 테이블, 인덱스, 뷰 및 스키마와 같은 데이터베이스 개체를 생성, 변경 및 삭제하는 역할을 합니다.</p>
+<p>인덱스의 단점으로는 인덱스를 저장하기 위해 추가 공간이 필요하기 때문에 저장 공간이 늘어날 수 있습니다. 또 다른 단점은 데이터 변경 작업(삽입, 수정, 삭제)이 자주 일어날 경우 성능이 저하될 수 있습니다.</p>
 
-<p>MySQL의 DDL 문은 <code class="language-plaintext highlighter-rouge">CREATE</code>, <code class="language-plaintext highlighter-rouge">ALTER</code>, <code class="language-plaintext highlighter-rouge">DROP</code>, <code class="language-plaintext highlighter-rouge">RENAME</code>, <code class="language-plaintext highlighter-rouge">TRUNCATE</code> 등이 있습니다.</p>
+<h2 id="인덱스-생성">인덱스 생성</h2>
 
-<h3 id="create">CREATE</h3>
+<h3 id="기본-키primary-key-생성">기본 키(Primary Key) 생성</h3>
 
-<p><code class="language-plaintext highlighter-rouge">CREATE</code> 문은 새 데이터베이스 개체를 만드는데 사용됩니다.</p>
+<p>기본 키는 테이블 내에서 각 행이 고유한지 식별하는 데 사용됩니다. 한 테이블에 한 개만 존재할 수 있습니다. 일반적으로 기본 키는 테이블을 생성할 때 같이 생성합니다.</p>
 
-<p><strong>데이터베이스(스키마) 생성</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="err">데이터베이스명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p><strong>테이블 생성</strong></p>
-
-<p>테이블 생성 시 최소 하나의 컬럼이 필요합니다.</p>
+<p>‘컬럼1’을 기본 키로 가지는 테이블을 생성하려면 아래와 같이 작성하면 됩니다.</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="p">(</span>
-  <span class="err">컬럼명</span><span class="mi">1</span> <span class="err">자료형</span><span class="p">,</span>
-  <span class="err">컬럼명</span><span class="mi">2</span> <span class="err">자료형</span><span class="p">,</span>
+  <span class="err">컬럼</span><span class="mi">1</span> <span class="err">데이터타입</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
   <span class="p">...</span>
+<span class="p">);</span>
+
+<span class="c1">-- 또는</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="p">(</span>
+  <span class="err">컬럼</span><span class="mi">1</span> <span class="err">데이터타입</span><span class="p">,</span>
+  <span class="p">...,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="err">컬럼</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div></div>
 
-<p><strong>인덱스 생성</strong></p>
+<p>인덱스를 조회하고 싶다면 <code class="language-plaintext highlighter-rouge">SHOW INDEX</code> 문을 사용하면 됩니다. 기본 키는 <code class="language-plaintext highlighter-rouge">Key_name</code> 필드의 값이 ‘PRIMARY’로 나옵니다.</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="err">인덱스명</span> <span class="k">ON</span> <span class="err">테이블명</span><span class="p">(</span><span class="err">컬럼명</span><span class="mi">1</span><span class="p">,...);</span>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">PERSON</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span>
+<span class="p">);</span>
+
+<span class="k">SHOW</span> <span class="k">INDEX</span> <span class="k">FROM</span> <span class="n">PERSON</span><span class="p">;</span>
 </code></pre></div></div>
 
-<h3 id="alter">ALTER</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Non_unique</th>
+      <th>Key_name</th>
+      <th>Seq_in_index</th>
+      <th>Column_name</th>
+      <th>…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>person</td>
+      <td>0</td>
+      <td>PRIMARY</td>
+      <td>1</td>
+      <td>id</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><code class="language-plaintext highlighter-rouge">ALTER</code> 문은 기존 데이터베이스 개체를 수정하는데 사용됩니다.</p>
+<h3 id="보조-키세컨더리-인덱스-secondary-key-생성하기">보조 키(세컨더리 인덱스, Secondary key) 생성하기</h3>
 
-<p><strong>데이터베이스 속성(문자 집합, 콜레이션, …) 변경</strong></p>
+<p>보조 키는 기본 키를 제외한 나머지 인덱스입니다. 보조 키는 고유 인덱스, 비고유 인덱스 등이 있습니다.</p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">DATABASE</span> <span class="err">데이터베이스이름</span> <span class="nb">CHARACTER</span> <span class="k">SET</span><span class="o">=</span><span class="err">문자집합이름</span><span class="p">;</span>
-<span class="k">ALTER</span> <span class="k">DATABASE</span> <span class="err">데이터베이스이름</span> <span class="k">COLLATE</span><span class="o">=</span><span class="err">콜레이션이름</span><span class="p">;</span>
+<p><strong>고유 인덱스</strong>는 기본 키와 유사하게 고유성을 가지고 있지만 NULL값을 허용합니다. <code class="language-plaintext highlighter-rouge">UNIQUE</code> 제약 조건을 사용하거나 <code class="language-plaintext highlighter-rouge">CREATE UNIQUE INDEX</code> 문을 사용하여 생성합니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">PERSON</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+  <span class="n">age</span> <span class="nb">INT</span> <span class="k">UNIQUE</span>
+<span class="p">);</span>
+
+<span class="k">SHOW</span> <span class="k">INDEX</span> <span class="k">FROM</span> <span class="n">PERSON</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p><strong>테이블 새 컬럼 추가</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Non_unique</th>
+      <th>Key_name</th>
+      <th>Seq_in_index</th>
+      <th>Column_name</th>
+      <th>…</th>
+      <th>Null</th>
+      <th>…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>person</td>
+      <td>0</td>
+      <td>PRIMARY</td>
+      <td>1</td>
+      <td>id</td>
+      <td>…</td>
+      <td> </td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>person</td>
+      <td>0</td>
+      <td>age</td>
+      <td>1</td>
+      <td>age</td>
+      <td>…</td>
+      <td>YES</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="err">컬럼명</span> <span class="err">자료형</span><span class="p">;</span>
+<p>고유 인덱스를 조회하면 <code class="language-plaintext highlighter-rouge">Non_unique</code> 필드 값은 0, <code class="language-plaintext highlighter-rouge">Null</code> 필드는 ‘YES’ 값을 가집니다.</p>
+
+<p><strong>비고유 인덱스</strong>는 중복된 값을 가질 수 있으며 NULL 값도 허용하는 인덱스입니다. <code class="language-plaintext highlighter-rouge">CREATE INDEX</code> 문을 사용하여 생성합니다. 인덱스를 조회하면 고유 인덱스와 다르게 <code class="language-plaintext highlighter-rouge">Non_unique</code> 필드의 값이 1로 나타납니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">PERSON</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+  <span class="n">age</span> <span class="nb">INT</span> <span class="k">UNIQUE</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span> <span class="k">INDEX</span>  <span class="n">name</span> <span class="k">ON</span> <span class="n">PERSON</span> <span class="p">(</span><span class="n">name</span><span class="p">);</span>
+
+<span class="k">SHOW</span> <span class="k">INDEX</span> <span class="k">FROM</span> <span class="n">PERSON</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p><strong>테이블 컬럼 자료형 수정</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Table</th>
+      <th>Non_unique</th>
+      <th>Key_name</th>
+      <th>Seq_in_index</th>
+      <th>Column_name</th>
+      <th>…</th>
+      <th>Null</th>
+      <th>…</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>person</td>
+      <td>0</td>
+      <td>PRIMARY</td>
+      <td>1</td>
+      <td>id</td>
+      <td>…</td>
+      <td> </td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>person</td>
+      <td>0</td>
+      <td>age</td>
+      <td>1</td>
+      <td>age</td>
+      <td>…</td>
+      <td>YES</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>person</td>
+      <td>1</td>
+      <td>name</td>
+      <td>1</td>
+      <td>name</td>
+      <td>…</td>
+      <td>YES</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">MODIFY</span> <span class="k">COLUMN</span> <span class="err">컬럼명</span> <span class="err">수정자료형</span><span class="p">;</span>
+<h2 id="인덱스-스캔">인덱스 스캔</h2>
+
+<h3 id="인덱스-레인지-스캔">인덱스 레인지 스캔</h3>
+
+<p>인덱스 레인지 스캔은 검색해야 할 인덱스의 범위가 결정됐을 때 사용하는 방식입니다. 실행 계획을 확인하는 방법은 <code class="language-plaintext highlighter-rouge">EXPLAIN</code> 문을 실행하고자하는 쿼리 앞에 붙여 실행하면 됩니다. <code class="language-plaintext highlighter-rouge">type</code> 필드 값이 ‘range’일 경우 인덱스 레인지 스캔을 사용하여 데이터를 검색한 것입니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">PERSON</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="n">age</span> <span class="nb">INT</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+  <span class="k">index</span> <span class="n">age_name</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'짱구'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'짱아'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s1">'신형만'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="s1">'봉미선'</span><span class="p">);</span>
+
+<span class="k">EXPLAIN</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">person</span> <span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p><strong>테이블 컬럼 삭제</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>select_type</th>
+      <th>table</th>
+      <th>partitions</th>
+      <th>type</th>
+      <th>possible_keys</th>
+      <th>key</th>
+      <th>key_len</th>
+      <th>ref</th>
+      <th>rows</th>
+      <th>filtered</th>
+      <th>Extra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>SIMPLE</td>
+      <td>person</td>
+      <td>NULL</td>
+      <td>range</td>
+      <td>age_name</td>
+      <td>age_name</td>
+      <td>5</td>
+      <td>NULL</td>
+      <td>2</td>
+      <td>100</td>
+      <td>Using where; Using index</td>
+    </tr>
+  </tbody>
+</table>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="err">테이블명</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="err">컬럼명</span><span class="p">;</span>
+<h3 id="인덱스-풀-스캔">인덱스 풀 스캔</h3>
+
+<p>인덱스 풀 스캔은 인덱스를 사용하지만 인덱스 레인지 스캔과는 달리 인덱스를 처음부터 끝까지 모두 읽는 방식입니다. 쿼리의 조건절에 사용된 컬럼이 인덱스의 첫 번째 컬럼이 아닌 경우 인덱스 풀 스캔 방식을 사용합니다. 인덱스 풀 스캔은 <code class="language-plaintext highlighter-rouge">EXPLAIN</code> 문을 사용하면 <code class="language-plaintext highlighter-rouge">type</code> 값이 ‘index’로 나옵니다.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">PERSON</span> <span class="p">(</span>
+  <span class="n">id</span> <span class="nb">INT</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="n">age</span> <span class="nb">INT</span><span class="p">,</span>
+  <span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+  <span class="k">index</span> <span class="n">age_name</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'짱구'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'짱아'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="s1">'신형만'</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">person</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span> <span class="s1">'봉미선'</span><span class="p">);</span>
+
+<span class="k">EXPLAIN</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">person</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'짱_'</span><span class="p">;</span>
 </code></pre></div></div>
 
-<h3 id="rename">RENAME</h3>
-
-<p><code class="language-plaintext highlighter-rouge">RENAME</code> 문은 데이터베이스 개체의 이름을 변경하는데 사용됩니다.</p>
-
-<p><strong>테이블 이름 변경</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">RENAME</span> <span class="k">TABLE</span> <span class="err">기존테이블명</span> <span class="k">TO</span> <span class="err">새테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p>MySQL에서 데이터베이스 이름을 변경하는 문을 제공하지 않기 때문에 데이터베이스 이름을 변경하려면 데이터를 백업한 다음 새 데이터베이스를 만들어 데이터를 복원하는 방법을 써야합니다.</p>
-
-<h3 id="drop">DROP</h3>
-
-<p><code class="language-plaintext highlighter-rouge">DROP</code> 문은 데이터베이스 개체를 삭제하는데 사용됩니다. <code class="language-plaintext highlighter-rouge">DROP</code> 문은 데이터를 영구적으로 삭제하므로 신중하게 사용해야 합니다.</p>
-
-<p><strong>데이터베이스 삭제</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">DATABASE</span> <span class="err">데이터베이스명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p><strong>테이블 삭제</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="err">테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="truncate">TRUNCATE</h3>
-
-<p><code class="language-plaintext highlighter-rouge">TRUNCATE</code> 문은 특정 테이블의 모든 데이터를 삭제하는 SQL 문입니다. 테이블의 모든 행을 제거하고 테이블 구조는 그대로 유지하는 역할을 하며 롤백되지 않는다는 특징이 있습니다.</p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">TRUNCATE</span> <span class="k">TABLE</span> <span class="err">테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h2 id="dmldata-manipulation-language-데이터-조작어">DML(Data Manipulation Language, 데이터 조작어)</h2>
-
-<h3 id="dml이란">DML이란?</h3>
-
-<p>DML은 데이터베이스 내의 데이터를 조회, 삽입, 수정 및 삭제하는 작업을 수행하는데 사용됩니다.</p>
-
-<h3 id="select">SELECT</h3>
-
-<p><code class="language-plaintext highlighter-rouge">SELECT</code> 문은 데이터베이스의 하나 또는 여러 테이블에서 데이터를 검색하는데 사용됩니다.</p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="insert">INSERT</h3>
-
-<p><code class="language-plaintext highlighter-rouge">INSERT</code> 문은 데이터베이스 테이블에 새로운 데이터를 추가하는 역할을 합니다.</p>
-
-<p><strong>특정 컬럼에 값 직접 삽입</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블명</span> <span class="p">(</span><span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...);</span>
-</code></pre></div></div>
-
-<p><strong>다른 테이블의 데이터를 가져와 삽입</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="err">테이블명</span> <span class="p">(</span><span class="err">컬럼</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span><span class="p">,</span> <span class="p">...)</span> <span class="k">SELECT</span> <span class="err">컬럼</span><span class="n">a</span><span class="p">,</span> <span class="err">컬럼</span><span class="n">b</span><span class="p">,</span> <span class="p">...</span>  <span class="k">FROM</span> <span class="err">다른테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="update">UPDATE</h3>
-
-<p><code class="language-plaintext highlighter-rouge">UPDATE</code> 문은 테이블의 기존 레코드를 수정하는데 사용됩니다. <code class="language-plaintext highlighter-rouge">UPDATE</code> 문을 사용할 때 주의할 점은 모든 레코드가 수정될 수 있으니 조심해서 사용해야 합니다.</p>
-
-<p><strong>테이블 레코드 수정</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">테이블명</span> <span class="k">SET</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="o">=</span> <span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="err">컬럼</span><span class="mi">2</span> <span class="o">=</span> <span class="err">값</span><span class="mi">2</span><span class="p">,</span> <span class="p">...;</span>
-</code></pre></div></div>
-
-<p><strong>테이블 특정 레코드 수정</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="err">테이블명</span> <span class="k">SET</span> <span class="err">컬럼</span><span class="mi">1</span> <span class="o">=</span> <span class="err">값</span><span class="mi">1</span><span class="p">,</span> <span class="p">...</span> <span class="k">WHERE</span> <span class="err">조건문</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="delete">DELETE</h3>
-
-<p><code class="language-plaintext highlighter-rouge">DELETE</code> 문은 테이블의 레코드를 제거할 때 사용합니다. <code class="language-plaintext highlighter-rouge">DELETE</code> 문도 <code class="language-plaintext highlighter-rouge">WHERE</code> 절과 함께 사용하지 않으면 모든 레코드가 삭제될 수 있으니 주의해야 합니다.</p>
-
-<p><strong>모든 레코드 삭제</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">테이블명</span><span class="p">;</span>
-</code></pre></div></div>
-
-<p><strong>특정 레코드 삭제</strong></p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="err">테이블명</span> <span class="k">WHERE</span> <span class="err">조건문</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h2 id="dcldata-control-language-데이터-제어어">DCL(Data Control Language, 데이터 제어어)</h2>
-
-<h3 id="dcl이란">DCL이란?</h3>
-
-<p>DCL은 데이터베이스 관리 시스템(DBMS)에서 데이터의 접근과 보안에 관련된 권한을 관리하고 제어하는 언어입니다. DCL은 데이터베이스 시스템 내에서 데이터의 무단 접근을 방지하거나 권한 있는 사용자에게 적절한 데이터 접근 권한을 부여하는 역할을 합니다.</p>
-
-<h3 id="grant">GRANT</h3>
-
-<p><code class="language-plaintext highlighter-rouge">GRANT</code> 문은 사용자에게 특정 데이터베이스 개체(테이블, 뷰 등)에 대한 권한을 부여합니다.</p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">GRANT</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">개체</span> <span class="k">TO</span> <span class="err">사용자</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="revoke">REVOKE</h3>
-
-<p><code class="language-plaintext highlighter-rouge">REVOKE</code> 문은 사용자로부터 특정 데이터베이스 개체에 대한 권한을 제거합니다.</p>
-
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">REVOKE</span> <span class="err">권한</span> <span class="k">ON</span> <span class="err">개체</span> <span class="k">FROM</span> <span class="err">사용자</span><span class="p">;</span>
-</code></pre></div></div>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>select_type</th>
+      <th>table</th>
+      <th>partitions</th>
+      <th>type</th>
+      <th>possible_keys</th>
+      <th>key</th>
+      <th>key_len</th>
+      <th>ref</th>
+      <th>rows</th>
+      <th>filtered</th>
+      <th>Extra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>SIMPLE</td>
+      <td>person</td>
+      <td>NULL</td>
+      <td>index</td>
+      <td>age_name</td>
+      <td>age_name</td>
+      <td>88</td>
+      <td>NULL</td>
+      <td>4</td>
+      <td>25</td>
+      <td>Using where; Using index</td>
+    </tr>
+  </tbody>
+</table>
 
     <br />
   </div>
@@ -431,14 +549,12 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
 <div class="page-control">
   <div>
     
-    <a id="prev" class="button" href="/java/java-thread"
+    <a id="prev" class="button" href="/db/mysql-table"
       >&laquo; 이전글</a
     >
     
   </div>
   <div>
-    
-    <a id="next" class="button" href="/db/mysql-select-operators">다음글 &raquo;</a>
     
   </div>
 </div>
@@ -453,21 +569,8 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
       
       
         
-        
           
-
-
-<li class="h4">
-  <a href="/db/mysql-index" data-flip="title">
-    <span>[MySQL] 인덱스</span>
-  </a>
-  <small><time datetime="2023-08-28T12:20:00+09:00">
-    28 Aug 2023
-  </time></small>
-</li>
-
-        
-      
+          
         
         
           
@@ -501,6 +604,19 @@ on <a href="/tag/db-mysql/" data-flip="title">MySQL</a>
         
       
         
+        
+          
+
+
+<li class="h4">
+  <a href="/db/mysql-select-operators" data-flip="title">
+    <span>[MySQL] SELECT 문 (데이터 조회하기)</span>
+  </a>
+  <small><time datetime="2023-08-16T13:04:00+09:00">
+    16 Aug 2023
+  </time></small>
+</li>
+
         
       
     
