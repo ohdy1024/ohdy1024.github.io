@@ -3,7 +3,7 @@ layout: post
 title: "[Java] 예외처리"
 subtitle: "예외처리, 예외, exception"
 description: "자바에서 예외는 프로그램이 예상하고 복구할 수 있는 요인으로 인해 발생하는 반면, 에러는 일반적으로 프로그램이 제어할 수 없는 심각한 문제를 나타냅니다. 예외는 Checked Exception, Unchecked Exception 2가지로 나뉩니다."
-date: 2023-07-17 14:15:00 +0900
+date: 2023-07-17 14:15:00+0900
 categories: java
 comments: true
 ---

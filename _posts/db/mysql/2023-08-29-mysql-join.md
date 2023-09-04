@@ -3,7 +3,7 @@ layout: post
 title: "[MySQL] 조인"
 subtitle: "조인, join"
 description: "조인은 관련 컬럼을 기반으로 여러 테이블의 데이터를 결합할 수 있는 기능입니다. 조인은 INNER JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, FULL OUTER JOIN 등이 있습니다."
-date: 2023-08-29 12:30:00 +0900
+date: 2023-08-29 12:30:00+0900
 categories: db
 tags: mysql
 comments: true

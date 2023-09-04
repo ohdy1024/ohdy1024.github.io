@@ -6,9 +6,165 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Aug 2023 12:35:09 +0900</pubDate>
-    <lastBuildDate>Tue, 29 Aug 2023 12:35:09 +0900</lastBuildDate>
+    <pubDate>Mon, 04 Sep 2023 21:50:09 +0900</pubDate>
+    <lastBuildDate>Mon, 04 Sep 2023 21:50:09 +0900</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>[MySQL] 트랜잭션</title>
+        <description>&lt;h1 id=&quot;트랜잭션transaction&quot;&gt;트랜잭션(transaction)&lt;/h1&gt;
+
+&lt;h2 id=&quot;트랜잭션이란&quot;&gt;트랜잭션이란?&lt;/h2&gt;
+
+&lt;p&gt;트랜잭션이란 데이터베이스에서 수행되는 작업 단위를 나타냅니다. 이러한 작업은 데이터의 일관성, 무결성 및 신뢰성을 보장하기 위해 논리적 단위로 처리됩니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;트랜잭션-특성acid&quot;&gt;트랜잭션 특성(ACID)&lt;/h2&gt;
+
+&lt;p&gt;ACID는 원자성(Atomicity), 일관성(Consistency), 격리성(Isolation) 및 내구성(Durability)을 나타내는 데이터베이스 관리 영역의 기본 개념입니다. 이러한 네 가지 주요 속성은 데이터가 정확하고 안전하게 유지되도록 보장합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;원자성(Atomicity)&lt;/strong&gt;은 트랜잭션이 분할할 수 없는 단일 작업 단위로 처리되는 속성을 나타냅니다. 즉, 트랜잭션이 완전히 완료되거나 전혀 실행되지 않습니다. 트랜잭션의 일부가 실패하거나 오류가 발생하면 전체 트랜잭션이 원래 상태로 롤백되어 데이터베이스가 일관된 상태로 유지됩니다. 이 속성은 불완전하거나 부분적인 트랜잭션이 데이터베이스에 영향을 미치는 것을 방지합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;일관성(Consistency)&lt;/strong&gt;은 트랜잭션이 데이터베이스를 하나의 일관된 상태에서 다른 일관된 상태로 가져오는 것을 보장합니다. 이는 트랜잭션이 데이터 무결성을 유지하면서 데이터베이스에 대해 정의된 일련의 규칙 및 제약 조건을 따라야 함을 의미합니다. 트랜잭션이 이러한 규칙 중 하나를 위반하면 롤백되어 유효하지 않거나 충돌하는 데이터가 지속되는 것을 방지합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;격리성(Isolation)&lt;/strong&gt;은 데이터 불일치로 이어지지 않고 여러 트랜잭션이 동시에 발생할 수 있도록 보장합니다. 트랜잭션은 서로 분리되어 실행되므로 한 트랜잭션의 작업이 다른 트랜잭션의 작업을 방해하지 않습니다. 이 속성은 트랜잭션 간의 적절한 분리를 유지함으로써 업데이트 손실이나 커밋되지 않은 데이터 읽기와 같은 문제를 방지합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;영구성(Durability)&lt;/strong&gt;은 커밋된 트랜잭션으로 인해 발생한 데이터 변경 사항의 영구적인 지속성에 중점을 둡니다. 트랜잭션이 성공적으로 완료되고 커밋되면 시스템 오류나 충돌이 발생하더라도 해당 변경 사항이 저장됩니다. 이 속성은 오류 발생 후 데이터베이스가 일관된 상태로 복구되어 시간이 지나도 데이터 무결성을 유지할 수 있도록 보장합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;트랜잭션-상태&quot;&gt;트랜잭션 상태&lt;/h2&gt;
+
+&lt;p&gt;트랜잭션의 5가지 일반적인 상태입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;활성(Active)&lt;/strong&gt; 상태는 작업을 실행하고 있는 상태입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;부분 완료(Partially Committed)&lt;/strong&gt; 상태는 모든 작업을 성공적으로 수행한 후 커밋 연산이 실행되기 직전의 상태입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;완료(Committed)&lt;/strong&gt; 상태는 트랜잭션이 성공적으로 작업을 완료했음을 나타냅니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;실패(Failed)&lt;/strong&gt; 상태는 트랜잭션 실행 중 오류가 발생하여 중단된 상태입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;철회(Aborted)&lt;/strong&gt; 상태는 트랜잭션이 롤백되었음을 나타냅니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;트랜잭션-사용-방법&quot;&gt;트랜잭션 사용 방법&lt;/h2&gt;
+
+&lt;p&gt;MySQL에서 명시적으로 트랜잭션을 사용하기 위해선 각 SQL문이 별도의 트랜잭션으로 처리되는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;autocommit&lt;/code&gt; 모드를 비활성화해야 합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;autocommit 비활성화 방법&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;autocommit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;트랜잭션에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START TRANSACTION&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;COMMIT&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ROLLBACK&lt;/code&gt; 문을 사용합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- START TRANSACTION 문은 트랜잭션의 시작을 나타냅니다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;START&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TRANSACTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 변경할 내용&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- COMMIT 문은 현재 트랜잭션 중에 변경된 내용을 영구적으로 저장하는데 사용됩니다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;COMMIT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- 트랜잭션 중에 문제가 발생하거나 현재 트랜잭션의 변경 사항을 취소하려는 경우 사용됩니다.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ROLLBACK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;COMMIT 예시&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;age&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;START&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TRANSACTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;짱구&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;COMMIT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;age&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;짱구&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;ROLLBACK 예시&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;age&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;짱구&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;START&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TRANSACTION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;신형만&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;ROLLBACK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;name&lt;/th&gt;
+      &lt;th&gt;age&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;짱구&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Mon, 04 Sep 2023 21:45:00 +0900</pubDate>
+        <link>http://localhost:4000/db/mysql-transaction</link>
+        <guid isPermaLink="true">http://localhost:4000/db/mysql-transaction</guid>
+        
+        <category>mysql</category>
+        
+        
+        <category>db</category>
+        
+      </item>
     
       <item>
         <title>[MySQL] 조인</title>

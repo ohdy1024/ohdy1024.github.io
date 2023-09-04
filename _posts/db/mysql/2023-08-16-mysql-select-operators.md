@@ -3,7 +3,7 @@ layout: post
 title: "[MySQL] SELECT 문 (데이터 조회하기)"
 subtitle: "SELECT, 데이터 조회, WHERE, ORDER BY, LIMIT, GROUP BY, HAVING, DISTINCT, 연산자"
 description: "MySQL의 SELECT 문은 데이터베이스의 테이블에서 데이터를 조회하는 SQL 문입니다. WHERE, ORDER BY, LIMIT, GROUP BY, HAVING, DISTINCT 절 등을 이용해 데이터를 더 상세히 조회할 수 있습니다. 연산자를 함께 사용해 다양한 조건을 만들 수 있습니다. 연산자로는 산술 연산자, 비교 연산자, 논리 연산자 등이 있습니다."
-date: 2023-08-16 13:04:00 +0900
+date: 2023-08-16 13:04:00+0900
 categories: db
 tags: mysql
 comments: true

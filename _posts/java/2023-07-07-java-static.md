@@ -3,7 +3,7 @@ layout: post
 title: "[Java] 클래스 메서드와 클래스 변수"
 subtitle: "클래스 메서드, 클래스 변수, static, 정적 변수"
 description: "클래스 내에 선언된 변수 앞에 static을 붙이면 클래스 변수가 됩니다. 클래스 변수는 모든 인스턴스 간에 공유되는 변수입니다. 객체를 생성할 필요 없이 클래스를 통해 바로 사용이 가능합니다. 클래스 메서드도 앞에 static 키워드를 붙인 메서드입니다."
-date: 2023-07-07 16:10:00 +0900
+date: 2023-07-07 16:10:00+0900
 categories: java
 comments: true
 ---

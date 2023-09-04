@@ -3,7 +3,7 @@ layout: post
 title: "[Java] 접근 제어자"
 subtitle: "접근 제어자, Access Modifier"
 description: "자바에서는 객체를 외부에서 수정 및 접근하는 것을 제한하기 위한 기능으로 접근 제어자을 사용합니다. 접근 제어자는 private, default, protected, private가 있습니다. 클래스는 public, default를 가질 수 있으며, 멤버(필드, 생성자, 메서드)는 모든 접근 제어자를 가질 수 있습니다."
-date: 2023-07-11 12:58:00 +0900
+date: 2023-07-11 12:58:00+0900
 categories: java
 comments: true
 ---

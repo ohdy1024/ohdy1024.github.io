@@ -3,7 +3,7 @@ layout: post
 title: "[MySQL] 내장 함수"
 subtitle: "함수, 내장 함수, 문자열 함수, 집계 함수, 흐름 제어 함수, 수학 함수, 날짜 및 시간 함수"
 description: "MySQL은 데이터에 대해 다양한 작업을 수행할 수 있도록 내장 함수를 제공합니다. MySQL의 내장 함수는 문자열 함수, 집계 함수, 흐름 제어 함수, 수학 함수, 날짜 및 시간 함수 등이 있습니다."
-date: 2023-08-18 22:54:00 +0900
+date: 2023-08-18 22:54:00+0900
 categories: db
 tags: mysql
 comments: true

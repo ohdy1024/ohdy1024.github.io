@@ -2,7 +2,7 @@
 layout: post
 title: "[MySQL] MySQL"
 subtitle: "테스트"
-date: 2023-06-21 18:45:00 +0900
+date: 2023-06-21 18:45:00+0900
 categories: db
 tags: mysql
 comments: true
